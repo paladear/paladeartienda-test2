@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="es-AR">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+<title>Paladear — Mercado de Sabores · Mendoza (PRUEBA de diseño)</title>
+<meta name="description" content="Frutos secos, aceitunas, especias, deshidratados y productos sin TACC en Mendoza. Envío gratis desde $40.000. Pedí por WhatsApp." />
+<meta name="theme-color" content="#547692" />
+<meta name="robots" content="noindex" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
+<style>
+:root{
+  --azul:#547692; --azul-dark:#3d5a72; --azul-mid:#6d90aa; --azul-light:#cfdce8;
+  --terra:#b87040; --terra-dark:#9e5c2c;
+  --crema:#f8f3ec; --paper:#ffffff; --ink:#26333c; --muted:#5f7180;
+  --hairline:rgba(61,90,114,.14); --wsp:#25D366;
+  --r-card:18px; --r-pill:999px;
+  --shadow-sm:0 2px 10px rgba(61,90,114,.07); --shadow:0 10px 30px rgba(61,90,114,.12);
+  --shadow-terra:0 8px 22px rgba(184,112,64,.30);
+  --spring:cubic-bezier(.34,1.56,.64,1); --smooth:cubic-bezier(.22,1,.36,1);
+  --font:'Montserrat',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;
+  --header-h:60px;
+}
+*{box-sizing:border-box;-webkit-tap-highlight-color:transparent;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:var(--font);background:#fff;color:var(--ink);font-size:15px;line-height:1.45;-webkit-font-smoothing:antialiased;padding-bottom:calc(64px + env(safe-area-inset-bottom))}
+img{max-width:100%;display:block}
+a{text-decoration:none;color:inherit}
+button{font-family:inherit;cursor:pointer;border:none;background:none}
+:focus-visible{outline:2px solid var(--terra);outline-offset:2px;border-radius:6px}
+.wrap{max-width:1180px;margin:0 auto;padding-left:16px;padding-right:16px}
+.visually-hidden{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+.desktop-only{display:none}
+
+/* TOP BAR */
+.topbar{padding-top:env(safe-area-inset-top);background:var(--azul-dark);color:#fff;font-size:12.5px}
+.topbar-in{display:flex;align-items:center;justify-content:center;gap:18px;min-height:34px}
+.topbar-msg{display:flex;align-items:center;gap:8px;font-weight:500}
+.topbar-msg svg{width:18px;height:18px;flex:none}
+.topbar-msg b{color:#f0cba0;font-weight:800}
+.topbar-links{display:none;align-items:center;gap:18px}
+.topbar-links a{opacity:.9}.topbar-links a:hover{opacity:1}
+.topbar-links svg{width:16px;height:16px}
+
+/* HEADER */
+.header{position:sticky;top:0;z-index:50;background:#fff;border-bottom:1px solid transparent;transition:border-color .25s,box-shadow .25s}
+.header.scrolled{border-bottom-color:var(--hairline);box-shadow:var(--shadow-sm)}
+.header-in{display:flex;align-items:center;gap:12px;height:var(--header-h)}
+.icon-btn{width:42px;height:42px;border-radius:50%;display:grid;place-items:center;color:var(--azul);transition:background .2s,transform .15s var(--spring);flex:none;position:relative}
+.icon-btn:hover{background:rgba(84,118,146,.08)}
+.icon-btn:active{transform:scale(.92)}
+.icon-btn svg{width:22px;height:22px}
+.logo{display:flex;align-items:center;margin-right:auto;gap:10px}
+.logo img{height:46px;width:auto}
+.logo .logo-txt{font-weight:900;font-size:18px;color:var(--azul-dark);letter-spacing:.3px;display:none}
+.mega-nav{display:none}
+.header-actions{display:flex;align-items:center;gap:2px}
+.cart-btn .cart-badge{position:absolute;top:2px;right:2px;min-width:18px;height:18px;padding:0 4px;border-radius:999px;background:var(--terra);color:#fff;font-size:11px;font-weight:800;display:grid;place-items:center}
+
+/* SLIDE-OUT MENU */
+.nav-overlay{position:fixed;inset:0;background:rgba(38,51,60,.45);z-index:90;opacity:0;pointer-events:none;transition:opacity .3s}
+.nav-overlay.on{opacity:1;pointer-events:auto}
+.nav-panel{position:fixed;top:0;left:0;bottom:0;z-index:95;width:85%;max-width:340px;background:#fff;transform:translateX(-100%);transition:transform .35s var(--smooth);display:flex;flex-direction:column;padding:0 0 calc(16px + env(safe-area-inset-bottom));box-shadow:8px 0 40px rgba(0,0,0,.15)}
+.nav-panel.on{transform:translateX(0)}
+.nav-panel-head{display:flex;align-items:center;justify-content:space-between;padding:14px 16px;border-bottom:1px solid var(--hairline)}
+.nav-panel-head img{height:38px}
+.nav-panel-links{display:flex;flex-direction:column;padding:10px 0;flex:1;overflow-y:auto}
+.np-group-label{font-size:11px;font-weight:800;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);padding:6px 22px 8px}
+.nav-panel-links a{display:flex;align-items:center;gap:12px;padding:9px 14px;font-size:15.5px;font-weight:700;color:var(--azul-dark);border-radius:14px;margin:2px 10px;transition:background .2s,transform .12s var(--spring)}
+.nav-panel-links a:active{transform:scale(.98)}
+.np-ic{width:38px;height:38px;border-radius:11px;display:grid;place-items:center;color:var(--azul);flex:none;background:var(--azul-light)}
+.np-ic svg{width:21px;height:21px}
+.np-txt{flex:1}
+.np-chev{width:18px;height:18px;color:var(--muted);opacity:.45;flex:none}
+.np-divider{height:1px;background:var(--hairline);margin:10px 22px}
+.nav-panel-links a[data-cat="ofertas"] .np-ic{background:#f3e0cf;color:var(--terra-dark)}
+.nav-panel-links a:hover{background:var(--crema)}
+.nav-panel-social{display:flex;gap:12px;padding:16px 20px 4px;border-top:1px solid var(--hairline)}
+.nav-panel-social a{width:42px;height:42px;border-radius:50%;display:grid;place-items:center;background:var(--crema);color:var(--azul)}
+.nav-panel-social .np-wsp{background:var(--wsp);color:#fff}
+.nav-panel-social svg{width:22px;height:22px}
+
+/* HERO */
+.hero-wrap{padding-top:14px}
+.hero{position:relative;border-radius:var(--r-card);overflow:hidden;box-shadow:var(--shadow-sm);min-height:340px;display:flex;align-items:center}
+.hero-bg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:0}
+.hero::after{content:"";position:absolute;inset:0;background:linear-gradient(105deg,rgba(43,64,82,.94) 0%,rgba(61,90,114,.86) 42%,rgba(84,118,146,.45) 100%);z-index:1}
+.hero-content{position:relative;z-index:2;padding:30px 22px;max-width:560px}
+.hero-eyebrow{display:inline-flex;align-items:center;gap:7px;background:rgba(255,255,255,.16);color:#fff;font-size:11.5px;font-weight:700;letter-spacing:.04em;text-transform:uppercase;padding:6px 12px;border-radius:999px;margin-bottom:14px}
+.hero h2{color:#fff;font-size:30px;font-weight:900;line-height:1.08;letter-spacing:-.01em}
+.hero h2 span{color:#f0cba0}
+.hero p{color:rgba(255,255,255,.9);font-size:14.5px;margin-top:12px;max-width:40ch;line-height:1.5}
+.btn-primary{display:inline-flex;align-items:center;gap:10px;white-space:nowrap;background:var(--terra);color:#fff;font-weight:800;border-radius:var(--r-pill);padding:13px 14px 13px 22px;box-shadow:var(--shadow-terra);transition:transform .18s var(--spring),background .2s;margin-top:20px;font-size:15px}
+.btn-primary:hover{background:var(--terra-dark);transform:translateY(-1px)}
+.btn-primary:active{transform:scale(.97)}
+.btn-primary .btn-arrow{width:30px;height:30px;border-radius:50%;background:rgba(255,255,255,.22);display:grid;place-items:center;transition:transform .2s var(--spring)}
+.btn-primary:hover .btn-arrow{transform:translateX(2px)}
+.btn-primary .btn-arrow svg{width:17px;height:17px}
+
+/* SECTION HEAD */
+.section-head{display:flex;align-items:flex-end;justify-content:space-between;margin:24px 0 12px}
+.section-title{font-size:22px;font-weight:900;color:var(--azul-dark);letter-spacing:-.01em}
+.section-sub{font-size:13.5px;color:var(--muted);margin-top:2px}
+.ver-todas{display:inline-flex;align-items:center;gap:5px;color:var(--azul);font-weight:700;font-size:13.5px}
+.ver-todas svg{width:16px;height:16px}
+
+/* CATEGORÍAS */
+.cat-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:12px}
+.cat-card{position:relative;border-radius:var(--r-card);overflow:hidden;display:block;box-shadow:var(--shadow-sm);aspect-ratio:1/1;transition:transform .2s var(--spring),box-shadow .2s}
+.cat-card:hover{transform:translateY(-3px);box-shadow:var(--shadow)}
+.cat-card:active{transform:scale(.98)}
+.cat-card img{width:100%;height:100%;object-fit:cover}
+.cat-card::after{content:"";position:absolute;inset:0;background:linear-gradient(to top,rgba(38,51,60,.72) 0%,rgba(38,51,60,.15) 45%,transparent 70%)}
+.cat-name{position:absolute;left:14px;bottom:14px;right:44px;z-index:2;color:#fff;font-weight:800;font-size:16px;line-height:1.15;text-shadow:0 1px 4px rgba(0,0,0,.35)}
+.cat-go{position:absolute;right:12px;bottom:12px;z-index:2;width:34px;height:34px;background:#fff;color:var(--azul-dark);border-radius:50%;display:grid;place-items:center;box-shadow:var(--shadow-sm);transition:transform .2s var(--spring)}
+.cat-card:hover .cat-go{transform:scale(1.1)}
+.cat-go svg{width:16px;height:16px}
+
+/* BANNER descuento */
+.banner-wrap{margin-top:16px}
+.promo{display:flex;align-items:center;gap:16px;background:linear-gradient(120deg,var(--azul) 0%,var(--azul-dark) 100%);border-radius:var(--r-card);padding:20px;color:#fff;box-shadow:var(--shadow-sm)}
+.promo-badge{flex:none;width:64px;height:64px;border-radius:50%;background:rgba(255,255,255,.15);display:grid;place-items:center;font-weight:900;font-size:15px;text-align:center;line-height:1.05}
+.promo-badge b{font-size:20px;display:block}
+.promo-txt h3{font-size:17px;font-weight:900}
+.promo-txt p{font-size:13px;color:rgba(255,255,255,.85);margin-top:3px;line-height:1.4}
+.promo-txt .promo-min{color:#f0cba0;font-weight:800}
+
+/* TRUST */
+.trust{display:grid;grid-template-columns:repeat(2,1fr);gap:14px 10px;background:#fff;border-radius:var(--r-card);margin-top:16px;padding:18px 14px;box-shadow:var(--shadow-sm)}
+.trust-item{display:flex;flex-direction:column;align-items:center;text-align:center;gap:7px}
+.trust-ic{width:46px;height:46px;border-radius:50%;background:var(--azul-light);color:var(--azul-dark);display:grid;place-items:center}
+.trust-ic svg{width:23px;height:23px}
+.trust-item b{display:block;font-size:12.5px;color:var(--azul-dark);font-weight:800}
+.trust-item small{font-size:11px;color:var(--muted)}
+
+/* FOOTER */
+.footer{margin-top:26px;background:var(--azul-dark);color:rgba(255,255,255,.85)}
+.footer-grid{display:grid;grid-template-columns:1fr;gap:20px;padding-top:26px;padding-bottom:6px}
+.f-brand img{height:52px;width:auto;background:#fff;border-radius:12px;padding:5px}
+.f-brand p{margin-top:10px;font-size:13.5px;color:rgba(255,255,255,.72)}
+.f-col h4{font-size:12px;font-weight:800;letter-spacing:.08em;text-transform:uppercase;color:#fff;margin-bottom:7px}
+.f-col p,.f-col a{display:block;font-size:13.5px;color:rgba(255,255,255,.82);line-height:1.7}
+.f-col a:hover{color:#f0cba0}
+.footer-bottom{border-top:1px solid rgba(255,255,255,.14);margin-top:14px;padding-top:12px;padding-bottom:14px;font-size:11.5px;color:rgba(255,255,255,.55);text-align:center}
+
+/* BOTTOM NAV */
+.bottom-nav{position:fixed;left:0;right:0;bottom:0;z-index:60;display:flex;background:#fff;border-top:1px solid var(--hairline);padding-bottom:env(safe-area-inset-bottom);box-shadow:0 -4px 20px rgba(61,90,114,.06)}
+.bottom-nav a{flex:1;min-width:0;display:flex;flex-direction:column;align-items:center;gap:3px;padding:9px 0 8px;color:var(--muted);font-size:10px;font-weight:600;transition:color .2s}
+.bottom-nav a span{max-width:100%;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.bottom-nav a svg{width:22px;height:22px;color:var(--azul)}
+.bottom-nav a.active{color:var(--terra);font-weight:700}
+.bottom-nav a.active svg{color:var(--terra)}
+
+/* DESKTOP */
+@media(min-width:768px){
+  body{padding-bottom:0}
+  .wrap{max-width:1000px}
+  .desktop-only{display:revert}
+  .icon-btn.desktop-only{display:grid}
+  .bottom-nav{display:none}
+  .menu-toggle{display:none}
+  .topbar-in{justify-content:space-between}
+  .topbar-links{display:flex}
+  .header-in{gap:24px}
+  .logo img{height:52px}
+  .logo .logo-txt{display:block}
+  .mega-nav{display:flex;align-items:center;gap:22px;margin-right:auto}
+  .mega-nav a{font-size:15px;font-weight:600;color:var(--azul-dark);padding:6px 0;position:relative}
+  .mega-nav a:hover{color:var(--terra)}
+  .mega-nav a.active{color:var(--terra)}
+  .mega-nav a.active::after{content:'';position:absolute;left:0;right:0;bottom:-2px;height:2px;background:var(--terra);border-radius:2px}
+  .logo{margin-right:24px}
+  .categorias,.banner-wrap,.trust,.hero-wrap>*{max-width:920px;margin-left:auto;margin-right:auto}
+  .hero{min-height:380px}
+  .hero h2{font-size:38px}
+  .cat-grid{grid-template-columns:repeat(4,1fr);gap:14px}
+  .trust{grid-template-columns:repeat(4,1fr);gap:10px;padding:16px}
+  .section-title{font-size:24px}
+  .footer-grid{grid-template-columns:1.3fr 1fr 1fr;gap:24px}
+}
+@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}html{scroll-behavior:auto}}
+</style>
+</head>
+<body>
+
+<!-- TOP BAR -->
+<div class="topbar">
+  <div class="wrap topbar-in">
+    <p class="topbar-msg">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M1 4h11v11H1zM12 8h4l3 3v4h-7z"/><circle cx="5.5" cy="18" r="1.6"/><circle cx="16.5" cy="18" r="1.6"/></svg>
+      Envío gratis en compras desde <b>$40.000</b> en Gran Mendoza
+    </p>
+    <nav class="topbar-links" aria-label="Enlaces de ayuda">
+      <a href="#">Ayuda</a>
+      <a href="https://wa.me/5492616512823" target="_blank" rel="noopener">Seguimiento de pedido</a>
+      <a href="#" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg></a>
+    </nav>
+  </div>
+</div>
+
+<!-- HEADER -->
+<header class="header" id="header">
+  <div class="wrap header-in">
+    <button class="icon-btn menu-toggle" id="menuToggle" aria-label="Abrir menú"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg></button>
+    <a href="#" class="logo" aria-label="Paladear — Inicio">
+      <img src="https://paladear.github.io/paladeartienda/android-chrome-512x512.png" alt="Paladear" />
+      <span class="logo-txt">Paladear</span>
+    </a>
+    <nav class="mega-nav" aria-label="Navegación principal">
+      <a href="#" class="active">Inicio</a>
+      <a href="#">Productos</a>
+      <a href="#">Ofertas</a>
+      <a href="#">Recetas</a>
+      <a href="#">Mayorista</a>
+      <a href="#">Contacto</a>
+    </nav>
+    <div class="header-actions">
+      <a href="#" class="icon-btn" aria-label="Buscar"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg></a>
+      <a href="#" class="icon-btn" aria-label="Mi cuenta"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="8" r="4"/><path d="M5 21c0-3.9 3.1-7 7-7s7 3.1 7 7"/></svg></a>
+      <a href="#" class="icon-btn cart-btn" aria-label="Ver carrito"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="9" cy="21" r="1.6"/><circle cx="18" cy="21" r="1.6"/><path d="M2.5 3h2l2.2 12.4a1.5 1.5 0 0 0 1.5 1.2h8.7a1.5 1.5 0 0 0 1.5-1.2L21 7H6"/></svg><span class="cart-badge">2</span></a>
+    </div>
+  </div>
+</header>
+
+<!-- SLIDE-OUT MENU -->
+<div class="nav-overlay" id="navOverlay"></div>
+<aside class="nav-panel" id="navPanel" aria-label="Menú">
+  <div class="nav-panel-head">
+    <img src="https://paladear.github.io/paladeartienda/android-chrome-512x512.png" alt="Paladear" />
+    <button class="icon-btn" id="navClose" aria-label="Cerrar menú"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><path d="M5 5l14 14M19 5 5 19"/></svg></button>
+  </div>
+  <nav class="nav-panel-links" aria-label="Categorías">
+    <span class="np-group-label">Comprá por categoría</span>
+    <a href="#"><span class="np-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2a3 3 0 0 0-3 3c0 1 .5 2 1 3-2 0-4 1.5-4 4 0 2 1.5 4 4 5 .5 2 2 3 3 3s2.5-1 3-3c2.5-1 4-3 4-5 0-2.5-2-4-4-4 .5-1 1-2 1-3a3 3 0 0 0-3-3z"/></svg></span><span class="np-txt">Frutos Secos</span><svg class="np-chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="m9 6 6 6-6 6"/></svg></a>
+    <a href="#"><span class="np-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="8" cy="12" r="4"/><circle cx="16" cy="12" r="4"/></svg></span><span class="np-txt">Aceitunas</span><svg class="np-chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="m9 6 6 6-6 6"/></svg></a>
+    <a href="#"><span class="np-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M6 3h12l-1 4H7zM7 7l-1 12a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2L17 7"/></svg></span><span class="np-txt">Especias</span><svg class="np-chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="m9 6 6 6-6 6"/></svg></a>
+    <a href="#"><span class="np-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v6M8 6l4-3 4 3M4 12h16M6 12l1.5 8h9L18 12"/></svg></span><span class="np-txt">Deshidratados</span><svg class="np-chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="m9 6 6 6-6 6"/></svg></a>
+    <a href="#" data-cat="ofertas"><span class="np-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M20 12l-8 8-9-9V4h7z"/><circle cx="7.5" cy="7.5" r="1.5"/></svg></span><span class="np-txt">Ofertas</span><svg class="np-chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="m9 6 6 6-6 6"/></svg></a>
+    <span class="np-divider"></span>
+    <a href="#"><span class="np-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="4"/><path d="M5 21c0-3.9 3.1-7 7-7s7 3.1 7 7"/></svg></span><span class="np-txt">Mi cuenta</span><svg class="np-chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="m9 6 6 6-6 6"/></svg></a>
+    <a href="#"><span class="np-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19V5a2 2 0 0 1 2-2h11v18H6a2 2 0 0 1-2-2z"/><path d="M8 7h6M8 11h6"/></svg></span><span class="np-txt">Recetas</span><svg class="np-chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="m9 6 6 6-6 6"/></svg></a>
+    <a href="#"><span class="np-ic"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M.057 24l1.687-6.163a11.867 11.867 0 0 1-1.587-5.946C.16 5.335 5.495 0 12.05 0a11.817 11.817 0 0 1 8.413 3.488 11.824 11.824 0 0 1 3.48 8.414c-.003 6.557-5.338 11.892-11.893 11.892a11.9 11.9 0 0 1-5.688-1.448L.057 24zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884a9.86 9.86 0 0 0 1.51 5.26l-.999 3.648 3.978-1.043zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.29.173-1.414z"/></svg></span><span class="np-txt">Contacto</span><svg class="np-chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="m9 6 6 6-6 6"/></svg></a>
+  </nav>
+  <div class="nav-panel-social">
+    <a href="https://wa.me/5492616512823" target="_blank" rel="noopener" class="np-wsp" aria-label="WhatsApp"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M.057 24l1.687-6.163a11.867 11.867 0 0 1-1.587-5.946C.16 5.335 5.495 0 12.05 0a11.817 11.817 0 0 1 8.413 3.488 11.824 11.824 0 0 1 3.48 8.414c-.003 6.557-5.338 11.892-11.893 11.892a11.9 11.9 0 0 1-5.688-1.448L.057 24zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884a9.86 9.86 0 0 0 1.51 5.26l-.999 3.648 3.978-1.043zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.29.173-1.414z"/></svg></a>
+    <a href="#" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg></a>
+  </div>
+</aside>
+
+<main id="main">
+  <h1 class="visually-hidden">Paladear — Mercado de Sabores en Mendoza</h1>
+
+  <!-- HERO -->
+  <section class="hero-wrap wrap" aria-label="Bienvenida">
+    <div class="hero">
+      <img class="hero-bg" src="https://res.cloudinary.com/hswu4zpv/image/upload/f_auto,q_auto,w_1000/1842" alt="" />
+      <div class="hero-content">
+        <span class="hero-eyebrow">🌿 Mercado de Sabores · Mendoza</span>
+        <h2>Frutos secos, aceitunas y <span>mucho más</span></h2>
+        <p>Deshidratados, especias, semillas, harinas y productos sin TACC. Frescos y de calidad, con envío a todo el país.</p>
+        <a href="#" class="btn-primary">Ver productos <span class="btn-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></a>
+      </div>
+    </div>
+  </section>
+
+  <!-- CATEGORÍAS -->
+  <section class="categorias wrap" aria-labelledby="cat-title">
+    <div class="section-head">
+      <div>
+        <h2 id="cat-title" class="section-title">Categorías</h2>
+        <p class="section-sub desktop-only">Explorá nuestros productos por categoría</p>
+      </div>
+      <a href="#" class="ver-todas">Ver todas <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+    </div>
+    <div class="cat-grid">
+      <a class="cat-card" href="#" aria-label="Frutos Secos"><img src="https://res.cloudinary.com/hswu4zpv/image/upload/f_auto,q_auto,w_500/1842" alt="Frutos Secos" /><span class="cat-name">Frutos Secos</span><span class="cat-go"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></a>
+      <a class="cat-card" href="#" aria-label="Aceitunas"><img src="https://res.cloudinary.com/hswu4zpv/image/upload/f_auto,q_auto,w_500/1024" alt="Aceitunas" /><span class="cat-name">Aceitunas</span><span class="cat-go"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></a>
+      <a class="cat-card" href="#" aria-label="Deshidratados"><img src="https://res.cloudinary.com/hswu4zpv/image/upload/f_auto,q_auto,w_500/1127" alt="Deshidratados" /><span class="cat-name">Deshidratados</span><span class="cat-go"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></a>
+      <a class="cat-card" href="#" aria-label="Especias"><img src="https://res.cloudinary.com/hswu4zpv/image/upload/f_auto,q_auto,w_500/1068" alt="Especias" /><span class="cat-name">Especias</span><span class="cat-go"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></a>
+    </div>
+  </section>
+
+  <!-- BANNER descuento -->
+  <section class="banner-wrap wrap" aria-label="Descuento por cantidad">
+    <div class="promo">
+      <div class="promo-badge">Hasta<b>20%</b>OFF</div>
+      <div class="promo-txt">
+        <h3>Descuento por cantidad</h3>
+        <p>Sumá productos al carrito: al superar los <span class="promo-min">$80.000</span> se activan los precios con descuento de tu pedido.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- TRUST -->
+  <section class="trust wrap" aria-label="Por qué elegirnos">
+    <div class="trust-item"><span class="trust-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M1 4h11v11H1zM12 8h4l3 3v4h-7z"/><circle cx="5.5" cy="18" r="1.6"/><circle cx="16.5" cy="18" r="1.6"/></svg></span><b>Envío gratis +$40.000</b></div>
+    <div class="trust-item"><span class="trust-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M20 12l-8 8-9-9V4h7z"/><circle cx="7.5" cy="7.5" r="1.5"/></svg></span><b>Hasta 20% OFF</b></div>
+    <div class="trust-item"><span class="trust-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l7 4v5c0 4.5-3 8-7 9-4-1-7-4.5-7-9V7z"/><path d="m9 12 2 2 4-4"/></svg></span><b>Calidad premium</b></div>
+    <div class="trust-item"><span class="trust-ic"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M.057 24l1.687-6.163a11.867 11.867 0 0 1-1.587-5.946C.16 5.335 5.495 0 12.05 0a11.817 11.817 0 0 1 8.413 3.488 11.824 11.824 0 0 1 3.48 8.414c-.003 6.557-5.338 11.892-11.893 11.892a11.9 11.9 0 0 1-5.688-1.448L.057 24z"/></svg></span><b>Atención por WhatsApp</b></div>
+  </section>
+</main>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="wrap footer-grid">
+    <div class="f-brand">
+      <img src="https://paladear.github.io/paladeartienda/android-chrome-512x512.png" alt="Paladear" />
+      <p>Mercado de Sabores en Mendoza. Frutos secos, dietética y más.</p>
+    </div>
+    <div class="f-col">
+      <h4>Contacto</h4>
+      <a href="https://wa.me/5492616512823" target="_blank" rel="noopener">+54 9 261 651 2823</a>
+      <p>Pueyrredón 588, Mendoza</p>
+    </div>
+    <div class="f-col">
+      <h4>Horarios</h4>
+      <p>Lun a Sáb: 10:00 – 20:00</p>
+      <p>Domingos: cerrado</p>
+    </div>
+  </div>
+  <div class="wrap footer-bottom">© 2026 Paladear Mercado de Sabores · Pedidos por WhatsApp · (versión de prueba)</div>
+</footer>
+
+<!-- BOTTOM NAV -->
+<nav class="bottom-nav" aria-label="Navegación inferior">
+  <a href="#" class="active"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M3 11l9-8 9 8"/><path d="M5 10v10h14V10"/></svg><span>Inicio</span></a>
+  <a href="#"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7" rx="1.5"/><rect x="14" y="3" width="7" height="7" rx="1.5"/><rect x="3" y="14" width="7" height="7" rx="1.5"/><rect x="14" y="14" width="7" height="7" rx="1.5"/></svg><span>Productos</span></a>
+  <a href="#"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M20 12l-8 8-9-9V4h7z"/><circle cx="7.5" cy="7.5" r="1.5"/></svg><span>Ofertas</span></a>
+  <a href="#"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19V5a2 2 0 0 1 2-2h11v18H6a2 2 0 0 1-2-2z"/><path d="M8 7h6M8 11h6"/></svg><span>Recetas</span></a>
+  <a href="#"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="4"/><path d="M5 21c0-3.9 3.1-7 7-7s7 3.1 7 7"/></svg><span>Cuenta</span></a>
+  <a href="https://wa.me/5492616512823" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M.057 24l1.687-6.163a11.867 11.867 0 0 1-1.587-5.946C.16 5.335 5.495 0 12.05 0a11.817 11.817 0 0 1 8.413 3.488 11.824 11.824 0 0 1 3.48 8.414c-.003 6.557-5.338 11.892-11.893 11.892a11.9 11.9 0 0 1-5.688-1.448L.057 24zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884a9.86 9.86 0 0 0 1.51 5.26l-.999 3.648 3.978-1.043z"/></svg><span>WhatsApp</span></a>
+</nav>
+
+<script>
+  var mt=document.getElementById('menuToggle'),ov=document.getElementById('navOverlay'),np=document.getElementById('navPanel'),nc=document.getElementById('navClose');
+  function openMenu(){np.classList.add('on');ov.classList.add('on');document.body.style.overflow='hidden';}
+  function closeMenu(){np.classList.remove('on');ov.classList.remove('on');document.body.style.overflow='';}
+  mt.addEventListener('click',openMenu);nc.addEventListener('click',closeMenu);ov.addEventListener('click',closeMenu);
+  var hdr=document.getElementById('header');
+  window.addEventListener('scroll',function(){hdr.classList.toggle('scrolled',window.scrollY>4);},{passive:true});
+</script>
+</body>
+</html>
