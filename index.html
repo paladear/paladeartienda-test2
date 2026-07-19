@@ -1642,7 +1642,7 @@ body.compact-on .compact-header{transform:translateY(0);pointer-events:auto}
   <div class="may-tabs-wrap" id="mainTabs">
     <div class="tabs-pill" id="tabsPill"></div>
     <button class="may-tab active" id="tabHome" onclick="switchTab('home')">
-      <span class="may-tab-emoji" aria-hidden="true">🏠</span>
+      <img class="may-tab-icon" src="nav-inicio.png" alt="" aria-hidden="true">
       <span>Home</span>
     </button>
     <button class="may-tab" id="tabMinorista" onclick="switchTab('minorista')">
@@ -1695,11 +1695,46 @@ body.hv-home #mayoristaSection{display:none!important}
 #homeView .banners-track-wrap{overflow:visible}
 #homeView .banners-track{display:flex!important;flex-direction:column!important;gap:14px;transform:none!important;transition:none!important;grid-template-columns:none!important}
 #homeView .banner-slide{width:100%!important;min-width:0!important;max-width:none!important;flex:none!important;padding:0!important}
+/* Cats del home con IMAGEN asomando por arriba (nunca por los costados) */
+.hv-cat .bub{position:relative;overflow:visible}
+.hv-cat .bub img{position:absolute;bottom:3px;left:50%;transform:translateX(-50%);width:86%;height:auto;filter:drop-shadow(0 3px 4px rgba(0,0,0,.16))}
+/* Banners mix/granola: centrados, texto más grande, solo el botón clickea */
+#homeView .mix-banner,#homeView .granola-banner{flex-direction:column;text-align:center;cursor:default;gap:10px;padding:22px 18px}
+#homeView .mix-banner:hover,#homeView .granola-banner:hover{transform:none}
+#homeView .mix-banner-text h3,#homeView .granola-banner-text h3{font-size:24px;margin-bottom:6px}
+#homeView .mix-banner-text p,#homeView .granola-banner-text p{font-size:15px;max-width:44ch;margin:0 auto}
+#homeView .mix-banner-btn,#homeView .granola-banner-btn{width:auto;padding:12px 28px;font-size:15px}
+@media(min-width:768px){#homeView .mix-banner-text h3,#homeView .granola-banner-text h3{font-size:26px}}
+/* Banner de ofertas del home con productos */
+.hv-ofertas{flex-direction:column;align-items:stretch;gap:11px}
+.hvof-head{display:flex;align-items:center;gap:11px;text-align:left}
+.hvof-tk{width:38px;height:auto;flex-shrink:0}
+.hvof-head b{display:block;font-size:15px;color:#8a3520;font-weight:800}
+.hvof-sub{display:block;font-size:12px;color:#8a6a50}
+.hvof-head .chev{margin-left:auto;color:#b87040;flex-shrink:0}
+.hvof-row{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}
+.hvof-card{position:relative;display:flex;flex-direction:column;background:var(--bg,#f6f8fa);border:1.5px solid var(--border,#dde5ec);border-radius:11px;padding:7px;text-align:center;min-width:0}
+.hvof-badge{position:absolute;top:5px;left:5px;background:#e65100;color:#fff;font-size:10px;font-weight:800;border-radius:7px;padding:1.5px 6px;z-index:2}
+.hvof-card img{width:100%;height:64px;object-fit:contain;background:#fff;border-radius:8px}
+.hvof-emoji{height:64px;display:grid;place-items:center;font-size:28px;background:#fff;border-radius:8px}
+.hvof-name{font-size:10.5px;font-weight:700;color:var(--azul-dark);line-height:1.15;margin-top:5px;overflow:hidden;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;min-height:24px}
+.hvof-precio{font-size:10.5px;margin-top:3px}
+.hvof-precio s{color:var(--muted-fg)}
+.hvof-precio b{color:#e65100;font-size:12.5px}
+/* Catálogo completo por rubro */
+.allcat-sec{margin-bottom:34px}
+.allcat-head{display:flex;align-items:center;gap:12px;width:100%;background:none;border:none;cursor:pointer;font-family:inherit;padding:0 0 12px;text-align:left}
+.allcat-img{width:54px;height:54px;object-fit:contain;filter:drop-shadow(0 2px 3px rgba(0,0,0,.15));flex-shrink:0}
+.allcat-name{font-size:20px;font-weight:800;color:var(--azul-dark)}
+.allcat-count{font-size:12px;font-weight:700;color:var(--azul);background:var(--azul-light);border-radius:999px;padding:2px 10px}
+.allcat-chev{margin-left:auto;font-size:22px;color:var(--muted-fg)}
+.ofertas-grid-top{margin-bottom:30px}
 /* ═══ Barra inferior (mobile) ═══ */
 .bnav{position:fixed;left:0;right:0;bottom:0;z-index:9000;display:none;background:#fff;border-top:1px solid var(--border);padding-bottom:env(safe-area-inset-bottom);box-shadow:0 -4px 20px rgba(61,90,114,.10)}
 .bnav a{flex:1;min-width:0;display:flex;flex-direction:column;align-items:center;gap:3px;padding:8px 0 7px;color:var(--muted-fg);font-size:9.5px;font-weight:600;text-decoration:none;cursor:pointer}
 .bnav a span{max-width:100%;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
 .bnav a svg{width:21px;height:21px;color:var(--azul)}
+.bnav a img{width:24px;height:24px;object-fit:contain}
 .bnav a.active{color:#b87040;font-weight:700}
 .bnav a.active svg{color:#b87040}
 #bnavToast{position:fixed;left:50%;transform:translateX(-50%) translateY(14px);bottom:calc(74px + env(safe-area-inset-bottom));background:var(--azul-dark);color:#fff;font-size:13px;font-weight:600;border-radius:999px;padding:9px 16px;z-index:9500;opacity:0;pointer-events:none;transition:all .3s}
@@ -1803,7 +1838,7 @@ body.hv-home #mayoristaSection{display:none!important}
 
     <!-- Banner 1: Mix -->
     <div class="banner-slide">
-      <div class="mix-banner" onclick="openMix()">
+      <div class="mix-banner">
         <div class="sprite-icon sprite-mix" aria-label="Ícono mix"></div>
         <div class="mix-banner-text" style="flex:1">
           <h3>Armá tu mix personalizado</h3>
@@ -1815,7 +1850,7 @@ body.hv-home #mayoristaSection{display:none!important}
 
     <!-- Banner 2: Granola -->
     <div class="banner-slide">
-      <div class="granola-banner" onclick="openGranola()">
+      <div class="granola-banner">
         <div class="sprite-icon sprite-granola" aria-label="Ícono granola"></div>
         <div class="granola-banner-text" style="flex:1">
           <h3>Creá tu propia granola</h3>
@@ -1832,12 +1867,12 @@ body.hv-home #mayoristaSection{display:none!important}
 
 <!-- ═══ Barra inferior (mobile) ═══ -->
 <nav class="bnav" aria-label="Navegación inferior">
-  <a data-b="home" class="active" onclick="switchTab('home')"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M3 11l9-8 9 8"/><path d="M5 10v10h14V10"/></svg><span>Inicio</span></a>
-  <a data-b="minorista" onclick="switchTab('minorista')"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7" rx="1.5"/><rect x="14" y="3" width="7" height="7" rx="1.5"/><rect x="3" y="14" width="7" height="7" rx="1.5"/><rect x="14" y="14" width="7" height="7" rx="1.5"/></svg><span>Productos</span></a>
-  <a onclick="hvIrOfertas()"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M20 12l-8 8-9-9V4h7z"/><circle cx="7.5" cy="7.5" r="1.5"/></svg><span>Ofertas</span></a>
-  <a onclick="_bnavToast()"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M20.8 5.6a5.4 5.4 0 0 0-7.7 0L12 6.7l-1.1-1.1a5.4 5.4 0 1 0-7.7 7.7L12 22l8.8-8.7a5.4 5.4 0 0 0 0-7.7z"/></svg><span>Favoritos</span></a>
-  <a onclick="openCuenta()"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="4"/><path d="M5 21c0-3.9 3.1-7 7-7s7 3.1 7 7"/></svg><span>Cuenta</span></a>
-  <a href="https://wa.me/5492616512823" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M.057 24l1.687-6.163a11.867 11.867 0 0 1-1.587-5.946C.16 5.335 5.495 0 12.05 0a11.817 11.817 0 0 1 8.413 3.488 11.824 11.824 0 0 1 3.48 8.414c-.003 6.557-5.338 11.892-11.893 11.892a11.9 11.9 0 0 1-5.688-1.448L.057 24zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884a9.86 9.86 0 0 0 1.51 5.26l-.999 3.648 3.978-1.043z"/></svg><span>WhatsApp</span></a>
+  <a data-b="home" class="active" onclick="switchTab('home')"><img src="nav-inicio.png" alt=""><span>Inicio</span></a>
+  <a data-b="minorista" onclick="switchTab('minorista')"><img src="icon-minorista.png" alt=""><span>Productos</span></a>
+  <a onclick="hvIrOfertas()"><img src="nav-ofertas.png" alt=""><span>Ofertas</span></a>
+  <a onclick="_bnavToast()"><img src="nav-favoritos.png" alt=""><span>Favoritos</span></a>
+  <a onclick="openCuenta()"><img src="nav-cuenta.png" alt=""><span>Cuenta</span></a>
+  <a href="https://wa.me/5492616512823" target="_blank" rel="noopener"><img src="nav-whatsapp.png" alt=""><span>WhatsApp</span></a>
 </nav>
 <div id="bnavToast">💛 Favoritos: lo armamos en el próximo paso</div>
 
@@ -4978,7 +5013,7 @@ function hvRenderCats(){
   var h='';
   Object.keys(RUBRO_MAP).forEach(function(k){
     var c=RUBRO_MAP[k];
-    h+='<button class="hv-cat" onclick="hvGoCat(\''+c.id+'\')"><span class="bub">'+c.ic+'</span><span>'+c.n+'</span></button>';
+    h+='<button class="hv-cat" onclick="hvGoCat(\''+c.id+'\')"><span class="bub"><img src="cat-'+c.id+'.png" alt="" loading="lazy" onerror="this.parentNode.textContent=\''+c.ic+'\'"></span><span>'+c.n+'</span></button>';
   });
   w1.innerHTML=h; w2.innerHTML=h;
 }
@@ -5000,16 +5035,28 @@ function hvRenderOfertas(){
     var of=(PRODS||[]).filter(function(p){ return p[12] && p[12].oferta>0; });
     if(!of.length){ box.style.display='none'; return; }
     box.style.display='';
-    var n=document.getElementById('hvOfN');
-    if(n) n.textContent = of.length===1 ? '1 producto con descuento' : of.length+' productos con descuento';
+    var minis=of.slice().sort(function(a,b){return b[12].oferta-a[12].oferta;}).slice(0,3).map(function(p){
+      var opts=_sortOpts(Object.keys(p[7]));
+      var precio=opts.length?p[7][opts[0]][0]:0;
+      var pct=p[12].oferta;
+      var img=(p[6]&&p[6].indexOf('http')===0)?'<img src="'+p[6]+'" alt="" loading="lazy">':'<span class="hvof-emoji">🌿</span>';
+      return '<span class="hvof-card"><span class="hvof-badge">−'+pct+'%</span>'+img
+        +'<span class="hvof-name">'+_tc(p[2])+'</span>'
+        +'<span class="hvof-precio"><s>$'+fmt(precio)+'</s> <b>$'+fmt(Math.round(precio*(1-pct/100)))+'</b></span></span>';
+    }).join('');
+    box.innerHTML='<span class="hvof-head"><img class="hvof-tk" src="nav-ofertas.png" alt="">'
+      +'<span><b>Ofertas del mes</b><span class="hvof-sub">'+of.length+' producto'+(of.length!==1?'s':'')+' con descuento · tocá para ver todos</span></span>'
+      +'<svg class="chev" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="m9 6 6 6-6 6"/></svg></span>'
+      +'<span class="hvof-row">'+minis+'</span>';
   }catch(e){}
 }
 function hvIrOfertas(){
   window.switchTab('minorista');
   setTimeout(function(){
+    try{ if(typeof selectOfertasMes==='function'){ selectOfertasMes(); return; } }catch(e){}
     var el=document.querySelector('.ofertas-mes-title');
     if(el) el.scrollIntoView({behavior:'smooth',block:'start'});
-  },120);
+  },80);
 }
 window.hvIrOfertas=hvIrOfertas;
 function _bnavSet(tab){
@@ -5057,6 +5104,71 @@ setTimeout(function(){
   document.querySelectorAll('#mainTabs .may-tab').forEach(function(b){ b.classList.toggle('active', b.id==='tabHome'); });
   var th=document.getElementById('tabHome'); if(th){ try{ _setPill(th); }catch(e){} }
 }, 700);
+
+/* ═══ TESTER2: catálogo = TODOS los productos por rubro (alfabético) ═══ */
+renderCarruseles = function(){
+  if(_carRotationInterval){clearInterval(_carRotationInterval);_carRotationInterval=null;}
+  for(const k in _carState)delete _carState[k];
+  // La demo de ofertas se re-aplica en cada render (el CSV fresco reconstruye PRODS y la pisa)
+  try{ hvAplicarOfertasDemo(); }catch(e){}
+  try{ hvRenderOfertas(); }catch(e){}
+  if(!PRODS.length){
+    document.getElementById('desktopProdsArea').innerHTML='';
+    document.getElementById('mobileProdsArea').innerHTML='';
+    return;
+  }
+  const prodsOferta=PRODS.filter(p=>p[12]&&p[12].oferta>0);
+  function buildAll(prefix){
+    let h='';
+    if(prodsOferta.length){
+      const maxOf=Math.max(...prodsOferta.map(p=>p[12].oferta));
+      h+=`<div class="ofertas-mes-title" style="margin-top:4px">
+        <img src="nav-ofertas.png" alt="" style="width:36px;height:auto">
+        <h2>Ofertas del mes</h2>
+        <span class="badge">Hasta -${maxOf}%</span>
+        <button class="ofertas-mes-ver-btn" onclick="selectOfertasMes()">Ver todas →</button>
+      </div>
+      <div class="ofertas-mes-subtitle">Productos seleccionados con descuento — no acumulable con descuento por volumen ($80.000+)</div>
+      <div class="prod-grid ofertas-grid-top">${[...prodsOferta].sort((a,b)=>a[2].localeCompare(b[2],'es')).map(p=>renderCard(p,prefix)).join('')}</div>`;
+    }
+    const catsAlpha=[...CATS].sort((a,b)=>a.n.localeCompare(b.n,'es'));
+    catsAlpha.forEach(cat=>{
+      const prods=PRODS.filter(p=>p[1]===cat.id).sort((a,b)=>a[2].localeCompare(b[2],'es'));
+      if(!prods.length)return;
+      h+=`<section class="allcat-sec">
+        <button class="allcat-head" onclick="selectCat('${cat.id}')">
+          <img class="allcat-img" src="cat-${cat.id}.png" alt="" loading="lazy" onerror="this.style.display='none'">
+          <span class="allcat-name">${cat.n}</span>
+          <span class="allcat-count">${prods.length}</span>
+          <span class="allcat-chev">›</span>
+        </button>
+        <div class="prod-grid">${prods.map(p=>renderCard(p,prefix)).join('')}</div>
+      </section>`;
+    });
+    return h;
+  }
+  document.getElementById('desktopProdsArea').innerHTML=buildAll('dt')||'<div></div>';
+  document.getElementById('mobileProdsArea').innerHTML=buildAll('mb')||'<div></div>';
+  document.getElementById('mobileProdsArea').classList.remove('hidden');
+};
+
+/* ═══ TESTER2: ofertas de DEMO (solo para visualizar; no toca la planilla) ═══ */
+var _hvDemoOf={'1024':15,'1842':10,'1127':20,'1379':10,'1418':15,'2308':20};
+function hvAplicarOfertasDemo(){
+  try{
+    if(!PRODS.length) return false;
+    var tocado=false;
+    PRODS.forEach(function(p){
+      var id=p[12]&&p[12].productId;
+      if(id && _hvDemoOf[id] && !(p[12].oferta>0)){ p[12].oferta=_hvDemoOf[id]; tocado=true; }
+    });
+    return tocado;
+  }catch(e){ return false; }
+}
+(function hvDemoLoop(n){
+  if(hvAplicarOfertasDemo()){ try{renderCarruseles();}catch(e){} hvRenderOfertas(); return; }
+  if(n<50) setTimeout(function(){ hvDemoLoop(n+1); }, 400);
+})(0);
 
 // Cargar datos mayorista desde Apps Script (referencia la hoja por nombre, no GID)
 function cargarMayorista() {
