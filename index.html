@@ -4,9 +4,10 @@
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
 <title>Paladear — Mercado de Sabores · Mendoza (PRUEBA de diseño)</title>
-<meta name="description" content="Frutos secos, aceitunas, especias, deshidratados y productos sin TACC en Mendoza. Envío gratis desde $40.000. Pedí por WhatsApp." />
+<meta name="description" content="Frutos secos, especias, deshidratados y productos naturales en Mendoza." />
 <meta name="theme-color" content="#547692" />
 <meta name="robots" content="noindex" />
+<link rel="icon" href="https://paladear.github.io/paladeartienda/favicon-32x32.png" />
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
@@ -14,295 +15,320 @@
 :root{
   --azul:#547692; --azul-dark:#3d5a72; --azul-mid:#6d90aa; --azul-light:#cfdce8;
   --terra:#b87040; --terra-dark:#9e5c2c;
-  --crema:#f8f3ec; --paper:#ffffff; --ink:#26333c; --muted:#5f7180;
-  --hairline:rgba(61,90,114,.14); --wsp:#25D366;
-  --r-card:18px; --r-pill:999px;
-  --shadow-sm:0 2px 10px rgba(61,90,114,.07); --shadow:0 10px 30px rgba(61,90,114,.12);
-  --shadow-terra:0 8px 22px rgba(184,112,64,.30);
-  --spring:cubic-bezier(.34,1.56,.64,1); --smooth:cubic-bezier(.22,1,.36,1);
+  --bg:#f6f8fa; --card:#ffffff; --fg:#26333c; --muted-fg:#5f7180;
+  --border:#dde5ec; --wsp:#25D366;
   --font:'Montserrat',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;
-  --header-h:60px;
 }
 *{box-sizing:border-box;-webkit-tap-highlight-color:transparent;margin:0;padding:0}
 html{scroll-behavior:smooth}
-body{font-family:var(--font);background:#fff;color:var(--ink);font-size:15px;line-height:1.45;-webkit-font-smoothing:antialiased;padding-bottom:calc(64px + env(safe-area-inset-bottom))}
+body{font-family:var(--font);background:var(--bg);color:var(--fg);font-size:15px;line-height:1.45;-webkit-font-smoothing:antialiased;padding-bottom:calc(64px + env(safe-area-inset-bottom))}
 img{max-width:100%;display:block}
 a{text-decoration:none;color:inherit}
 button{font-family:inherit;cursor:pointer;border:none;background:none}
 :focus-visible{outline:2px solid var(--terra);outline-offset:2px;border-radius:6px}
-.wrap{max-width:1180px;margin:0 auto;padding-left:16px;padding-right:16px}
+.wrap{max-width:1000px;margin:0 auto;padding-left:16px;padding-right:16px}
 .visually-hidden{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
-.desktop-only{display:none}
 
-/* TOP BAR */
-.topbar{padding-top:env(safe-area-inset-top);background:var(--azul-dark);color:#fff;font-size:12.5px}
-.topbar-in{display:flex;align-items:center;justify-content:center;gap:18px;min-height:34px}
-.topbar-msg{display:flex;align-items:center;gap:8px;font-weight:500}
-.topbar-msg svg{width:18px;height:18px;flex:none}
-.topbar-msg b{color:#f0cba0;font-weight:800}
-.topbar-links{display:none;align-items:center;gap:18px}
-.topbar-links a{opacity:.9}.topbar-links a:hover{opacity:1}
-.topbar-links svg{width:16px;height:16px}
+/* ═══ HEADER OFICIAL (portado de producción) ═══ */
+@keyframes headerGradient{0%{background-position:0% 50%}50%{background-position:100% 50%}100%{background-position:0% 50%}}
+.header{position:sticky;top:0;z-index:300;box-shadow:0 3px 16px rgba(0,0,0,.2);background:linear-gradient(120deg,#3f5e7a 0%,#547692 35%,#6989a8 65%,#547692 100%);background-size:300% 300%;animation:headerGradient 40s ease-in-out infinite}
+.header-inner{position:relative;z-index:1;max-width:1000px;margin:0 auto;display:flex;align-items:center;padding:4px 24px;gap:18px;min-height:80px}
+.logo-wrap{position:absolute;left:50%;transform:translateX(-50%);display:flex;justify-content:center;align-items:center;z-index:1}
+.logo{width:auto;height:74px;border-radius:50%;object-fit:contain;background:#fff;padding:2px;box-shadow:0 6px 13px rgba(12,30,48,.45)}
+.social-btns{display:flex;gap:6px;align-items:center;flex-shrink:0}
+.social-btn{width:40px;height:40px;border-radius:50%;background:rgba(255,255,255,.22);color:#fff;display:flex;align-items:center;justify-content:center;transition:all .2s;border:2px solid rgba(255,255,255,.55)}
+.social-btn:hover{background:rgba(255,255,255,.32);transform:scale(1.08)}
+.social-btn svg{width:20px;height:20px;fill:#fff}
+.header-dropdowns{display:flex;gap:7px;flex-shrink:0;justify-content:flex-end;align-items:center;margin-left:auto}
+.hdrop{position:relative;flex-shrink:0}
+.hdrop-btn{display:flex;align-items:center;gap:6px;padding:9px 18px;border-radius:999px;font-size:13px;font-weight:700;cursor:pointer;border:none;transition:all .2s;font-family:inherit;white-space:nowrap;background:var(--azul-dark);color:#fff}
+.hdrop-btn:hover{background:#1a3050}
+.btn-ico-img{width:20px;height:20px;object-fit:contain;filter:drop-shadow(0 1px 1.5px rgba(0,0,0,.18))}
+.hdrop-panel{display:none;position:absolute;right:0;top:calc(100% + 8px);width:310px;background:#fff;border-radius:14px;box-shadow:0 12px 40px rgba(0,0,0,.25);padding:14px;z-index:400;text-align:left}
+.hdrop.open .hdrop-panel{display:block}
+.hdrop-title{font-size:14px;font-weight:800;color:var(--azul-dark);margin-bottom:9px}
+.hdrop-row{display:flex;gap:9px;align-items:flex-start;padding:6px 0;font-size:12.5px;color:var(--fg);line-height:1.35}
+.hdrop-row .ic{flex-shrink:0;width:18px;text-align:center}
+.hdrop-row strong{display:block;font-size:11px;text-transform:uppercase;letter-spacing:.4px;color:var(--muted-fg)}
+.hdrop-cta{margin-top:9px;width:100%;border:none;border-radius:10px;padding:10px;font-size:13px;font-weight:700;cursor:pointer;font-family:inherit;background:var(--wsp);color:#fff}
+.cats-burger-btn{display:flex;align-items:center;justify-content:center;width:40px;height:40px;border-radius:999px;border:none;cursor:pointer;background:var(--azul-dark);color:#fff;transition:background .2s,transform .2s;flex-shrink:0}
+.cats-burger-btn:hover{background:#1a3050;transform:translateY(-1px)}
+@media(max-width:767px){
+  .header-inner{padding:2px 10px;gap:6px;min-height:64px}
+  .logo{height:56px}
+  .social-btn{width:34px;height:34px}
+  .social-btn svg{width:17px;height:17px}
+  .social-btns{gap:4px}
+  .hdrop-btn{padding:7px 10px;font-size:11px;gap:3px}
+  .cats-burger-btn{width:36px;height:36px}
+  .logo-wrap{position:relative;left:auto;transform:none}
+}
+@media(min-width:768px){.logo-wrap{position:relative;left:auto;transform:none;flex-shrink:0}}
 
-/* HEADER */
-.header{position:sticky;top:0;z-index:50;background:#fff;border-bottom:1px solid transparent;transition:border-color .25s,box-shadow .25s}
-.header.scrolled{border-bottom-color:var(--hairline);box-shadow:var(--shadow-sm)}
-.header-in{display:flex;align-items:center;gap:12px;height:var(--header-h)}
-.icon-btn{width:42px;height:42px;border-radius:50%;display:grid;place-items:center;color:var(--azul);transition:background .2s,transform .15s var(--spring);flex:none;position:relative}
-.icon-btn:hover{background:rgba(84,118,146,.08)}
-.icon-btn:active{transform:scale(.92)}
-.icon-btn svg{width:22px;height:22px}
-.logo{display:flex;align-items:center;margin-right:auto;gap:10px}
-.logo img{height:46px;width:auto}
-.logo .logo-txt{font-weight:900;font-size:18px;color:var(--azul-dark);letter-spacing:.3px;display:none}
-.mega-nav{display:none}
-.header-actions{display:flex;align-items:center;gap:2px}
-.cart-btn .cart-badge{position:absolute;top:2px;right:2px;min-width:18px;height:18px;padding:0 4px;border-radius:999px;background:var(--terra);color:#fff;font-size:11px;font-weight:800;display:grid;place-items:center}
+/* ═══ PILLS / TABS (portado de producción + pestaña Home nueva) ═══ */
+.tabs-zone{background:var(--azul);padding:0;margin:0;overflow:hidden}
+.may-tabs-wrap{display:flex;gap:0;margin:0 auto;max-width:1000px;position:relative;padding:0 16px}
+.may-tab{cursor:pointer;padding:8px 12px 18px;font-weight:700;font-size:15px;transition:color .2s;border:none;background:transparent;color:rgba(255,255,255,.78);flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:4px;position:relative;z-index:2;font-family:inherit;line-height:1.1}
+.may-tab-icon{width:36px;height:36px;object-fit:contain;display:block;flex-shrink:0;filter:drop-shadow(0 2px 2.5px rgba(0,0,0,.22))}
+.may-tab-emoji{font-size:30px;line-height:36px;height:36px;display:block;filter:drop-shadow(0 2px 2.5px rgba(0,0,0,.22))}
+.may-tab.active{color:var(--azul-dark);background:var(--bg);border-radius:24px 24px 0 0;z-index:3}
 
-/* SLIDE-OUT MENU */
-.nav-overlay{position:fixed;inset:0;background:rgba(38,51,60,.45);z-index:90;opacity:0;pointer-events:none;transition:opacity .3s}
-.nav-overlay.on{opacity:1;pointer-events:auto}
-.nav-panel{position:fixed;top:0;left:0;bottom:0;z-index:95;width:85%;max-width:340px;background:#fff;transform:translateX(-100%);transition:transform .35s var(--smooth);display:flex;flex-direction:column;padding:0 0 calc(16px + env(safe-area-inset-bottom));box-shadow:8px 0 40px rgba(0,0,0,.15)}
-.nav-panel.on{transform:translateX(0)}
-.nav-panel-head{display:flex;align-items:center;justify-content:space-between;padding:14px 16px;border-bottom:1px solid var(--hairline)}
-.nav-panel-head img{height:38px}
-.nav-panel-links{display:flex;flex-direction:column;padding:10px 0;flex:1;overflow-y:auto}
-.np-group-label{font-size:11px;font-weight:800;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);padding:6px 22px 8px}
-.nav-panel-links a{display:flex;align-items:center;gap:12px;padding:9px 14px;font-size:15.5px;font-weight:700;color:var(--azul-dark);border-radius:14px;margin:2px 10px;transition:background .2s,transform .12s var(--spring)}
-.nav-panel-links a:active{transform:scale(.98)}
-.np-ic{width:38px;height:38px;border-radius:11px;display:grid;place-items:center;color:var(--azul);flex:none;background:var(--azul-light)}
-.np-ic svg{width:21px;height:21px}
-.np-txt{flex:1}
-.np-chev{width:18px;height:18px;color:var(--muted);opacity:.45;flex:none}
-.np-divider{height:1px;background:var(--hairline);margin:10px 22px}
-.nav-panel-links a[data-cat="ofertas"] .np-ic{background:#f3e0cf;color:var(--terra-dark)}
-.nav-panel-links a:hover{background:var(--crema)}
-.nav-panel-social{display:flex;gap:12px;padding:16px 20px 4px;border-top:1px solid var(--hairline)}
-.nav-panel-social a{width:42px;height:42px;border-radius:50%;display:grid;place-items:center;background:var(--crema);color:var(--azul)}
-.nav-panel-social .np-wsp{background:var(--wsp);color:#fff}
-.nav-panel-social svg{width:22px;height:22px}
+/* ═══ HERO (solo texto, inspirador) ═══ */
+.hero{background:linear-gradient(180deg,#f2ece2 0%,var(--bg) 100%);padding:38px 20px 30px;text-align:center}
+.hero-eyebrow{display:inline-block;font-size:11px;font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:var(--azul);background:#fff;border:1.5px solid var(--azul-light);border-radius:999px;padding:6px 14px;margin-bottom:16px}
+.hero h1{font-size:30px;font-weight:900;color:var(--azul-dark);line-height:1.14;letter-spacing:-.01em;max-width:21ch;margin:0 auto}
+.hero h1 em{font-style:normal;color:var(--terra)}
+.hero p{font-size:14.5px;color:var(--muted-fg);margin:14px auto 0;max-width:46ch;line-height:1.55}
+.hero-cta{display:inline-flex;align-items:center;gap:10px;background:var(--terra);color:#fff;font-weight:800;font-size:15px;border-radius:999px;padding:14px 16px 14px 24px;margin-top:22px;box-shadow:0 8px 22px rgba(184,112,64,.30);transition:transform .18s,background .2s}
+.hero-cta:hover{background:var(--terra-dark);transform:translateY(-1px)}
+.hero-cta .arr{width:30px;height:30px;border-radius:50%;background:rgba(255,255,255,.22);display:grid;place-items:center}
+.hero-cta .arr svg{width:17px;height:17px}
+@media(min-width:768px){.hero{padding:52px 20px 40px}.hero h1{font-size:40px}.hero p{font-size:15.5px}}
 
-/* HERO */
-.hero-wrap{padding-top:14px}
-.hero{position:relative;border-radius:var(--r-card);overflow:hidden;box-shadow:var(--shadow-sm);min-height:340px;display:flex;align-items:center}
-.hero-bg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:0}
-.hero::after{content:"";position:absolute;inset:0;background:linear-gradient(105deg,rgba(43,64,82,.94) 0%,rgba(61,90,114,.86) 42%,rgba(84,118,146,.45) 100%);z-index:1}
-.hero-content{position:relative;z-index:2;padding:30px 22px;max-width:560px}
-.hero-eyebrow{display:inline-flex;align-items:center;gap:7px;background:rgba(255,255,255,.16);color:#fff;font-size:11.5px;font-weight:700;letter-spacing:.04em;text-transform:uppercase;padding:6px 12px;border-radius:999px;margin-bottom:14px}
-.hero h2{color:#fff;font-size:30px;font-weight:900;line-height:1.08;letter-spacing:-.01em}
-.hero h2 span{color:#f0cba0}
-.hero p{color:rgba(255,255,255,.9);font-size:14.5px;margin-top:12px;max-width:40ch;line-height:1.5}
-.btn-primary{display:inline-flex;align-items:center;gap:10px;white-space:nowrap;background:var(--terra);color:#fff;font-weight:800;border-radius:var(--r-pill);padding:13px 14px 13px 22px;box-shadow:var(--shadow-terra);transition:transform .18s var(--spring),background .2s;margin-top:20px;font-size:15px}
-.btn-primary:hover{background:var(--terra-dark);transform:translateY(-1px)}
-.btn-primary:active{transform:scale(.97)}
-.btn-primary .btn-arrow{width:30px;height:30px;border-radius:50%;background:rgba(255,255,255,.22);display:grid;place-items:center;transition:transform .2s var(--spring)}
-.btn-primary:hover .btn-arrow{transform:translateX(2px)}
-.btn-primary .btn-arrow svg{width:17px;height:17px}
+/* ═══ CATEGORÍAS (24 con emojis, carrusel + ver todas) ═══ */
+.cats-sec{padding-top:20px}
+.sec-head{display:flex;align-items:baseline;justify-content:space-between;margin-bottom:12px}
+.sec-title{font-size:20px;font-weight:900;color:var(--azul-dark);letter-spacing:-.01em}
+.sec-action{font-size:13px;font-weight:700;color:var(--azul);background:none;border:none;cursor:pointer;font-family:inherit;display:inline-flex;align-items:center;gap:4px}
+.cats-scroller{display:grid;grid-auto-flow:column;grid-template-rows:repeat(2,auto);grid-auto-columns:86px;gap:12px 8px;overflow-x:auto;padding:4px 2px 10px;scroll-snap-type:x proximity;scrollbar-width:none}
+.cats-scroller::-webkit-scrollbar{display:none}
+.cat-b{display:flex;flex-direction:column;align-items:center;gap:6px;scroll-snap-align:start;text-align:center}
+.cat-b .bub{width:62px;height:62px;border-radius:50%;background:#fff;border:1.5px solid var(--border);display:grid;place-items:center;font-size:27px;box-shadow:0 2px 8px rgba(61,90,114,.08);transition:transform .18s,border-color .18s}
+.cat-b:hover .bub{transform:translateY(-2px);border-color:var(--azul-mid)}
+.cat-b span{font-size:10.5px;font-weight:700;color:var(--fg);line-height:1.15;max-width:84px;overflow:hidden;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical}
+.cats-grid{display:none;grid-template-columns:repeat(4,1fr);gap:14px 8px;padding:6px 2px 4px}
+.cats-sec.expanded .cats-scroller{display:none}
+.cats-sec.expanded .cats-grid{display:grid}
+@media(min-width:768px){
+  .cats-scroller{display:none}
+  .cats-grid{display:grid;grid-template-columns:repeat(8,1fr)}
+  .sec-action{display:none}
+}
 
-/* SECTION HEAD */
-.section-head{display:flex;align-items:flex-end;justify-content:space-between;margin:24px 0 12px}
-.section-title{font-size:22px;font-weight:900;color:var(--azul-dark);letter-spacing:-.01em}
-.section-sub{font-size:13.5px;color:var(--muted);margin-top:2px}
-.ver-todas{display:inline-flex;align-items:center;gap:5px;color:var(--azul);font-weight:700;font-size:13.5px}
-.ver-todas svg{width:16px;height:16px}
+/* ═══ BANNER DESCUENTO (portado de producción) ═══ */
+.descb-wrap{margin:22px 0 0}
+.descb-banner{background:linear-gradient(135deg,#eef4f9,#e1ecf6);border:1.5px solid #cdddec;border-radius:16px;padding:14px 16px;box-shadow:0 2px 12px rgba(84,118,146,.12)}
+.descb-top{display:flex;align-items:center;gap:8px;margin-bottom:7px;flex-wrap:wrap;row-gap:4px}
+.descb-ic{width:24px;height:24px;object-fit:contain;flex-shrink:0}
+.descb-name{font-size:15px;font-weight:800;color:#1a3050}
+.descb-go{font-size:11.5px;font-weight:700;color:#547692;margin-left:auto;background:#fff;border:1px solid #cdddec;padding:2px 10px;border-radius:20px;white-space:nowrap}
+.descb-note{font-size:12.5px;color:#54677d;font-weight:600;margin-bottom:9px;line-height:1.35}
+.descb-note b{color:#1a3050}
+.descb-mlabel{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:5px}
+.descb-cnt{font-size:17px;font-weight:800;color:#1a3050;font-variant-numeric:tabular-nums}
+.descb-goal{font-size:11px;font-weight:600;color:#8a9bad}
+.descb-track{height:11px;background:#dde6ee;border-radius:7px;overflow:hidden}
+.descb-fill{height:100%;width:0;border-radius:7px;background:linear-gradient(90deg,#547692,#6fa3c4)}
+.descb-reward{margin-top:8px;display:flex;align-items:center;gap:7px;font-size:12.5px;font-weight:800;color:#1c9d63;opacity:0;transform:translateY(5px);transition:all .4s;min-height:19px}
+.descb-reward.on{opacity:1;transform:none}
+.descb-pill{font-size:10.5px;padding:2px 8px;border-radius:20px;color:#fff;background:#1c9d63;white-space:nowrap}
 
-/* CATEGORÍAS */
-.cat-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:12px}
-.cat-card{position:relative;border-radius:var(--r-card);overflow:hidden;display:block;box-shadow:var(--shadow-sm);aspect-ratio:1/1;transition:transform .2s var(--spring),box-shadow .2s}
-.cat-card:hover{transform:translateY(-3px);box-shadow:var(--shadow)}
-.cat-card:active{transform:scale(.98)}
-.cat-card img{width:100%;height:100%;object-fit:cover}
-.cat-card::after{content:"";position:absolute;inset:0;background:linear-gradient(to top,rgba(38,51,60,.72) 0%,rgba(38,51,60,.15) 45%,transparent 70%)}
-.cat-name{position:absolute;left:14px;bottom:14px;right:44px;z-index:2;color:#fff;font-weight:800;font-size:16px;line-height:1.15;text-shadow:0 1px 4px rgba(0,0,0,.35)}
-.cat-go{position:absolute;right:12px;bottom:12px;z-index:2;width:34px;height:34px;background:#fff;color:var(--azul-dark);border-radius:50%;display:grid;place-items:center;box-shadow:var(--shadow-sm);transition:transform .2s var(--spring)}
-.cat-card:hover .cat-go{transform:scale(1.1)}
-.cat-go svg{width:16px;height:16px}
+/* ═══ OFERTAS DEL MES ═══ */
+.ofertas-sec{margin-top:22px;background:#fff;border:1.5px solid #f0d9c3;border-radius:16px;padding:16px;box-shadow:0 2px 12px rgba(184,112,64,.10)}
+.ofertas-head{display:flex;align-items:baseline;gap:8px;flex-wrap:wrap}
+.ofertas-head h2{font-size:17px;font-weight:900;color:#8a3520}
+.ofertas-note{font-size:11px;color:#b0764a;font-weight:600;margin-left:auto}
+.ofertas-sub{font-size:12px;color:#8a6a50;margin-top:2px}
+.ofertas-row{display:flex;gap:10px;overflow-x:auto;padding:12px 2px 4px;scrollbar-width:none}
+.ofertas-row::-webkit-scrollbar{display:none}
+.of-card{flex:0 0 150px;background:var(--bg);border:1.5px solid var(--border);border-radius:13px;padding:10px;position:relative}
+.of-badge{position:absolute;top:8px;left:8px;background:#e65100;color:#fff;font-size:10.5px;font-weight:800;border-radius:8px;padding:2px 7px;z-index:2}
+.of-card img{width:100%;height:96px;object-fit:contain;background:#fff;border-radius:9px}
+.of-card b{display:block;font-size:12px;color:var(--azul-dark);line-height:1.2;margin-top:7px;height:29px;overflow:hidden}
+.of-old{font-size:11px;color:var(--muted-fg);text-decoration:line-through}
+.of-new{font-size:15px;font-weight:800;color:#e65100}
+@media(min-width:768px){.of-card{flex:1}}
 
-/* BANNER descuento */
-.banner-wrap{margin-top:16px}
-.promo{display:flex;align-items:center;gap:16px;background:linear-gradient(120deg,var(--azul) 0%,var(--azul-dark) 100%);border-radius:var(--r-card);padding:20px;color:#fff;box-shadow:var(--shadow-sm)}
-.promo-badge{flex:none;width:64px;height:64px;border-radius:50%;background:rgba(255,255,255,.15);display:grid;place-items:center;font-weight:900;font-size:15px;text-align:center;line-height:1.05}
-.promo-badge b{font-size:20px;display:block}
-.promo-txt h3{font-size:17px;font-weight:900}
-.promo-txt p{font-size:13px;color:rgba(255,255,255,.85);margin-top:3px;line-height:1.4}
-.promo-txt .promo-min{color:#f0cba0;font-weight:800}
+/* ═══ MIX + GRANOLA (portados, uno debajo del otro) ═══ */
+.mixgran{display:flex;flex-direction:column;gap:14px;margin-top:22px}
+@keyframes spriteCycle{from{background-position:0% 0}to{background-position:100% 0}}
+.sprite-icon{flex-shrink:0;background-repeat:no-repeat;background-size:500% 100%;background-position:0 0;filter:drop-shadow(0 2px 3px rgba(0,0,0,.2))}
+.sprite-mix{width:54px;aspect-ratio:120/382;background-image:url('https://paladear.github.io/paladeartienda/sprite-mix.png');animation:spriteCycle 2.5s steps(5,jump-none) infinite}
+.sprite-granola{width:72px;aspect-ratio:120/260;background-image:url('https://paladear.github.io/paladeartienda/sprite-granola.png');animation:spriteCycle 2.5s steps(5,jump-none) infinite}
+.mix-banner{background:linear-gradient(135deg,#7a4f2a 0%,#b87040 100%);border-radius:16px;padding:18px 20px;display:flex;align-items:center;justify-content:space-between;gap:14px;cursor:pointer;transition:transform .2s,box-shadow .2s;box-shadow:0 4px 18px rgba(120,80,40,.35);flex-wrap:wrap}
+.granola-banner{background:#8faf9b;border-radius:16px;padding:18px 20px;display:flex;align-items:center;justify-content:space-between;gap:14px;cursor:pointer;transition:transform .2s,box-shadow .2s;box-shadow:0 4px 18px rgba(80,130,100,.35);flex-wrap:wrap}
+.mix-banner:hover,.granola-banner:hover{transform:translateY(-2px)}
+.mix-banner-text,.granola-banner-text{flex:1;min-width:0}
+.mix-banner-text h3,.granola-banner-text h3{font-size:20px;font-weight:700;color:#fff;margin-bottom:4px}
+.mix-banner-text p,.granola-banner-text p{font-size:14px;color:rgba(255,255,255,.82);line-height:1.4}
+.mix-banner-btn{background:#fff;color:#7a4f2a;border:none;border-radius:10px;padding:11px 20px;font-size:14px;font-weight:700;white-space:nowrap;cursor:pointer;font-family:inherit;flex-shrink:0;transition:all .2s}
+.granola-banner-btn{background:#fff;color:#4a7a60;border:none;border-radius:10px;padding:11px 20px;font-size:14px;font-weight:700;white-space:nowrap;cursor:pointer;font-family:inherit;flex-shrink:0;transition:all .2s}
+@media(max-width:600px){
+  .mix-banner,.granola-banner{padding:16px}
+  .sprite-mix{width:44px}
+  .sprite-granola{width:58px}
+  .mix-banner-text h3,.granola-banner-text h3{font-size:17px}
+  .mix-banner-btn,.granola-banner-btn{width:100%;text-align:center}
+}
 
-/* TRUST */
-.trust{display:grid;grid-template-columns:repeat(2,1fr);gap:14px 10px;background:#fff;border-radius:var(--r-card);margin-top:16px;padding:18px 14px;box-shadow:var(--shadow-sm)}
+/* ═══ TRUST ═══ */
+.trust{display:grid;grid-template-columns:repeat(2,1fr);gap:14px 10px;background:#fff;border-radius:16px;margin-top:22px;padding:18px 14px;box-shadow:0 2px 10px rgba(61,90,114,.07)}
 .trust-item{display:flex;flex-direction:column;align-items:center;text-align:center;gap:7px}
-.trust-ic{width:46px;height:46px;border-radius:50%;background:var(--azul-light);color:var(--azul-dark);display:grid;place-items:center}
-.trust-ic svg{width:23px;height:23px}
-.trust-item b{display:block;font-size:12.5px;color:var(--azul-dark);font-weight:800}
-.trust-item small{font-size:11px;color:var(--muted)}
+.trust-ic{width:44px;height:44px;border-radius:50%;background:var(--azul-light);color:var(--azul-dark);display:grid;place-items:center}
+.trust-ic svg{width:22px;height:22px}
+.trust-item b{font-size:12px;color:var(--azul-dark);font-weight:800}
+@media(min-width:768px){.trust{grid-template-columns:repeat(4,1fr)}}
 
-/* FOOTER */
-.footer{margin-top:26px;background:var(--azul-dark);color:rgba(255,255,255,.85)}
+/* ═══ FOOTER ═══ */
+.footer{margin-top:28px;background:var(--azul-dark);color:rgba(255,255,255,.85)}
 .footer-grid{display:grid;grid-template-columns:1fr;gap:20px;padding-top:26px;padding-bottom:6px}
-.f-brand img{height:52px;width:auto;background:#fff;border-radius:12px;padding:5px}
+.f-brand img{height:56px;width:auto;background:#fff;border-radius:50%;padding:3px}
 .f-brand p{margin-top:10px;font-size:13.5px;color:rgba(255,255,255,.72)}
 .f-col h4{font-size:12px;font-weight:800;letter-spacing:.08em;text-transform:uppercase;color:#fff;margin-bottom:7px}
 .f-col p,.f-col a{display:block;font-size:13.5px;color:rgba(255,255,255,.82);line-height:1.7}
-.f-col a:hover{color:#f0cba0}
 .footer-bottom{border-top:1px solid rgba(255,255,255,.14);margin-top:14px;padding-top:12px;padding-bottom:14px;font-size:11.5px;color:rgba(255,255,255,.55);text-align:center}
+@media(min-width:768px){.footer-grid{grid-template-columns:1.3fr 1fr 1fr;gap:24px}}
 
-/* BOTTOM NAV */
-.bottom-nav{position:fixed;left:0;right:0;bottom:0;z-index:60;display:flex;background:#fff;border-top:1px solid var(--hairline);padding-bottom:env(safe-area-inset-bottom);box-shadow:0 -4px 20px rgba(61,90,114,.06)}
-.bottom-nav a{flex:1;min-width:0;display:flex;flex-direction:column;align-items:center;gap:3px;padding:9px 0 8px;color:var(--muted);font-size:10px;font-weight:600;transition:color .2s}
+/* ═══ BOTTOM NAV (con Favoritos/wishlist) ═══ */
+.bottom-nav{position:fixed;left:0;right:0;bottom:0;z-index:200;display:flex;background:#fff;border-top:1px solid var(--border);padding-bottom:env(safe-area-inset-bottom);box-shadow:0 -4px 20px rgba(61,90,114,.08)}
+.bottom-nav a{flex:1;min-width:0;display:flex;flex-direction:column;align-items:center;gap:3px;padding:9px 0 8px;color:var(--muted-fg);font-size:10px;font-weight:600}
 .bottom-nav a span{max-width:100%;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
 .bottom-nav a svg{width:22px;height:22px;color:var(--azul)}
 .bottom-nav a.active{color:var(--terra);font-weight:700}
 .bottom-nav a.active svg{color:var(--terra)}
-
-/* DESKTOP */
-@media(min-width:768px){
-  body{padding-bottom:0}
-  .wrap{max-width:1000px}
-  .desktop-only{display:revert}
-  .icon-btn.desktop-only{display:grid}
-  .bottom-nav{display:none}
-  .menu-toggle{display:none}
-  .topbar-in{justify-content:space-between}
-  .topbar-links{display:flex}
-  .header-in{gap:24px}
-  .logo img{height:52px}
-  .logo .logo-txt{display:block}
-  .mega-nav{display:flex;align-items:center;gap:22px;margin-right:auto}
-  .mega-nav a{font-size:15px;font-weight:600;color:var(--azul-dark);padding:6px 0;position:relative}
-  .mega-nav a:hover{color:var(--terra)}
-  .mega-nav a.active{color:var(--terra)}
-  .mega-nav a.active::after{content:'';position:absolute;left:0;right:0;bottom:-2px;height:2px;background:var(--terra);border-radius:2px}
-  .logo{margin-right:24px}
-  .categorias,.banner-wrap,.trust,.hero-wrap>*{max-width:920px;margin-left:auto;margin-right:auto}
-  .hero{min-height:380px}
-  .hero h2{font-size:38px}
-  .cat-grid{grid-template-columns:repeat(4,1fr);gap:14px}
-  .trust{grid-template-columns:repeat(4,1fr);gap:10px;padding:16px}
-  .section-title{font-size:24px}
-  .footer-grid{grid-template-columns:1.3fr 1fr 1fr;gap:24px}
-}
-@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}html{scroll-behavior:auto}}
+@media(min-width:768px){.bottom-nav{display:none}body{padding-bottom:0}}
 </style>
 </head>
 <body>
 
-<!-- TOP BAR -->
-<div class="topbar">
-  <div class="wrap topbar-in">
-    <p class="topbar-msg">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M1 4h11v11H1zM12 8h4l3 3v4h-7z"/><circle cx="5.5" cy="18" r="1.6"/><circle cx="16.5" cy="18" r="1.6"/></svg>
-      Envío gratis en compras desde <b>$40.000</b> en Gran Mendoza
-    </p>
-    <nav class="topbar-links" aria-label="Enlaces de ayuda">
-      <a href="#">Ayuda</a>
-      <a href="https://wa.me/5492616512823" target="_blank" rel="noopener">Seguimiento de pedido</a>
-      <a href="#" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg></a>
-    </nav>
+<!-- ═══ HEADER OFICIAL ═══ -->
+<header class="header">
+<div class="header-inner">
+  <div class="logo-wrap">
+    <img class="logo" src="https://paladear.github.io/paladeartienda/android-chrome-512x512.png" alt="Paladear">
+  </div>
+  <div class="social-btns">
+    <a class="social-btn" href="https://wa.me/5492616512823" target="_blank" rel="noopener" title="WhatsApp">
+      <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 2C6.477 2 2 6.477 2 12c0 1.89.525 3.66 1.438 5.168L2.006 22l4.984-1.307A9.961 9.961 0 0012 22c5.523 0 10-4.477 10-10S17.523 2 12 2zm0 18.25a8.24 8.24 0 01-4.258-1.178l-.306-.181-3.157.828.844-3.07-.2-.319A8.25 8.25 0 1112 20.25z"/></svg>
+    </a>
+    <a class="social-btn" href="https://www.instagram.com/palade.ar" target="_blank" rel="noopener" title="Instagram">
+      <svg viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
+    </a>
+    <a class="social-btn" href="https://maps.app.goo.gl/5TtZMgtvq5XfycqG8" target="_blank" rel="noopener" title="Cómo llegar">
+      <svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5a2.5 2.5 0 010-5 2.5 2.5 0 010 5z"/></svg>
+    </a>
+  </div>
+  <div class="header-dropdowns">
+    <div class="hdrop" id="hdropMin">
+      <button class="hdrop-btn" onclick="document.getElementById('hdropMin').classList.toggle('open')">
+        <img class="btn-ico-img" src="https://paladear.github.io/paladeartienda/icon-minorista.png" alt=""><span>Info</span> <span>▼</span>
+      </button>
+      <div class="hdrop-panel">
+        <div class="hdrop-title">ℹ️ Información</div>
+        <div class="hdrop-row"><span class="ic">🕙</span><div><strong>Horario</strong>Lunes a Sábados · 10:00 a 20:00 hs</div></div>
+        <div class="hdrop-row"><span class="ic">📍</span><div><strong>Dirección</strong>Pueyrredón 588, esq. Paso de los Andes — Quinta Sección, Mendoza</div></div>
+        <div class="hdrop-row"><span class="ic">🏷️</span><div><strong>Condición de venta</strong>Sin mínimos de compra · Descuentos en compras mayores a $80.000</div></div>
+        <button class="hdrop-cta" onclick="window.open('https://wa.me/5492616512823','_blank')">💬 Contactar por WhatsApp</button>
+      </div>
+    </div>
+    <button class="cats-burger-btn" title="Mi cuenta" aria-label="Mi cuenta"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="3.6"/><path d="M5 20c0-3.6 3.2-5.6 7-5.6s7 2 7 5.6"/></svg></button>
+    <button class="cats-burger-btn" title="Categorías" aria-label="Ver categorías" onclick="document.getElementById('catsSec').scrollIntoView({behavior:'smooth'})"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><line x1="4" y1="7" x2="20" y2="7"/><line x1="4" y1="12" x2="20" y2="12"/><line x1="4" y1="17" x2="20" y2="17"/></svg></button>
+  </div>
+</div>
+</header>
+
+<!-- ═══ PILLS: Home / Productos / Inspiración ═══ -->
+<div class="tabs-zone">
+  <div class="may-tabs-wrap">
+    <button class="may-tab active">
+      <span class="may-tab-emoji" aria-hidden="true">🏠</span>
+      <span>Home</span>
+    </button>
+    <button class="may-tab" onclick="location.href='productos.html'">
+      <img class="may-tab-icon" src="https://paladear.github.io/paladeartienda/icon-minorista.png" alt="" aria-hidden="true">
+      <span>Productos</span>
+    </button>
+    <button class="may-tab">
+      <img class="may-tab-icon" src="https://paladear.github.io/paladeartienda/icon-inspiracion.png" alt="" aria-hidden="true">
+      <span>Inspiración</span>
+    </button>
   </div>
 </div>
 
-<!-- HEADER -->
-<header class="header" id="header">
-  <div class="wrap header-in">
-    <button class="icon-btn menu-toggle" id="menuToggle" aria-label="Abrir menú"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg></button>
-    <a href="#" class="logo" aria-label="Paladear — Inicio">
-      <img src="https://paladear.github.io/paladeartienda/android-chrome-512x512.png" alt="Paladear" />
-      <span class="logo-txt">Paladear</span>
-    </a>
-    <nav class="mega-nav" aria-label="Navegación principal">
-      <a href="#" class="active">Inicio</a>
-      <a href="#">Productos</a>
-      <a href="#">Ofertas</a>
-      <a href="#">Recetas</a>
-      <a href="#">Mayorista</a>
-      <a href="#">Contacto</a>
-    </nav>
-    <div class="header-actions">
-      <a href="#" class="icon-btn" aria-label="Buscar"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg></a>
-      <a href="#" class="icon-btn" aria-label="Mi cuenta"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="8" r="4"/><path d="M5 21c0-3.9 3.1-7 7-7s7 3.1 7 7"/></svg></a>
-      <a href="#" class="icon-btn cart-btn" aria-label="Ver carrito"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="9" cy="21" r="1.6"/><circle cx="18" cy="21" r="1.6"/><path d="M2.5 3h2l2.2 12.4a1.5 1.5 0 0 0 1.5 1.2h8.7a1.5 1.5 0 0 0 1.5-1.2L21 7H6"/></svg><span class="cart-badge">2</span></a>
+<main>
+<h1 class="visually-hidden">Paladear — Mercado de Sabores en Mendoza</h1>
+
+<!-- ═══ HERO (solo texto) ═══ -->
+<section class="hero" aria-label="Bienvenida">
+  <span class="hero-eyebrow">Mercado de Sabores · Mendoza</span>
+  <h1>Sabores de verdad,<br>para <em>paladear</em> todos los días</h1>
+  <p>Frutos secos, especias, deshidratados, harinas y más de 500 productos naturales, elegidos con el cuidado de siempre.</p>
+  <a href="productos.html" class="hero-cta">Ver productos <span class="arr"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></a>
+</section>
+
+<div class="wrap">
+
+  <!-- ═══ CATEGORÍAS ═══ -->
+  <section class="cats-sec" id="catsSec" aria-labelledby="catsTitle">
+    <div class="sec-head">
+      <h2 class="sec-title" id="catsTitle">Categorías</h2>
+      <button class="sec-action" id="catsToggle" onclick="toggleCats()">Ver las 24 <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg></button>
+    </div>
+    <div class="cats-scroller" id="catsScroller"></div>
+    <div class="cats-grid" id="catsGrid"></div>
+  </section>
+
+  <!-- ═══ BANNER INFO DE COMPRA (descuento por cantidad) ═══ -->
+  <div class="descb-wrap">
+    <div class="descb-banner" id="descBanner">
+      <div class="descb-top">
+        <img class="descb-ic" src="https://paladear.github.io/paladeartienda/icon-minorista.png" alt="">
+        <span class="descb-name">Descuento por cantidad</span>
+        <span class="descb-go">Sin mínimo de compra</span>
+      </div>
+      <div class="descb-note">Sumá productos al carrito: al superar los <b>$80.000</b> se activan los precios con descuento de tu pedido (<b>hasta 20%</b>).</div>
+      <div class="descb-mlabel"><span class="descb-cnt" id="descbCnt">$0</span><span class="descb-goal">Meta: $80.000</span></div>
+      <div class="descb-track"><div class="descb-fill" id="descbFill"></div></div>
+      <div class="descb-reward" id="descbRw"><span class="descb-pill">Hasta 20%</span> ¡Descuento por cantidad activado!</div>
     </div>
   </div>
-</header>
 
-<!-- SLIDE-OUT MENU -->
-<div class="nav-overlay" id="navOverlay"></div>
-<aside class="nav-panel" id="navPanel" aria-label="Menú">
-  <div class="nav-panel-head">
-    <img src="https://paladear.github.io/paladeartienda/android-chrome-512x512.png" alt="Paladear" />
-    <button class="icon-btn" id="navClose" aria-label="Cerrar menú"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><path d="M5 5l14 14M19 5 5 19"/></svg></button>
-  </div>
-  <nav class="nav-panel-links" aria-label="Categorías">
-    <span class="np-group-label">Comprá por categoría</span>
-    <a href="#"><span class="np-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2a3 3 0 0 0-3 3c0 1 .5 2 1 3-2 0-4 1.5-4 4 0 2 1.5 4 4 5 .5 2 2 3 3 3s2.5-1 3-3c2.5-1 4-3 4-5 0-2.5-2-4-4-4 .5-1 1-2 1-3a3 3 0 0 0-3-3z"/></svg></span><span class="np-txt">Frutos Secos</span><svg class="np-chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="m9 6 6 6-6 6"/></svg></a>
-    <a href="#"><span class="np-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="8" cy="12" r="4"/><circle cx="16" cy="12" r="4"/></svg></span><span class="np-txt">Aceitunas</span><svg class="np-chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="m9 6 6 6-6 6"/></svg></a>
-    <a href="#"><span class="np-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M6 3h12l-1 4H7zM7 7l-1 12a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2L17 7"/></svg></span><span class="np-txt">Especias</span><svg class="np-chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="m9 6 6 6-6 6"/></svg></a>
-    <a href="#"><span class="np-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v6M8 6l4-3 4 3M4 12h16M6 12l1.5 8h9L18 12"/></svg></span><span class="np-txt">Deshidratados</span><svg class="np-chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="m9 6 6 6-6 6"/></svg></a>
-    <a href="#" data-cat="ofertas"><span class="np-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M20 12l-8 8-9-9V4h7z"/><circle cx="7.5" cy="7.5" r="1.5"/></svg></span><span class="np-txt">Ofertas</span><svg class="np-chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="m9 6 6 6-6 6"/></svg></a>
-    <span class="np-divider"></span>
-    <a href="#"><span class="np-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="4"/><path d="M5 21c0-3.9 3.1-7 7-7s7 3.1 7 7"/></svg></span><span class="np-txt">Mi cuenta</span><svg class="np-chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="m9 6 6 6-6 6"/></svg></a>
-    <a href="#"><span class="np-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19V5a2 2 0 0 1 2-2h11v18H6a2 2 0 0 1-2-2z"/><path d="M8 7h6M8 11h6"/></svg></span><span class="np-txt">Recetas</span><svg class="np-chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="m9 6 6 6-6 6"/></svg></a>
-    <a href="#"><span class="np-ic"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M.057 24l1.687-6.163a11.867 11.867 0 0 1-1.587-5.946C.16 5.335 5.495 0 12.05 0a11.817 11.817 0 0 1 8.413 3.488 11.824 11.824 0 0 1 3.48 8.414c-.003 6.557-5.338 11.892-11.893 11.892a11.9 11.9 0 0 1-5.688-1.448L.057 24zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884a9.86 9.86 0 0 0 1.51 5.26l-.999 3.648 3.978-1.043zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.29.173-1.414z"/></svg></span><span class="np-txt">Contacto</span><svg class="np-chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="m9 6 6 6-6 6"/></svg></a>
-  </nav>
-  <div class="nav-panel-social">
-    <a href="https://wa.me/5492616512823" target="_blank" rel="noopener" class="np-wsp" aria-label="WhatsApp"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M.057 24l1.687-6.163a11.867 11.867 0 0 1-1.587-5.946C.16 5.335 5.495 0 12.05 0a11.817 11.817 0 0 1 8.413 3.488 11.824 11.824 0 0 1 3.48 8.414c-.003 6.557-5.338 11.892-11.893 11.892a11.9 11.9 0 0 1-5.688-1.448L.057 24zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884a9.86 9.86 0 0 0 1.51 5.26l-.999 3.648 3.978-1.043zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.29.173-1.414z"/></svg></a>
-    <a href="#" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg></a>
-  </div>
-</aside>
-
-<main id="main">
-  <h1 class="visually-hidden">Paladear — Mercado de Sabores en Mendoza</h1>
-
-  <!-- HERO -->
-  <section class="hero-wrap wrap" aria-label="Bienvenida">
-    <div class="hero">
-      <img class="hero-bg" src="https://res.cloudinary.com/hswu4zpv/image/upload/f_auto,q_auto,w_1000/1842" alt="" />
-      <div class="hero-content">
-        <span class="hero-eyebrow">🌿 Mercado de Sabores · Mendoza</span>
-        <h2>Frutos secos, aceitunas y <span>mucho más</span></h2>
-        <p>Deshidratados, especias, semillas, harinas y productos sin TACC. Frescos y de calidad, con envío a todo el país.</p>
-        <a href="#" class="btn-primary">Ver productos <span class="btn-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></a>
-      </div>
+  <!-- ═══ OFERTAS DEL MES (se oculta solo cuando no hay ofertas) ═══ -->
+  <section class="ofertas-sec" aria-labelledby="ofTitle">
+    <div class="ofertas-head">
+      <h2 id="ofTitle">🏷️ Ofertas del mes</h2>
+      <span class="ofertas-note">se oculta si no hay ofertas</span>
+    </div>
+    <p class="ofertas-sub">Productos seleccionados con descuento — no acumulable con descuento por volumen</p>
+    <div class="ofertas-row">
+      <div class="of-card"><span class="of-badge">−15%</span><img src="https://res.cloudinary.com/hswu4zpv/image/upload/f_auto,q_auto,w_300/1127" alt=""><b>Arándanos deshidratados</b><span class="of-old">$18.500</span> <span class="of-new">$15.725</span></div>
+      <div class="of-card"><span class="of-badge">−10%</span><img src="https://res.cloudinary.com/hswu4zpv/image/upload/f_auto,q_auto,w_300/1842" alt=""><b>Almendra Nonpareil</b><span class="of-old">$25.000</span> <span class="of-new">$22.500</span></div>
+      <div class="of-card"><span class="of-badge">−20%</span><img src="https://res.cloudinary.com/hswu4zpv/image/upload/f_auto,q_auto,w_300/1024" alt=""><b>Aceitunas griegas x 1 kg</b><span class="of-old">$16.150</span> <span class="of-new">$12.920</span></div>
     </div>
   </section>
 
-  <!-- CATEGORÍAS -->
-  <section class="categorias wrap" aria-labelledby="cat-title">
-    <div class="section-head">
-      <div>
-        <h2 id="cat-title" class="section-title">Categorías</h2>
-        <p class="section-sub desktop-only">Explorá nuestros productos por categoría</p>
+  <!-- ═══ MIX + GRANOLA (uno debajo del otro) ═══ -->
+  <div class="mixgran">
+    <div class="mix-banner">
+      <div class="sprite-icon sprite-mix" aria-label="Ícono mix"></div>
+      <div class="mix-banner-text">
+        <h3>Armá tu mix personalizado</h3>
+        <p>Frutos secos, semillas y deshidratados en el bolsón que quieras</p>
       </div>
-      <a href="#" class="ver-todas">Ver todas <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+      <button class="mix-banner-btn">Armar mix →</button>
     </div>
-    <div class="cat-grid">
-      <a class="cat-card" href="#" aria-label="Frutos Secos"><img src="https://res.cloudinary.com/hswu4zpv/image/upload/f_auto,q_auto,w_500/1842" alt="Frutos Secos" /><span class="cat-name">Frutos Secos</span><span class="cat-go"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></a>
-      <a class="cat-card" href="#" aria-label="Aceitunas"><img src="https://res.cloudinary.com/hswu4zpv/image/upload/f_auto,q_auto,w_500/1024" alt="Aceitunas" /><span class="cat-name">Aceitunas</span><span class="cat-go"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></a>
-      <a class="cat-card" href="#" aria-label="Deshidratados"><img src="https://res.cloudinary.com/hswu4zpv/image/upload/f_auto,q_auto,w_500/1127" alt="Deshidratados" /><span class="cat-name">Deshidratados</span><span class="cat-go"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></a>
-      <a class="cat-card" href="#" aria-label="Especias"><img src="https://res.cloudinary.com/hswu4zpv/image/upload/f_auto,q_auto,w_500/1068" alt="Especias" /><span class="cat-name">Especias</span><span class="cat-go"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></a>
-    </div>
-  </section>
-
-  <!-- BANNER descuento -->
-  <section class="banner-wrap wrap" aria-label="Descuento por cantidad">
-    <div class="promo">
-      <div class="promo-badge">Hasta<b>20%</b>OFF</div>
-      <div class="promo-txt">
-        <h3>Descuento por cantidad</h3>
-        <p>Sumá productos al carrito: al superar los <span class="promo-min">$80.000</span> se activan los precios con descuento de tu pedido.</p>
+    <div class="granola-banner">
+      <div class="sprite-icon sprite-granola" aria-label="Ícono granola"></div>
+      <div class="granola-banner-text">
+        <h3>Creá tu propia granola</h3>
+        <p>Combiná cereales, semillas, frutas y más a tu gusto</p>
       </div>
+      <button class="granola-banner-btn">Crear granola →</button>
     </div>
-  </section>
+  </div>
 
-  <!-- TRUST -->
-  <section class="trust wrap" aria-label="Por qué elegirnos">
-    <div class="trust-item"><span class="trust-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M1 4h11v11H1zM12 8h4l3 3v4h-7z"/><circle cx="5.5" cy="18" r="1.6"/><circle cx="16.5" cy="18" r="1.6"/></svg></span><b>Envío gratis +$40.000</b></div>
+  <!-- ═══ TRUST ═══ -->
+  <section class="trust" aria-label="Por qué elegirnos">
+    <div class="trust-item"><span class="trust-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M1 4h11v11H1zM12 8h4l3 3v4h-7z"/><circle cx="5.5" cy="18" r="1.6"/><circle cx="16.5" cy="18" r="1.6"/></svg></span><b>Envíos a todo el país</b></div>
     <div class="trust-item"><span class="trust-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M20 12l-8 8-9-9V4h7z"/><circle cx="7.5" cy="7.5" r="1.5"/></svg></span><b>Hasta 20% OFF</b></div>
     <div class="trust-item"><span class="trust-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l7 4v5c0 4.5-3 8-7 9-4-1-7-4.5-7-9V7z"/><path d="m9 12 2 2 4-4"/></svg></span><b>Calidad premium</b></div>
     <div class="trust-item"><span class="trust-ic"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M.057 24l1.687-6.163a11.867 11.867 0 0 1-1.587-5.946C.16 5.335 5.495 0 12.05 0a11.817 11.817 0 0 1 8.413 3.488 11.824 11.824 0 0 1 3.48 8.414c-.003 6.557-5.338 11.892-11.893 11.892a11.9 11.9 0 0 1-5.688-1.448L.057 24z"/></svg></span><b>Atención por WhatsApp</b></div>
   </section>
+
+</div>
 </main>
 
-<!-- FOOTER -->
+<!-- ═══ FOOTER ═══ -->
 <footer class="footer">
   <div class="wrap footer-grid">
     <div class="f-brand">
@@ -323,23 +349,60 @@ button{font-family:inherit;cursor:pointer;border:none;background:none}
   <div class="wrap footer-bottom">© 2026 Paladear Mercado de Sabores · Pedidos por WhatsApp · (versión de prueba)</div>
 </footer>
 
-<!-- BOTTOM NAV -->
+<!-- ═══ BOTTOM NAV ═══ -->
 <nav class="bottom-nav" aria-label="Navegación inferior">
-  <a href="#" class="active"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M3 11l9-8 9 8"/><path d="M5 10v10h14V10"/></svg><span>Inicio</span></a>
-  <a href="#"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7" rx="1.5"/><rect x="14" y="3" width="7" height="7" rx="1.5"/><rect x="3" y="14" width="7" height="7" rx="1.5"/><rect x="14" y="14" width="7" height="7" rx="1.5"/></svg><span>Productos</span></a>
-  <a href="#"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M20 12l-8 8-9-9V4h7z"/><circle cx="7.5" cy="7.5" r="1.5"/></svg><span>Ofertas</span></a>
-  <a href="#"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19V5a2 2 0 0 1 2-2h11v18H6a2 2 0 0 1-2-2z"/><path d="M8 7h6M8 11h6"/></svg><span>Recetas</span></a>
+  <a href="index.html" class="active"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M3 11l9-8 9 8"/><path d="M5 10v10h14V10"/></svg><span>Inicio</span></a>
+  <a href="productos.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7" rx="1.5"/><rect x="14" y="3" width="7" height="7" rx="1.5"/><rect x="3" y="14" width="7" height="7" rx="1.5"/><rect x="14" y="14" width="7" height="7" rx="1.5"/></svg><span>Productos</span></a>
+  <a href="productos.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M20 12l-8 8-9-9V4h7z"/><circle cx="7.5" cy="7.5" r="1.5"/></svg><span>Ofertas</span></a>
+  <a href="productos.html?fav=1"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M20.8 5.6a5.4 5.4 0 0 0-7.7 0L12 6.7l-1.1-1.1a5.4 5.4 0 1 0-7.7 7.7L12 22l8.8-8.7a5.4 5.4 0 0 0 0-7.7z"/></svg><span>Favoritos</span></a>
   <a href="#"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="4"/><path d="M5 21c0-3.9 3.1-7 7-7s7 3.1 7 7"/></svg><span>Cuenta</span></a>
   <a href="https://wa.me/5492616512823" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M.057 24l1.687-6.163a11.867 11.867 0 0 1-1.587-5.946C.16 5.335 5.495 0 12.05 0a11.817 11.817 0 0 1 8.413 3.488 11.824 11.824 0 0 1 3.48 8.414c-.003 6.557-5.338 11.892-11.893 11.892a11.9 11.9 0 0 1-5.688-1.448L.057 24zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884a9.86 9.86 0 0 0 1.51 5.26l-.999 3.648 3.978-1.043z"/></svg><span>WhatsApp</span></a>
 </nav>
 
 <script>
-  var mt=document.getElementById('menuToggle'),ov=document.getElementById('navOverlay'),np=document.getElementById('navPanel'),nc=document.getElementById('navClose');
-  function openMenu(){np.classList.add('on');ov.classList.add('on');document.body.style.overflow='hidden';}
-  function closeMenu(){np.classList.remove('on');ov.classList.remove('on');document.body.style.overflow='';}
-  mt.addEventListener('click',openMenu);nc.addEventListener('click',closeMenu);ov.addEventListener('click',closeMenu);
-  var hdr=document.getElementById('header');
-  window.addEventListener('scroll',function(){hdr.classList.toggle('scrolled',window.scrollY>4);},{passive:true});
+// ── Categorías (los mismos emojis de la página oficial) ──
+var CATS=[
+  ['frutos','Frutos Secos','🥜'],['deshidratados','Deshidratados','🍇'],['semillas','Semillas','🌻'],
+  ['especias','Especias','🌿'],['infusiones','Infusiones y Hierbas','🍵'],['cereales','Cereales','🥣'],
+  ['granos','Granos y Legumbres','🫘'],['harinas','Harinas','🌾'],['sintacc','Sin TACC','🌱'],
+  ['dulces','Dulces, Miel y Chocolates','🍯'],['reposteria','Azúcar, Cacao y Repostería','🍫'],['mantecas','Mantecas y Pastas','🧈'],
+  ['aceites','Aceites y Vinagres','🫙'],['aceitunas','Aceitunas','🫒'],['encurtidos','Encurtidos','🥒'],
+  ['tomate','Tomate','🍅'],['snack','Snacks','🍿'],['suplementos','Suplementos','💊'],
+  ['gourmet','Línea Gourmet','⭐'],['bebidas','Bebidas','🥤'],['vinos','Vinos y Licores','🍷'],
+  ['frio','Productos de Frío','❄️'],['congelados','Congelados','🧊'],['home','Paladear Home','🏠']
+];
+function catHTML(c){return '<a class="cat-b" href="productos.html?rubro='+c[0]+'"><span class="bub">'+c[2]+'</span><span>'+c[1]+'</span></a>';}
+document.getElementById('catsScroller').innerHTML=CATS.map(catHTML).join('');
+document.getElementById('catsGrid').innerHTML=CATS.map(catHTML).join('');
+function toggleCats(){
+  var sec=document.getElementById('catsSec'),btn=document.getElementById('catsToggle');
+  sec.classList.toggle('expanded');
+  btn.firstChild.textContent=sec.classList.contains('expanded')?'Ver menos ':'Ver las 24 ';
+}
+// ── Animación del banner de descuento (portada de producción) ──
+(function(){
+  var done=false;
+  function anim(){
+    if(done)return;done=true;
+    var cnt=document.getElementById('descbCnt'),fill=document.getElementById('descbFill'),rw=document.getElementById('descbRw');
+    if(!cnt||!fill||!rw)return;
+    var target=80000,dur=1700,start=null;
+    function step(ts){if(!start)start=ts;var t=Math.min((ts-start)/dur,1),e=1-Math.pow(1-t,3);
+      cnt.textContent='$'+Math.round(e*target).toLocaleString('es-AR');fill.style.width=(e*100)+'%';
+      if(t>=1)rw.classList.add('on');if(t<1)requestAnimationFrame(step);}
+    requestAnimationFrame(step);
+  }
+  var el=document.getElementById('descBanner');
+  if('IntersectionObserver' in window){
+    var io=new IntersectionObserver(function(es){es.forEach(function(en){if(en.isIntersecting){anim();io.disconnect();}});},{threshold:.4});
+    io.observe(el);
+  } else { anim(); }
+})();
+// ── Cerrar el dropdown Info al tocar fuera ──
+document.addEventListener('click',function(e){
+  var d=document.getElementById('hdropMin');
+  if(d && !d.contains(e.target)) d.classList.remove('open');
+});
 </script>
 </body>
 </html>
