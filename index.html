@@ -830,22 +830,6 @@ textarea.co-input{resize:vertical;min-height:60px;font-family:inherit}
 .precio-tachado-sm{text-decoration:line-through;color:var(--muted-fg);font-weight:600;font-size:13px;display:block;line-height:1}
 .precio-oferta{color:#b04020;font-weight:800}
 .price-min .precio-oferta{font-size:18px;display:block;line-height:1.1;margin-top:2px}
-/* Sección Ofertas del mes (carrusel destacado) */
-.ofertas-mes-section{background:linear-gradient(135deg,#fdefd8 0%,#fbe2bd 100%);border:2px solid #d4543c;border-radius:18px;padding:18px 16px;margin-bottom:28px;position:relative;overflow:hidden}
-.ofertas-mes-section::before{content:"";position:absolute;top:-20px;right:-20px;width:120px;height:120px;background:rgba(212,84,60,.08);border-radius:50%}
-.ofertas-mes-title{display:flex;align-items:center;gap:8px;margin-bottom:10px;position:relative;z-index:1;flex-wrap:wrap;row-gap:6px}
-.ofertas-mes-emoji{font-size:22px;flex-shrink:0;line-height:1}
-.ofertas-mes-title h2{font-family:'Montserrat',sans-serif;font-size:22px;font-weight:800;color:#b04020;margin:0;white-space:nowrap;flex-shrink:0}
-.ofertas-mes-title .badge{background:#b04020;color:#fff;font-size:11px;font-weight:700;padding:3px 10px;border-radius:12px;letter-spacing:.3px;flex-shrink:0}
-.ofertas-mes-ver-btn{margin-left:auto;background:#b04020;color:#fff;border:none;border-radius:8px;padding:6px 12px;font-size:12px;font-weight:700;cursor:pointer;font-family:inherit;white-space:nowrap;transition:background .2s;flex-shrink:0}
-.ofertas-mes-ver-btn:hover{background:#943318}
-@media(max-width:600px){
-  .ofertas-mes-title{flex-wrap:nowrap;align-items:flex-start}
-  .ofertas-mes-title h2{font-size:18px}
-  .ofertas-mes-title-row{display:flex;align-items:center;gap:8px;flex-wrap:nowrap;width:100%}
-  .ofertas-mes-ver-btn{padding:5px 9px;font-size:11px}
-}
-.ofertas-mes-subtitle{font-size:12px;color:#8a3520;margin-bottom:14px;position:relative;z-index:1;line-height:1.4}
 /* Desktop: grilla fija de 4, sin scroll */
 @media(min-width:768px){
   .carousel-wrap{overflow:visible}
@@ -1716,10 +1700,10 @@ body.hv-home #mayoristaSection{display:none!important}
 #hvCats.expanded .hv-cats-scroller{display:none}
 #hvCats.expanded .hv-cats-grid{display:grid}
 @media(min-width:768px){.hv-cats-scroller{display:none}.hv-cats-grid{display:grid;grid-template-columns:repeat(8,1fr)}.hv-sec-action{display:none}}
-.hv-ofertas{display:flex;align-items:center;gap:12px;background:#fff;border:1.5px solid #f0d9c3;border-radius:16px;padding:14px 16px;margin:0 0 18px;cursor:pointer;box-shadow:0 2px 12px rgba(184,112,64,.10);width:100%;text-align:left;font-family:inherit}
+.hv-ofertas{display:flex;align-items:center;gap:12px;position:relative;overflow:hidden;background:radial-gradient(circle at 7% 18%,rgba(176,64,32,.11) 0 42px,transparent 43px),radial-gradient(circle at 94% 84%,rgba(230,81,0,.08) 0 68px,transparent 69px),linear-gradient(145deg,#fff8f4,#fce9df);border:1.5px solid #efc9b9;border-radius:16px;padding:14px 16px;margin:0 0 18px;cursor:pointer;box-shadow:0 5px 18px rgba(158,66,37,.13);width:100%;text-align:left;font-family:inherit}
 .hv-ofertas .em{font-size:26px}
-.hv-ofertas b{display:block;font-size:15px;color:#8a3520;font-weight:800}
-.hv-ofertas span{font-size:12px;color:#8a6a50}
+.hv-ofertas b{display:block;font-size:15px;color:var(--azul-dark);font-weight:800}
+.hv-ofertas span{font-size:12px;color:var(--muted-fg)}
 .hv-ofertas .chev{margin-left:auto;color:#b87040;flex-shrink:0}
 #homeView .banners-track-wrap{overflow:visible}
 #homeView .banners-track{display:flex!important;flex-direction:column!important;gap:14px;transform:none!important;transition:none!important;grid-template-columns:none!important}
@@ -1748,11 +1732,11 @@ body.hv-home #mayoristaSection{display:none!important}
 .hv-ofertas{flex-direction:column;align-items:stretch;gap:11px}
 .hvof-head{display:flex;align-items:center;gap:11px;text-align:left}
 .hvof-tk{width:38px;height:auto;flex-shrink:0}
-.hvof-head b{display:block;font-size:15px;color:#8a3520;font-weight:800}
-.hvof-sub{display:block;font-size:12px;color:#8a6a50}
+.hvof-head b{display:block;font-size:15px;color:var(--azul-dark);font-weight:800}
+.hvof-sub{display:block;font-size:12px;color:var(--muted-fg)}
 .hvof-head .chev{margin-left:auto;color:#b87040;flex-shrink:0}
 .hvof-row{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}
-.hvof-card{position:relative;display:flex;flex-direction:column;background:var(--bg,#f6f8fa);border:1.5px solid var(--border,#dde5ec);border-radius:11px;padding:7px;text-align:center;min-width:0}
+.hvof-card{position:relative;display:flex;flex-direction:column;background:rgba(255,255,255,.82);border:1.5px solid #f0d1c4;border-radius:11px;padding:7px;text-align:center;min-width:0}
 .hvof-badge{position:absolute;top:5px;left:5px;background:#e65100;color:#fff;font-size:10px;font-weight:800;border-radius:7px;padding:1.5px 6px;z-index:2}
 .hvof-card img{width:100%;height:64px;object-fit:contain;background:#fff;border-radius:8px}
 .hvof-emoji{height:64px;display:grid;place-items:center;font-size:28px;background:#fff;border-radius:8px}
@@ -1760,6 +1744,29 @@ body.hv-home #mayoristaSection{display:none!important}
 .hvof-precio{font-size:10.5px;margin-top:3px}
 .hvof-precio s{color:var(--muted-fg)}
 .hvof-precio b{color:#e65100;font-size:12.5px}
+/* Vista independiente de Ofertas */
+#ofertasView{display:none;max-width:1100px;margin:0 auto;padding:12px 20px 32px}
+body.hv-ofertas #ofertasView{display:block}
+body.hv-ofertas #homeView,body.hv-ofertas #mainContainer,body.hv-ofertas #recetasSection,body.hv-ofertas #mayoristaSection{display:none!important}
+body.hv-ofertas #tabsPill{display:none}
+body.hv-ofertas #mainTabs .may-tab,body.hv-ofertas #mainTabs .may-tab span{color:#fff!important;-webkit-text-fill-color:#fff!important}
+.ofview-shell{position:relative;overflow:hidden;isolation:isolate;background:radial-gradient(circle at 6% 8%,rgba(176,64,32,.11) 0 68px,transparent 69px),radial-gradient(circle at 94% 19%,rgba(230,81,0,.09) 0 98px,transparent 99px),radial-gradient(circle at 79% 91%,rgba(176,64,32,.07) 0 126px,transparent 127px),linear-gradient(145deg,#fff8f4,#fce8df);border:1.5px solid #efc9b9;border-radius:22px;padding:24px;box-shadow:0 8px 28px rgba(158,66,37,.12)}
+.ofview-head{position:relative;z-index:1;display:flex;align-items:center;gap:15px;margin-bottom:22px}
+.ofview-icon{width:68px;height:68px;object-fit:contain;flex-shrink:0;filter:drop-shadow(0 4px 7px rgba(120,44,23,.18))}
+.ofview-head h1{font-size:29px;line-height:1.1;color:var(--azul-dark);font-weight:850;margin:0 0 5px}
+.ofview-head p{font-size:13px;line-height:1.45;color:var(--muted-fg);font-weight:550;margin:0}
+.ofview-stat{margin-left:auto;flex-shrink:0;background:#b04020;color:#fff!important;-webkit-text-fill-color:#fff!important;border-radius:999px;padding:7px 13px;font-size:11.5px;font-weight:800;box-shadow:0 4px 12px rgba(176,64,32,.19)}
+.ofview-grid{position:relative;z-index:1}
+.ofview-empty{position:relative;z-index:1;text-align:center;background:rgba(255,255,255,.72);border:1.5px solid #efd0c3;border-radius:16px;padding:42px 20px;color:var(--azul-dark);font-size:14px;font-weight:650}
+@media(max-width:767px){
+  #ofertasView{padding:8px 10px 24px}
+  .ofview-shell{border-radius:16px;padding:14px}
+  .ofview-head{align-items:flex-start;gap:10px;margin-bottom:15px;flex-wrap:wrap}
+  .ofview-icon{width:50px;height:50px}
+  .ofview-head h1{font-size:22px;margin-top:2px}
+  .ofview-head p{font-size:11.5px;max-width:210px}
+  .ofview-stat{margin-left:60px;margin-top:-8px;padding:6px 10px;font-size:10.5px}
+}
 /* Catálogo completo por rubro */
 .allcat-sec{margin-bottom:34px}
 .catalog-intro{display:flex;align-items:center;justify-content:space-between;gap:18px;margin:4px 0 24px;padding:18px 20px;background:var(--azul-light);border:1.5px solid rgba(84,118,146,.24);border-radius:16px}
@@ -1770,7 +1777,6 @@ body.hv-home #mayoristaSection{display:none!important}
 .allcat-img{width:54px;height:54px;object-fit:contain;filter:drop-shadow(0 2px 3px rgba(0,0,0,.15));flex-shrink:0}
 .allcat-name{font-size:20px;font-weight:800;color:var(--azul-dark)}
 .allcat-count{font-size:12px;font-weight:700;color:var(--azul);background:var(--azul-light);border-radius:999px;padding:2px 10px}
-.ofertas-grid-top{margin-bottom:30px}
 @media(max-width:767px){
   .catalog-intro{align-items:flex-start;margin:2px 0 20px;padding:14px;gap:10px;border-radius:14px}
   .catalog-intro h1{font-size:20px;margin-bottom:4px}
@@ -1800,9 +1806,13 @@ body.hv-home #mayoristaSection{display:none!important}
 @media(max-width:767px){
   .bnav{display:flex}
   body{padding-bottom:calc(58px + env(safe-area-inset-bottom))}
-  #cart-fab{bottom:calc(88px + 56px)!important}
+  #cart-fab{bottom:calc(64px + env(safe-area-inset-bottom))!important;right:12px!important;height:52px!important;min-width:104px!important;width:auto!important;border-radius:999px!important;padding:4px 12px 4px 6px!important;gap:4px!important}
   #backToTop{bottom:calc(94px + 56px)!important}
 }
+.cart-fab-label{font-size:12px;font-weight:800;line-height:1;color:#fff!important;-webkit-text-fill-color:#fff!important;white-space:nowrap}
+#cart-fab{width:auto;min-width:112px;height:58px;border-radius:999px;padding:4px 14px 4px 6px;border:2px solid rgba(255,255,255,.95);box-shadow:0 7px 25px rgba(36,65,91,.48);gap:4px}
+#cart-fab:hover{transform:scale(1.04)}
+#cart-fab .cart-count{top:-7px;right:-5px}
 </style>
 <div id="homeView">
   <!-- HERO -->
@@ -1886,7 +1896,7 @@ body.hv-home #mayoristaSection{display:none!important}
 
   <!-- OFERTAS (aparece solo si hay productos en oferta) -->
   <button class="hv-ofertas" id="hvOfertas" style="display:none" onclick="hvIrOfertas()">
-    <span class="em">🏷️</span>
+    <img class="hvof-tk" src="nav-ofertas.png" alt="">
     <span><b>Ofertas del mes</b><span id="hvOfN">productos en oferta</span></span>
     <svg class="chev" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="m9 6 6 6-6 6"/></svg>
   </button>
@@ -1924,6 +1934,21 @@ body.hv-home #mayoristaSection{display:none!important}
 </div>
 </div>
 
+<!-- ═══ Vista independiente: Ofertas ═══ -->
+<div id="ofertasView">
+  <section class="ofview-shell" aria-labelledby="ofertasViewTitle">
+    <div class="ofview-head">
+      <img class="ofview-icon" src="nav-ofertas.png" alt="" aria-hidden="true">
+      <div>
+        <h1 id="ofertasViewTitle">Ofertas del mes</h1>
+        <p>Todos los productos con descuento, reunidos en un solo lugar.</p>
+      </div>
+      <span class="ofview-stat" id="ofertasViewStat"></span>
+    </div>
+    <div id="ofertasViewContent"></div>
+  </section>
+</div>
+
 <!-- ═══ Barra inferior (mobile) ═══ -->
 <nav class="bnav" aria-label="Navegación inferior">
   <div class="bnav-pill" id="bnavPill" aria-hidden="true"></div>
@@ -1942,165 +1967,7 @@ body.hv-home #mayoristaSection{display:none!important}
 
   
 
-  <!-- ═══ SECCIÓN MUNDIAL DE SABORES (especial del mes) ═══ -->
-  <style>
-    .mund-section{background:linear-gradient(160deg,#e9f4fd 0%,#c9e3f7 100%);border:2px solid #6cace4;border-radius:18px;padding:0 16px 22px;margin:6px 0 28px;position:relative;overflow:hidden;box-shadow:0 4px 18px rgba(74,134,192,.20)}
-    .mund-confeti{position:absolute;inset:0;width:100%;height:100%;z-index:0;pointer-events:none;overflow:hidden}
-    .mund-confeti i{position:absolute;top:-6%;width:7px;height:11px;border-radius:2px;opacity:0;animation:mundFall linear infinite}
-    @keyframes mundFall{0%{top:-6%;opacity:0;transform:rotate(0deg)}12%{opacity:.85}88%{opacity:.85}100%{top:106%;opacity:0;transform:rotate(360deg)}}
-    @media(prefers-reduced-motion:reduce){.mund-confeti i{animation:none;opacity:.5}}
-    .mund-bunting{display:block;width:calc(100% + 32px);height:38px;margin:0 -16px;position:relative;z-index:2}
-    .mund-header{text-align:center;margin:8px 0 0;position:relative;z-index:2}
-    .mund-header h2{display:flex;align-items:center;justify-content:center;gap:8px;font-family:'Montserrat',sans-serif;font-size:21px;font-weight:800;color:#1f5c8f;margin:0;line-height:1.16;text-shadow:0 1px 0 rgba(255,255,255,.55)}
-    .mund-header h2>span{min-width:0}
-    .mund-star-pair{height:15px;width:auto;flex-shrink:0}
-    .mund-boxes{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px;max-width:640px;margin:18px auto 0;position:relative;z-index:2}
-    .mund-boxes-wrap{position:relative;z-index:2}
-    .mund-dots{display:none}
-    .mund-box{background:#fff;border-radius:14px;overflow:hidden;box-shadow:0 4px 14px rgba(31,92,143,.18);border:2px solid #fff;display:flex;flex-direction:column;transition:box-shadow .2s,border-color .2s,transform .2s}
-    .mund-box:hover{box-shadow:0 10px 26px rgba(31,92,143,.28);border-color:#6cace4;transform:translateY(-3px)}
-    .mund-box-img-wrap{position:relative;width:100%;height:180px;display:flex;align-items:center;justify-content:center;background:#fff;overflow:hidden}
-    .mund-box-img{width:100%;height:100%;object-fit:contain;padding:10px;cursor:zoom-in}
-    .mund-box-ph{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:7px;color:#a7c1da;font-size:11.5px;font-weight:600;font-family:'Montserrat',sans-serif;letter-spacing:.2px}
-    .mund-box-ph svg{width:38px;height:38px}
-    .mund-box-title{background:linear-gradient(135deg,#6cace4,#4a86c0);color:#fff;font-family:'Montserrat',sans-serif;font-weight:800;font-size:14.5px;line-height:1.22;padding:9px 13px;min-height:54px;box-sizing:border-box;display:flex;align-items:center;gap:7px}
-    .mund-box-title svg{width:15px;height:15px;flex-shrink:0}
-    .mund-box-body{padding:12px 14px 14px;flex:1;display:flex;flex-direction:column}
-    .mund-list{list-style:none;padding:0;margin:0 0 13px;flex:1;display:grid;grid-template-columns:1fr 1fr;gap:4px 14px;align-content:start}
-    .mund-list li{font-size:12.5px;color:#42566c;padding:3px 0 3px 19px;position:relative;font-weight:500}
-    .mund-list li::before{content:"";position:absolute;left:0;top:6px;width:9px;height:9px;background:#6cace4;clip-path:polygon(50% 0,61% 35%,98% 35%,68% 57%,79% 91%,50% 70%,21% 91%,32% 57%,2% 35%,39% 35%)}
-    .mund-box-foot{display:flex;flex-direction:column;gap:9px;margin-top:auto}
-    .mund-qtyrow{display:flex;align-items:center;gap:7px;flex-wrap:wrap}
-    .mund-qbtn{width:28px;height:28px;border:1.5px solid #cfe3f5;background:#fff;color:#1f5c8f;border-radius:7px;font-size:16px;font-weight:700;cursor:pointer;line-height:1;display:flex;align-items:center;justify-content:center;transition:background .15s,border-color .15s}
-    .mund-qbtn:hover{background:#eaf4fc;border-color:#6cace4}
-    .mund-qval{min-width:22px;text-align:center;font-weight:700;font-size:14px;color:#1f5c8f}
-    .mund-acum{display:none;font-size:11px;font-weight:700;color:#16a34a;background:#eafaf0;border:1px solid #bbe8cd;padding:2px 8px;border-radius:11px;white-space:nowrap}
-    .mund-acum.on{display:inline-block}
-    .mund-trash{align-items:center;justify-content:center;width:28px;height:28px;flex-shrink:0;border:1.5px solid #f3c6c0;background:#fff;color:#d4543c;border-radius:7px;cursor:pointer;padding:0;transition:background .15s,border-color .15s}
-    .mund-trash:hover{background:#fdecea;border-color:#d4543c}
-    .mund-trash svg{width:15px;height:15px}
-    .mund-price{font-size:19px;font-weight:800;color:#1f5c8f}
-    .mund-btn{width:100%;background:linear-gradient(135deg,#6cace4,#4a86c0);color:#fff;border:none;border-radius:9px;padding:10px 12px;font-size:12.5px;font-weight:700;cursor:pointer;font-family:inherit;transition:filter .2s,transform .1s}
-    .mund-btn:hover{filter:brightness(1.07)}
-    .mund-btn:active{transform:scale(.98)}
-    .mund-btn.added{background:#16a34a}
-    /* ── CELULAR: carrusel compacto (va al FINAL para ganar a las reglas base) ── */
-    @media(max-width:640px){
-      .mund-section{padding:0 12px 14px}
-      .mund-header{margin:6px 0 0}
-      .mund-header h2{font-size:17.5px;gap:7px}
-      .mund-bunting{height:32px}
-      .mund-boxes-wrap{overflow:hidden;transition:height .4s cubic-bezier(.4,0,.2,1);margin-top:12px}
-      .mund-boxes{display:flex;align-items:flex-start;transition:transform .4s cubic-bezier(.4,0,.2,1);gap:0;max-width:none;margin:0}
-      .mund-box{flex:0 0 100%;min-width:0}
-      .mund-box-img-wrap{height:104px}
-      .mund-box-title{min-height:0;padding:7px 13px;font-size:13.5px}
-      .mund-box-body{padding:9px 13px 11px;flex:none}
-      .mund-list{margin:0;gap:1px 10px;flex:none}
-      .mund-list li{font-size:11px;padding:1px 0 1px 14px}
-      .mund-list li::before{width:7px;height:7px;top:5px}
-      .mund-box-foot{gap:7px;margin-top:9px}
-      .mund-price{font-size:17px}
-      .mund-dots{display:flex;justify-content:center;gap:9px;margin-top:3px;position:relative;z-index:2}
-      .mund-dot{width:8px;height:8px;border-radius:50%;border:none;background:#a7c1da;padding:0;cursor:pointer;transition:background .2s,transform .2s}
-      .mund-dot.active{background:#1f5c8f;transform:scale(1.35)}
-    }
-  </style>
-  <div class="mund-section" id="mundialSection">
-    <div class="mund-confeti" aria-hidden="true">
-      <i style="left:5%;width:7px;height:11px;background:#6cace4;animation-duration:9s;animation-delay:-1s"></i>
-      <i style="left:12%;width:6px;height:6px;border-radius:50%;background:#fff;animation-duration:7.5s;animation-delay:-4s"></i>
-      <i style="left:20%;width:8px;height:12px;background:#fff;animation-duration:10.5s;animation-delay:-7s"></i>
-      <i style="left:28%;width:6px;height:10px;background:#4a86c0;animation-duration:8s;animation-delay:-2.5s"></i>
-      <i style="left:36%;width:5px;height:5px;border-radius:50%;background:#6cace4;animation-duration:11s;animation-delay:-9s"></i>
-      <i style="left:44%;width:7px;height:11px;background:#fff;animation-duration:8.5s;animation-delay:-5s"></i>
-      <i style="left:52%;width:6px;height:10px;background:#6cace4;animation-duration:9.5s;animation-delay:-0.5s"></i>
-      <i style="left:60%;width:5px;height:5px;border-radius:50%;background:#fff;animation-duration:7s;animation-delay:-6s"></i>
-      <i style="left:68%;width:8px;height:12px;background:#6cace4;animation-duration:10s;animation-delay:-3s"></i>
-      <i style="left:76%;width:6px;height:10px;background:#4a86c0;animation-duration:8.5s;animation-delay:-8s"></i>
-      <i style="left:84%;width:6px;height:6px;border-radius:50%;background:#fff;animation-duration:9s;animation-delay:-2s"></i>
-      <i style="left:91%;width:7px;height:11px;background:#6cace4;animation-duration:11.5s;animation-delay:-5.5s"></i>
-      <i style="left:97%;width:5px;height:9px;background:#fff;animation-duration:7.5s;animation-delay:-7.5s"></i>
-      <i style="left:32%;width:6px;height:6px;border-radius:50%;background:#fff;animation-duration:10s;animation-delay:-10s"></i>
-    </div>
-    <svg class="mund-bunting" viewBox="0 0 1200 40" preserveAspectRatio="none" aria-hidden="true">
-      <defs>
-        <linearGradient id="mundBgC" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#8fc4ec"/><stop offset="1" stop-color="#5a9bd4"/></linearGradient>
-        <linearGradient id="mundBgW" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#ffffff"/><stop offset="1" stop-color="#dcebf8"/></linearGradient>
-      </defs>
-      <path d="M0,6 Q600,18 1200,6" fill="none" stroke="#3f7cb5" stroke-width="2.5" vector-effect="non-scaling-stroke"/>
-      <g stroke="#3f7cb5" stroke-width="1.1" vector-effect="non-scaling-stroke" stroke-linejoin="round">
-        <path fill="url(#mundBgC)" d="M0,6 L100,7.8 L50,31 Z M200,9.3 L300,10.5 L250,34 Z M400,11.3 L500,11.8 L450,35.6 Z M600,12 L700,11.8 L650,36 Z M800,11.3 L900,10.5 L850,35 Z M1000,9.3 L1100,7.8 L1050,32.6 Z"/>
-        <path fill="url(#mundBgW)" d="M100,7.8 L200,9.3 L150,32.6 Z M300,10.5 L400,11.3 L350,35 Z M500,11.8 L600,12 L550,36 Z M700,11.8 L800,11.3 L750,35.6 Z M900,10.5 L1000,9.3 L950,34 Z M1100,7.8 L1200,6 L1150,31 Z"/>
-      </g>
-    </svg>
-    <div class="mund-header">
-      <h2><svg class="mund-star-pair" viewBox="0 0 46 22" aria-hidden="true"><g fill="#f4c64a" stroke="#d99a25" stroke-width="0.9" stroke-linejoin="round"><path transform="translate(11,11) scale(0.82)" d="M0,-10 L2.24,-3.09 L9.51,-3.09 L3.63,1.18 L5.88,8.09 L0,3.82 L-5.88,8.09 L-3.63,1.18 L-9.51,-3.09 L-2.24,-3.09 Z"/><path transform="translate(34,11) scale(0.82)" d="M0,-10 L2.24,-3.09 L9.51,-3.09 L3.63,1.18 L5.88,8.09 L0,3.82 L-5.88,8.09 L-3.63,1.18 L-9.51,-3.09 L-2.24,-3.09 Z"/></g></svg><span>Mundial de Sabores en Paladear</span><svg class="mund-star-pair" viewBox="0 0 46 22" aria-hidden="true"><g fill="#f4c64a" stroke="#d99a25" stroke-width="0.9" stroke-linejoin="round"><path transform="translate(11,11) scale(0.82)" d="M0,-10 L2.24,-3.09 L9.51,-3.09 L3.63,1.18 L5.88,8.09 L0,3.82 L-5.88,8.09 L-3.63,1.18 L-9.51,-3.09 L-2.24,-3.09 Z"/><path transform="translate(34,11) scale(0.82)" d="M0,-10 L2.24,-3.09 L9.51,-3.09 L3.63,1.18 L5.88,8.09 L0,3.82 L-5.88,8.09 L-3.63,1.18 L-9.51,-3.09 L-2.24,-3.09 Z"/></g></svg></h2>
-    </div>
-    <div class="mund-boxes-wrap" id="mundBoxesWrap">
-    <div class="mund-boxes" id="mundBoxes">
-      <div class="mund-box">
-        <div class="mund-box-img-wrap">
-          <img class="mund-box-img" id="mundImg4800" alt="La picada no se mancha" style="display:none" onclick="zoomImg(this)">
-          <div class="mund-box-ph" id="mundPh4800"><svg viewBox="0 0 24 24" fill="none" stroke="#a7c1da" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2.5"/><circle cx="8.5" cy="8.5" r="1.6"/><path d="M21 15.5l-4.5-4.5L5 21.5"/></svg><span>Foto en camino</span></div>
-        </div>
-        <div class="mund-box-title"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="#fff" d="M12,2 L14.7,8.6 L21.8,9.1 L16.3,13.7 L18.1,20.6 L12,16.8 L5.9,20.6 L7.7,13.7 L2.2,9.1 L9.3,8.6 Z"/></svg>La picada no se mancha</div>
-        <div class="mund-box-body">
-          <ul class="mund-list">
-            <li>Pasta de aceitunas</li>
-            <li>Mix cervecero</li>
-            <li>Mix patagónico</li>
-            <li>Chips de batata</li>
-            <li>Vino Malbec</li>
-          </ul>
-          <div class="mund-box-foot">
-            <div class="mund-qtyrow">
-              <button class="mund-qbtn" onclick="chgQty('mundCard4800',-1)" aria-label="Restar">−</button>
-              <span class="mund-qval" id="mundCard4800_q">1</span>
-              <button class="mund-qbtn" onclick="chgQty('mundCard4800',1)" aria-label="Sumar">+</button>
-              <span class="mund-acum" id="mundAcum4800"></span>
-              <button class="mund-trash" id="mundTrash4800" onclick="quitarBoxMundial('4800')" title="Quitar del carrito" style="display:none"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="3 6 5 6 21 6"/><path d="M19 6l-1 14a2 2 0 0 1-2 2H8a2 2 0 0 1-2-2L5 6"/><path d="M10 11v6"/><path d="M14 11v6"/><path d="M9 6V4a1 1 0 0 1 1-1h4a1 1 0 0 1 1 1v2"/></svg></button>
-            </div>
-            <span class="mund-price" id="mundPrice4800">$20.000</span>
-            <button class="mund-btn" id="mundBtn4800" onclick="agregarBoxMundial('4800',this)">🛒 Agregar al carrito</button>
-          </div>
-        </div>
-      </div>
-      <div class="mund-box">
-        <div class="mund-box-img-wrap">
-          <img class="mund-box-img" id="mundImg4801" alt="Primero Paladear, segundo Francia" style="display:none" onclick="zoomImg(this)">
-          <div class="mund-box-ph" id="mundPh4801"><svg viewBox="0 0 24 24" fill="none" stroke="#a7c1da" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2.5"/><circle cx="8.5" cy="8.5" r="1.6"/><path d="M21 15.5l-4.5-4.5L5 21.5"/></svg><span>Foto en camino</span></div>
-        </div>
-        <div class="mund-box-title"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="#fff" d="M12,2 L14.7,8.6 L21.8,9.1 L16.3,13.7 L18.1,20.6 L12,16.8 L5.9,20.6 L7.7,13.7 L2.2,9.1 L9.3,8.6 Z"/></svg>Primero Paladear, segundo Francia</div>
-        <div class="mund-box-body">
-          <ul class="mund-list">
-            <li>Mix cervecero</li>
-            <li>Mix tradicional</li>
-            <li>Crackers</li>
-            <li>Aceitunas rellenas</li>
-            <li>Mayonesa</li>
-            <li>Nueces confitadas</li>
-            <li>Vermouth</li>
-          </ul>
-          <div class="mund-box-foot">
-            <div class="mund-qtyrow">
-              <button class="mund-qbtn" onclick="chgQty('mundCard4801',-1)" aria-label="Restar">−</button>
-              <span class="mund-qval" id="mundCard4801_q">1</span>
-              <button class="mund-qbtn" onclick="chgQty('mundCard4801',1)" aria-label="Sumar">+</button>
-              <span class="mund-acum" id="mundAcum4801"></span>
-              <button class="mund-trash" id="mundTrash4801" onclick="quitarBoxMundial('4801')" title="Quitar del carrito" style="display:none"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="3 6 5 6 21 6"/><path d="M19 6l-1 14a2 2 0 0 1-2 2H8a2 2 0 0 1-2-2L5 6"/><path d="M10 11v6"/><path d="M14 11v6"/><path d="M9 6V4a1 1 0 0 1 1-1h4a1 1 0 0 1 1 1v2"/></svg></button>
-            </div>
-            <span class="mund-price" id="mundPrice4801">$30.000</span>
-            <button class="mund-btn" id="mundBtn4801" onclick="agregarBoxMundial('4801',this)">🛒 Agregar al carrito</button>
-          </div>
-        </div>
-      </div>
-    </div>
-    </div>
-    <div class="mund-dots" id="mundDots"><button class="mund-dot active" onclick="goSlideMund(0)" aria-label="Ver box 1"></button><button class="mund-dot" onclick="goSlideMund(1)" aria-label="Ver box 2"></button></div>
-  </div>
-  <!-- La lógica del banner Mundial (agregarBoxMundial + relleno de imágenes/precios)
-       vive DENTRO del script principal para poder acceder a PRODS/cart. -->
+  <!-- Promo Mundial finalizada y retirada. -->
 
   <!-- MÓVIL: panel de categorías (el botón está integrado en el buscador) -->
   <div class="cats-dropdown-overlay" id="catsDropdownOverlay" onclick="toggleCatsDropdown()"></div>
@@ -2288,9 +2155,8 @@ body.hv-home #mayoristaSection{display:none!important}
 
 
 <!-- CHATBOT -->
-<button id="chat-fab" onclick="toggleChat()" title="Consultar">💬</button>
 <button id="backToTop" onclick="window.scrollTo({top:0,behavior:'smooth'})" title="Volver arriba">↑</button>
-<button id="cart-fab" onclick="openCart()" title="Ver carrito"><img class="fab-icon" src="icon-carrito.png" alt=""><span class="cart-count" id="cartCount">0</span></button>
+<button id="cart-fab" onclick="openCart()" title="Ver carrito"><img class="fab-icon" src="icon-carrito.png" alt=""><span class="cart-fab-label">Carrito</span><span class="cart-count" id="cartCount">0</span></button>
 <div id="chat-box">
   <div id="chat-header">
     <img src="chat-avatar.jpg" loading="lazy" onerror="this.style.display='none'" alt="">
@@ -2499,42 +2365,6 @@ function renderCarruseles(){
   const isMobile=window.innerWidth<768;
   let htmlDesktop='',htmlMobile='';
 
-  // ━━━ CARRUSEL "OFERTAS DEL MES" (si hay productos en oferta) ━━━
-  const prodsOferta=PRODS.filter(p=>p[12]&&p[12].oferta>0);
-  if(prodsOferta.length){
-    const cidOf='carOf', cidOfM='carOfM';
-    // Desktop: 4 productos con rotación
-    const shuffledOf=[...prodsOferta].sort(()=>Math.random()-.5);
-    _carState[cidOf]={prods:shuffledOf,cursor:0};
-    const visiblesOf=shuffledOf.slice(0,4);
-    const ofertaHeader=`<div class="ofertas-mes-title">
-        <span class="ofertas-mes-emoji">🏷️</span>
-        <h2>Ofertas del mes</h2>
-        <span class="badge">Hasta -${Math.max(...prodsOferta.map(p=>p[12].oferta))}%</span>
-        <button class="ofertas-mes-ver-btn" onclick="selectOfertasMes()">Ver todos →</button>
-      </div>
-      <div class="ofertas-mes-subtitle">Productos seleccionados con descuento — no acumulable con descuento por volumen ($80.000+)</div>`;
-    const _cardHTMLOferta=p=>`<div class="carousel-card" onclick="selectOfertasMes(${p[0]})">
-    ${p[12]&&p[12].oferta?`<div class="oferta-badge">−${p[12].oferta}%</div>`:''}
-    <div class="carousel-card-img">${p[6]&&p[6].startsWith('http')?`<img src="${p[6]}" alt="${p[2]}" onerror="this.parentNode.innerHTML='🌿'" loading="lazy">`:`${CATS.find(c=>c.id===p[1])?CATS.find(c=>c.id===p[1]).ic:'🌿'}`}</div>
-    <div class="carousel-card-body">
-      <div class="carousel-card-name">${_tc(p[2])}</div>
-      <div class="carousel-card-cat">${CATS.find(c=>c.id===p[1])?CATS.find(c=>c.id===p[1]).n:''}</div>
-      ${(()=>{const opts=_sortOpts(Object.keys(p[7]));const precio=opts.length?p[7][opts[0]][0]:0;const pct=p[12]&&p[12].oferta?p[12].oferta:0;return pct>0?`<div class="carousel-card-price"><span class="precio-tachado">$${fmt(precio)}</span> <span class="precio-oferta">$${fmt(Math.round(precio*(1-pct/100)))}</span></div>`:`<div class="carousel-card-price">$${fmt(precio)}</div>`})()}
-    </div>
-  </div>`;
-    htmlDesktop+=`<div class="ofertas-mes-section">
-      ${ofertaHeader}
-      <div class="carousel-wrap"><div class="carousel-track" id="${cidOf}">${visiblesOf.map(_cardHTMLOferta).join('')}</div></div>
-    </div>`;
-    // Mobile: todos
-    const prodsOfertaSorted=[...prodsOferta].sort((a,b)=>a[2].localeCompare(b[2],'es'));
-    htmlMobile+=`<div class="ofertas-mes-section">
-      ${ofertaHeader}
-      <div class="carousel-wrap"><div class="carousel-track" id="${cidOfM}">${prodsOfertaSorted.map(_cardHTMLOferta).join('')}</div></div>
-    </div>`;
-  }
-
   // Orden alfabético puro
   const catsCarousel=[...CATS].sort((a,b)=>a.n.localeCompare(b.n,'es'));
 
@@ -2645,44 +2475,6 @@ function selectCat(catId,productId){
 
 let _activeOfertasMes=false;
 
-function selectOfertasMes(productId){
-  if(_carRotationInterval){clearInterval(_carRotationInterval);_carRotationInterval=null;}
-  _activeOfertasMes=true;
-  activeCatId=null;
-  renderCatsUI();
-  const prods=PRODS.filter(p=>p[12]&&p[12].oferta>0)
-    .sort((a,b)=>a[2].localeCompare(b[2],'es',{sensitivity:'base'}));
-  const isMobile=window.innerWidth<768;
-  const prefix=isMobile?'mb':'dt';
-  const maxPct=prods.length?Math.max(...prods.map(p=>p[12].oferta)):15;
-  let h=`<div style="display:flex;align-items:center;gap:8px;margin:12px 0 4px;flex-wrap:nowrap">
-    <span style="font-size:22px;flex-shrink:0">🏷️</span>
-    <h2 style="font-size:22px;color:#b04020;font-weight:800;margin:0;white-space:nowrap">Ofertas del mes</h2>
-    <span style="background:#b04020;color:#fff;font-size:11px;font-weight:700;padding:3px 10px;border-radius:12px;flex-shrink:0">Hasta -${maxPct}%</span>
-  </div>
-  <div style="font-size:12px;color:#8a3520;margin-bottom:16px;line-height:1.4">Productos seleccionados con descuento. No acumulable con descuento por volumen ($80.000+).</div>`;
-  h+='<div class="prod-grid">';
-  prods.forEach(p=>{h+=renderCard(p,prefix);});
-  h+='</div>';
-  const area=isMobile?document.getElementById('mobileProdsArea'):document.getElementById('desktopProdsArea');
-  if(isMobile)area.classList.remove('hidden');
-  area.innerHTML=h;
-  if(!history.state||history.state.view!=='ofertasMes'){
-    history.pushState({view:'ofertasMes',productId:productId||null},'');
-  }
-  if(productId!=null){
-    setTimeout(()=>{
-      const card=document.getElementById(prefix+'_'+productId);
-      if(card){
-        card.scrollIntoView({behavior:'smooth',block:'center'});
-        card.classList.add('highlight-card');
-        setTimeout(()=>card.classList.remove('highlight-card'),2200);
-      }
-    },80);
-  }
-  _saveAppState();
-}
-window.selectOfertasMes=selectOfertasMes;
 
 function volverInicio(){
   _activeOfertasMes=false;
@@ -2816,7 +2608,7 @@ function _precioXG(p,totalG,nivel){
 }
 function _reRenderCard(pid){
   const p=PRODS.find(x=>x[0]===pid);if(!p)return;
-  ['mb','dt','rp'].forEach(function(prefix){
+  ['mb','dt','rp','of'].forEach(function(prefix){
     const cardEl=document.getElementById(prefix+'_'+pid);
     if(!cardEl)return;
     const tmp=document.createElement('div');
@@ -2944,7 +2736,6 @@ function updateCartCount(){
   if(isMay&&!_wasMay)_triggerMayoristaConfetti();
   _wasMay=isMay;
   _saveCart();
-  if(typeof _refreshMundAcums==='function')_refreshMundAcums(); // mantener al día el subtotal/tacho del banner Mundial
 }
 
 function openCart(){
@@ -3906,7 +3697,7 @@ window.addEventListener('popstate',function(e){
 
   // 3. Si estamos en la vista de Ofertas del mes → volver al inicio
   if(_activeOfertasMes){
-    volverInicio();
+    window.switchTab('minorista');
     history.pushState({view:'home'},'');
     _saveAppState();
     return;
@@ -3987,6 +3778,7 @@ window.addEventListener('beforeunload', function() {
       tab: (typeof currentTab !== 'undefined' && currentTab) ? currentTab : 'minorista',
       catMin: activeCatId || null,
       catMay: activeCatIdMay || null,
+      ofertasMes: _activeOfertasMes || false,
       scrollY: window.scrollY,
       ts: Date.now()
     };
@@ -4035,7 +3827,7 @@ function _restoreAppState() {
     }, 100);
   } else {
     // Restaurar la pestaña (con Home como default del tester, hay que volver explícitamente)
-    if (state.tab === 'minorista' || state.tab === 'recetas') window.switchTab(state.tab);
+    if (state.tab === 'minorista' || state.tab === 'recetas' || state.tab === 'ofertas') window.switchTab(state.tab);
     // Minorista: esperar a que PRODS esté listo
     let intentos = 0;
     const waitMin = setInterval(function() {
@@ -4421,91 +4213,6 @@ window.addEventListener('resize',()=>{
     const track=document.getElementById('bannersTrack');
     if(track)track.style.transform='';
   }
-});
-
-/* ── MUNDIAL CAROUSEL (mobile swipe + auto-slide), mismo patrón que los banners ── */
-let _mundCur=0,_mundTimer=null;
-function _updMundDots(){
-  document.querySelectorAll('#mundDots .mund-dot').forEach((d,i)=>d.classList.toggle('active',i===_mundCur));
-}
-function _setMundHeight(){
-  const wrap=document.getElementById('mundBoxesWrap');
-  const boxes=document.querySelectorAll('#mundBoxes .mund-box');
-  if(!wrap||!boxes.length)return;
-  if(window.innerWidth>640){wrap.style.height='';return;} // desktop: altura automática
-  const h=boxes[_mundCur]?boxes[_mundCur].offsetHeight:0;
-  // +10 de aire para que el overflow:hidden del wrap no recorte las esquinas redondeadas ni la sombra de la card
-  if(h)wrap.style.height=(h+10)+'px';
-}
-function goSlideMund(i,smooth){
-  const track=document.getElementById('mundBoxes');
-  if(!track||window.innerWidth>640)return;
-  _mundCur=Math.max(0,Math.min(i,1));
-  track.style.transition=smooth===false?'none':'transform .4s cubic-bezier(.4,0,.2,1)';
-  track.style.transform='translateX(-'+(_mundCur*100)+'%)';
-  _updMundDots();
-  _setMundHeight();
-}
-function _startMundTimer(){
-  if(_mundTimer)clearInterval(_mundTimer);
-  _mundTimer=setInterval(()=>{
-    if(window.innerWidth>640)return;
-    goSlideMund((_mundCur+1)%2);
-  },5500);
-}
-(function _initMundCarousel(){
-  let tx0=0,ty0=0,dragging=false,startCur=0;
-  function onStart(e){
-    const t=e.touches?e.touches[0]:e;
-    tx0=t.clientX;ty0=t.clientY;dragging=true;startCur=_mundCur;
-    const track=document.getElementById('mundBoxes');
-    if(track)track.style.transition='none';
-    if(_mundTimer)clearInterval(_mundTimer);
-  }
-  function onMove(e){
-    if(!dragging)return;
-    const t=e.touches?e.touches[0]:e;
-    const dx=t.clientX-tx0,dy=t.clientY-ty0;
-    if(Math.abs(dy)>Math.abs(dx)+8){dragging=false;return;} // scroll vertical → no interferir
-    const track=document.getElementById('mundBoxes');
-    if(!track||window.innerWidth>640)return;
-    e.preventDefault();
-    const pct=startCur*100-(dx/track.parentElement.offsetWidth*100);
-    track.style.transform='translateX(-'+Math.max(0,Math.min(100,pct))+'%)';
-  }
-  function onEnd(e){
-    if(!dragging)return;
-    dragging=false;
-    const t=e.changedTouches?e.changedTouches[0]:e;
-    const dx=t.clientX-tx0;
-    const TH=40;
-    if(dx<-TH)goSlideMund(startCur+1);
-    else if(dx>TH)goSlideMund(startCur-1);
-    else goSlideMund(startCur); // snap back
-    _startMundTimer();
-  }
-  function init(){
-    const wrap=document.getElementById('mundBoxesWrap');
-    if(!wrap)return;
-    wrap.addEventListener('touchstart',onStart,{passive:true});
-    wrap.addEventListener('touchmove',onMove,{passive:false});
-    wrap.addEventListener('touchend',onEnd,{passive:true});
-    _updMundDots();
-    _setMundHeight();
-    _startMundTimer();
-    window.addEventListener('load',_setMundHeight);
-  }
-  if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',init);
-  else init();
-})();
-window.goSlideMund=goSlideMund;
-window.addEventListener('resize',()=>{
-  const track=document.getElementById('mundBoxes');
-  if(window.innerWidth>640){
-    if(track)track.style.transform='';
-    _mundCur=0;_updMundDots();
-  }
-  _setMundHeight();
 });
 
 /* Las animaciones viejas de íconos mix/granola (mixIconSvg/granolaIconSvg) se
@@ -5105,19 +4812,29 @@ function hvRenderOfertas(){
         +'<span class="hvof-precio"><s>$'+fmt(precio)+'</s> <b>$'+fmt(Math.round(precio*(1-pct/100)))+'</b></span></span>';
     }).join('');
     box.innerHTML='<span class="hvof-head"><img class="hvof-tk" src="nav-ofertas.png" alt="">'
-      +'<span><b>Ofertas del mes</b><span class="hvof-sub">'+of.length+' producto'+(of.length!==1?'s':'')+' con descuento · tocá para ver todos</span></span>'
+      +'<span><b>Ofertas del mes</b><span class="hvof-sub">'+of.length+' producto'+(of.length!==1?'s':'')+' con descuento. Tocá para verlos todos.</span></span>'
       +'<svg class="chev" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="m9 6 6 6-6 6"/></svg></span>'
       +'<span class="hvof-row">'+minis+'</span>';
   }catch(e){}
 }
+function renderOfertasView(){
+  var area=document.getElementById('ofertasViewContent');
+  var stat=document.getElementById('ofertasViewStat');
+  if(!area||!stat)return;
+  var of=(PRODS||[]).filter(function(p){return p[12]&&p[12].oferta>0;})
+    .sort(function(a,b){return a[2].localeCompare(b[2],'es',{sensitivity:'base'});});
+  if(!of.length){
+    stat.textContent='';
+    area.innerHTML='<div class="ofview-empty">Hoy no hay productos con descuento. Volvé a revisar pronto.</div>';
+    return;
+  }
+  var maxPct=Math.max.apply(null,of.map(function(p){return p[12].oferta;}));
+  stat.textContent=of.length+' oferta'+(of.length!==1?'s':'')+'. Hasta -'+maxPct+'%';
+  area.innerHTML='<div class="prod-grid ofview-grid">'+of.map(function(p){return renderCard(p,'of');}).join('')+'</div>';
+}
+window.renderOfertasView=renderOfertasView;
 function hvIrOfertas(){
-  window.switchTab('minorista');
-  setTimeout(function(){
-    try{ if(typeof selectOfertasMes==='function'){ selectOfertasMes(); _bnavSet('ofertas'); return; } }catch(e){}
-    var el=document.querySelector('.ofertas-mes-title');
-    if(el) el.scrollIntoView({behavior:'smooth',block:'start'});
-    _bnavSet('ofertas');
-  },80);
+  selectOfertasMes();
 }
 window.hvIrOfertas=hvIrOfertas;
 function _bnavMovePill(btn,animate){
@@ -5148,7 +4865,7 @@ function _bnavSet(tab){
 window._bnavSet=_bnavSet;
 function _bnavBaseTab(){
   if(document.body.classList.contains('hv-home'))return 'home';
-  if(typeof _activeOfertasMes!=='undefined'&&_activeOfertasMes)return 'ofertas';
+  if(document.body.classList.contains('hv-ofertas'))return 'ofertas';
   return currentTab==='minorista'?'minorista':null;
 }
 function _bnavActiveTab(){
@@ -5185,30 +4902,64 @@ window._bnavToast=function(){
   window.switchTab = function(tab){
     if(tab==='home'){
       _prev('minorista'); // resetea header/FABs/estado al modo minorista
+      document.body.classList.remove('hv-ofertas');
       document.body.classList.add('hv-home');
+      _activeOfertasMes=false;
       document.querySelectorAll('#mainTabs .may-tab').forEach(function(b){ b.classList.remove('active'); });
       var th=document.getElementById('tabHome');
       if(th){ th.classList.add('active'); try{ _setPill(th); }catch(e){} }
       currentTab='home';
       hvRenderCats(); hvRenderOfertas();
       _bnavSet('home');
+      if(typeof _saveAppState==='function')_saveAppState();
       window.scrollTo({top:0,behavior:'instant'});
       return;
     }
-    document.body.classList.remove('hv-home');
-    var thx=document.getElementById('tabHome'); if(thx) thx.classList.remove('active');
+    if(tab==='ofertas'){
+      _prev('minorista');
+      document.body.classList.remove('hv-home');
+      document.body.classList.add('hv-ofertas');
+      _activeOfertasMes=true;
+      activeCatId=null;
+      currentTab='ofertas';
+      document.querySelectorAll('#mainTabs .may-tab').forEach(function(b){b.classList.remove('active');});
+      var hpill=document.getElementById('tabsPill');
+      if(hpill)hpill.style.setProperty('--pill-w','0px');
+      renderOfertasView();
+      _bnavSet('ofertas');
+      if(typeof _saveAppState==='function')_saveAppState();
+      window.scrollTo({top:0,behavior:'instant'});
+      return;
+    }
     var resetCatalog=tab==='minorista'&&(activeCatId||_activeOfertasMes);
+    document.body.classList.remove('hv-home','hv-ofertas');
+    _activeOfertasMes=false;
+    var thx=document.getElementById('tabHome'); if(thx) thx.classList.remove('active');
     _prev(tab);
     if(resetCatalog)volverInicio();
     try{ var act=document.querySelector('#mainTabs .may-tab.active'); if(act) _setPill(act); }catch(e){}
     _bnavSet(tab==='recetas' ? 'recetas' : 'minorista');
   };
 })();
-// Buscar desde el header compacto estando en Home → saltar a Productos
+function selectOfertasMes(productId){
+  window.switchTab('ofertas');
+  if(!history.state||history.state.view!=='ofertasMes')history.pushState({view:'ofertasMes',productId:productId||null},'');
+  if(productId!=null){
+    setTimeout(function(){
+      var card=document.getElementById('of_'+productId);
+      if(!card)return;
+      card.scrollIntoView({behavior:'smooth',block:'center'});
+      card.classList.add('highlight-card');
+      setTimeout(function(){card.classList.remove('highlight-card');},2200);
+    },80);
+  }
+}
+window.selectOfertasMes=selectOfertasMes;
+// Buscar desde el header compacto estando en Home u Ofertas → saltar a Productos
 (function(){
   if(typeof window.compactOnSearch==='function'){
     var _o=window.compactOnSearch;
-    window.compactOnSearch=function(v){ if(document.body.classList.contains('hv-home') && v && String(v).trim()) window.switchTab('minorista'); _o(v); };
+    window.compactOnSearch=function(v){ if((document.body.classList.contains('hv-home')||document.body.classList.contains('hv-ofertas')) && v && String(v).trim()) window.switchTab('minorista'); _o(v); };
   }
 })();
 hvRenderCats();
@@ -5225,15 +4976,13 @@ setTimeout(function(){
 renderCarruseles = function(){
   if(_carRotationInterval){clearInterval(_carRotationInterval);_carRotationInterval=null;}
   for(const k in _carState)delete _carState[k];
-  // La demo de ofertas se re-aplica en cada render (el CSV fresco reconstruye PRODS y la pisa)
-  try{ hvAplicarOfertasDemo(); }catch(e){}
   try{ hvRenderOfertas(); }catch(e){}
+  if(document.body.classList.contains('hv-ofertas'))try{renderOfertasView();}catch(e){}
   if(!PRODS.length){
     document.getElementById('desktopProdsArea').innerHTML='';
     document.getElementById('mobileProdsArea').innerHTML='';
     return;
   }
-  const prodsOferta=PRODS.filter(p=>p[12]&&p[12].oferta>0);
   function buildAll(prefix){
     let h=`<div class="catalog-intro">
       <div>
@@ -5242,16 +4991,6 @@ renderCarruseles = function(){
       </div>
       <button class="catalog-filter-btn" onclick="toggleCatsDropdown()"><span aria-hidden="true">☰</span> Categorías</button>
     </div>`;
-    if(prodsOferta.length){
-      const maxOf=Math.max(...prodsOferta.map(p=>p[12].oferta));
-      h+=`<div class="ofertas-mes-title" style="margin-top:4px">
-        <img src="nav-ofertas.png" alt="" style="width:36px;height:auto">
-        <h2>Ofertas del mes</h2>
-        <span class="badge">Hasta -${maxOf}%</span>
-      </div>
-      <div class="ofertas-mes-subtitle">Productos seleccionados con descuento. No acumulable con descuento por volumen ($80.000+).</div>
-      <div class="prod-grid ofertas-grid-top">${[...prodsOferta].sort((a,b)=>a[2].localeCompare(b[2],'es')).map(p=>renderCard(p,prefix)).join('')}</div>`;
-    }
     const catsAlpha=[...CATS].sort((a,b)=>a.n.localeCompare(b.n,'es'));
     catsAlpha.forEach(cat=>{
       const prods=PRODS.filter(p=>p[1]===cat.id).sort((a,b)=>a[2].localeCompare(b[2],'es'));
@@ -5271,24 +5010,6 @@ renderCarruseles = function(){
   document.getElementById('mobileProdsArea').innerHTML=buildAll('mb')||'<div></div>';
   document.getElementById('mobileProdsArea').classList.remove('hidden');
 };
-
-/* ═══ TESTER2: ofertas de DEMO (solo para visualizar; no toca la planilla) ═══ */
-var _hvDemoOf={'1024':15,'1842':10,'1127':20,'1379':10,'1418':15,'2308':20};
-function hvAplicarOfertasDemo(){
-  try{
-    if(!PRODS.length) return false;
-    var tocado=false;
-    PRODS.forEach(function(p){
-      var id=p[12]&&p[12].productId;
-      if(id && _hvDemoOf[id] && !(p[12].oferta>0)){ p[12].oferta=_hvDemoOf[id]; tocado=true; }
-    });
-    return tocado;
-  }catch(e){ return false; }
-}
-(function hvDemoLoop(n){
-  if(hvAplicarOfertasDemo()){ try{renderCarruseles();}catch(e){} hvRenderOfertas(); return; }
-  if(n<50) setTimeout(function(){ hvDemoLoop(n+1); }, 400);
-})(0);
 
 // Cargar datos mayorista desde Apps Script (referencia la hoja por nombre, no GID)
 function cargarMayorista() {
@@ -6160,80 +5881,6 @@ window.pedirWA=pedirWA;
 window.sendQuickFaq=sendQuickFaq;
 window.volverInicio=volverInicio;
 window.zoomImg=zoomImg;
-
-// ── BANNER MUNDIAL: agregar box al carrito + rellenar imágenes/precios ──
-function agregarBoxMundial(productId,btn){
-  if(!PRODS||!PRODS.length){alert('El box se está cargando, probá de nuevo en unos segundos 🙂');return;}
-  const p=PRODS.find(x=>x[12]&&String(x[12].productId)===String(productId));
-  if(!p){alert('No encontramos el box. Reintentá en unos segundos 🙂');return;}
-  const TIT={'4800':'La picada no se mancha','4801':'Primero Paladear, segundo Francia'};
-  const nombre=TIT[String(productId)]||p[2];
-  const opt=_sortOpts(Object.keys(p[7]))[0];
-  const qEl=document.getElementById('mundCard'+productId+'_q');
-  const qty=qEl?(parseInt(qEl.textContent)||1):1;
-  const key=p[0]+'-'+opt;
-  const ex=cart.find(i=>i.key===key);
-  if(ex){ex.c+=qty;ex.n=nombre;} else cart.push({key,pid:p[0],n:nombre,o:opt,c:qty,l1:p[7][opt][0],l2:p[7][opt][1],unidad:'und',sabor:''});
-  if(qEl)qEl.textContent='1';
-  updateCartCount();
-  // animación de vuelo igual que las cards (usa la foto del box, o el placeholder si no hay)
-  const img=document.getElementById('mundImg'+productId);
-  const ph=document.getElementById('mundPh'+productId);
-  _flyToCart((img&&img.style.display!=='none')?img:ph);
-  _updMundAcum(productId,p);
-  if(btn){btn.classList.add('added');btn.innerHTML='✓ ¡Agregado!';setTimeout(()=>{btn.classList.remove('added');btn.innerHTML='🛒 Agregar al carrito';},1400);}
-}
-// Actualiza el badge de subtotal acumulado del box (paridad con .acum-badge de las cards)
-function _updMundAcum(productId,p){
-  const el=document.getElementById('mundAcum'+productId);
-  const trash=document.getElementById('mundTrash'+productId);
-  if(!el)return;
-  const items=cart.filter(i=>i.pid===p[0]);
-  if(!items.length){el.textContent='';el.classList.remove('on');if(trash)trash.style.display='none';return;}
-  const sub=items.reduce((a,it)=>a+_itemMin(it),0);
-  el.textContent='🛒 '+_acumLabel(p)+' · $'+fmt(sub);
-  el.classList.add('on');
-  if(trash)trash.style.display='inline-flex';
-}
-// Refresca el subtotal y el tacho de ambos box (se llama desde updateCartCount ante cualquier cambio del carrito)
-function _refreshMundAcums(){
-  if(!PRODS||!PRODS.length)return;
-  ['4800','4801'].forEach(function(pid){
-    var p=PRODS.find(function(x){return x[12]&&String(x[12].productId)===pid;});
-    if(p)_updMundAcum(pid,p);
-  });
-}
-// Quitar el box del carrito desde el banner (mismo efecto que el tacho de las cards)
-function quitarBoxMundial(productId){
-  if(!PRODS||!PRODS.length)return;
-  var p=PRODS.find(function(x){return x[12]&&String(x[12].productId)===String(productId);});
-  if(p)cardDelProduct(p[0]);
-}
-window.quitarBoxMundial=quitarBoxMundial;
-window.agregarBoxMundial=agregarBoxMundial;
-function _fillMund(){
-  if(!PRODS||!PRODS.length)return false;
-  let ok=false;
-  [['4800','mundImg4800','mundPrice4800','mundPh4800'],['4801','mundImg4801','mundPrice4801','mundPh4801']].forEach(b=>{
-    const p=PRODS.find(x=>x[12]&&String(x[12].productId)===b[0]);
-    if(!p)return; ok=true;
-    const img=document.getElementById(b[1]);
-    if(img&&p[6]&&String(p[6]).indexOf('http')===0&&img.dataset.loaded!==p[6]){
-      img.dataset.loaded=p[6];
-      img.dataset.src=p[6]; // para el zoom al tocar (zoomImg lee dataset.src)
-      const ph=document.getElementById(b[3]);
-      img.onload=function(){img.style.display='';if(ph)ph.style.display='none';};
-      img.onerror=function(){img.style.display='none';if(ph)ph.style.display='';};
-      img.src=p[6];
-    }
-    const opts=Object.keys(p[7]);const precio=opts.length?p[7][opts[0]][0]:0;
-    const pr=document.getElementById(b[2]);
-    if(pr&&precio)pr.textContent='$'+(typeof fmt==='function'?fmt(precio):precio);
-    _updMundAcum(b[0],p);
-  });
-  return ok;
-}
-(function(){let _mt=0;const _miv=setInterval(()=>{_mt++;if(_fillMund()||_mt>60)clearInterval(_miv);},300);})();
 
 // ── CATS DROPDOWN (mobile) ──
 let _catsDropOpen=false;
