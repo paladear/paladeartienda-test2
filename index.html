@@ -338,6 +338,7 @@ button{cursor:pointer;border:none;font-family:inherit}
 .head-icon{width:26px;height:26px;object-fit:contain;display:inline-block;vertical-align:middle;margin-right:6px;filter:drop-shadow(0 1px 1.5px rgba(0,0,0,.18))}
 .inline-icon{width:18px;height:18px;object-fit:contain;display:inline-block;vertical-align:middle;margin-right:6px;filter:drop-shadow(0 1px 1.5px rgba(0,0,0,.18))}
 .btn-ico-img{width:20px;height:20px;object-fit:contain;display:inline-block;vertical-align:middle;flex-shrink:0;filter:drop-shadow(0 1px 1.5px rgba(0,0,0,.18))}
+.btn-info-icon{display:inline-flex;align-items:center;justify-content:center;flex-shrink:0;font-family:Georgia,'Times New Roman',serif;font-size:22px;font-style:italic;font-weight:700;line-height:1;filter:drop-shadow(0 1px 1.5px rgba(0,0,0,.18))}
 .may-tab-icon{filter:drop-shadow(0 2px 2.5px rgba(0,0,0,.22))}
 @media(max-width:767px){#cart-fab{bottom:88px;right:18px;width:52px;height:52px;font-size:24px}#chat-fab{right:18px}}
 .cart-count{background:var(--destructive);color:#fff;border-radius:50%;width:24px;height:24px;font-size:12px;display:flex;align-items:center;justify-content:center;font-weight:700}
@@ -393,7 +394,10 @@ button{cursor:pointer;border:none;font-family:inherit}
 .cats-dropdown-title{font-family:'Montserrat',sans-serif;font-size:17px;font-weight:700;color:var(--azul-dark);margin-bottom:14px;display:flex;align-items:center;justify-content:space-between}
 .cats-dropdown-close{background:var(--muted);border:none;width:32px;height:32px;border-radius:50%;font-size:18px;cursor:pointer;display:flex;align-items:center;justify-content:center;color:var(--fg);flex-shrink:0}
 .cats-dropdown-list{display:flex;flex-direction:column;gap:7px}
-.cats-dd-btn{height:44px;border-radius:10px;padding:0 14px;border:2.5px solid transparent;box-shadow:0 2px 6px rgba(0,0,0,.13);display:flex;align-items:center;justify-content:flex-start;cursor:pointer;transition:all .2s;font-family:inherit;width:100%}
+.cats-dd-btn{min-height:58px;border-radius:12px;padding:7px 14px 7px 9px;gap:12px;border:2.5px solid transparent;box-shadow:0 2px 6px rgba(0,0,0,.13);display:flex;align-items:center;justify-content:flex-start;cursor:pointer;transition:all .2s;font-family:inherit;width:100%}
+.cats-dd-thumb{width:44px;height:44px;border-radius:50%;background:rgba(255,255,255,.96);display:grid;place-items:center;flex-shrink:0;position:relative}
+.cats-dd-thumb img{width:48px;height:48px;object-fit:contain;display:block;filter:drop-shadow(0 2px 3px rgba(0,0,0,.18))}
+.cats-dd-thumb.all img{width:36px;height:36px}
 .cats-dd-btn .nm{font-family:'Montserrat',sans-serif;font-size:14px;font-weight:700;color:#fff;line-height:1;letter-spacing:.2px;text-align:left}
 .cats-dd-btn:hover{filter:brightness(1.12);transform:translateX(3px)}
 
@@ -421,7 +425,10 @@ button{cursor:pointer;border:none;font-family:inherit}
 .checkout-delivery-opts{display:flex;flex-direction:column;gap:10px}
 .checkout-delivery-btn{background:var(--card);border:2px solid var(--muted);border-radius:14px;padding:15px;display:flex;align-items:center;gap:12px;cursor:pointer;transition:all .2s;font-family:inherit;text-align:left;width:100%}
 .checkout-delivery-btn:hover,.checkout-delivery-btn:active{border-color:var(--azul);background:rgba(84,118,146,.05)}
-.checkout-delivery-ic{font-size:30px;flex-shrink:0;line-height:1}
+.checkout-delivery-ic{width:48px;height:40px;flex-shrink:0;display:flex;align-items:center;justify-content:center}
+.checkout-delivery-ic img{display:block;max-width:100%;max-height:100%;object-fit:contain;filter:drop-shadow(0 2px 3px rgba(36,65,91,.20))}
+.checkout-delivery-ic.retiro img{width:38px}
+.checkout-delivery-ic.domicilio img{width:48px}
 .checkout-delivery-txt{flex:1}
 .checkout-delivery-txt b{display:block;font-size:15px;color:var(--fg);margin-bottom:2px;font-family:inherit}
 .checkout-delivery-txt small{font-size:12px;color:var(--muted-fg)}
@@ -1583,7 +1590,7 @@ body.compact-on .compact-header{transform:translateY(0);pointer-events:auto}
     <!-- MINORISTA -->
     <div class="hdrop" id="hdropMin">
       <button class="hdrop-btn min-btn" onclick="toggleHdrop('Min')">
-        <img class="btn-ico-img" src="icon-minorista.png" alt=""><span class="btn-txt">Info</span> <span class="arrow">▼</span>
+        <span class="btn-info-icon" aria-hidden="true">i</span><span class="btn-txt">Info</span> <span class="arrow">▼</span>
       </button>
       <div class="hdrop-panel">
         <div class="hdrop-title">ℹ️ Información</div>
@@ -1596,12 +1603,11 @@ body.compact-on .compact-header{transform:translateY(0);pointer-events:auto}
       </div>
     </div>
     <style>
-      .cats-burger-btn{display:flex;align-items:center;justify-content:center;width:40px;height:40px;border-radius:999px;border:none;cursor:pointer;background:var(--azul-dark);color:#fff;transition:background .2s,transform .2s,box-shadow .2s;flex-shrink:0}
+      .cats-burger-btn{display:flex;align-items:center;justify-content:center;width:36px;height:36px;border-radius:999px;border:none;cursor:pointer;background:var(--azul-dark);color:#fff;transition:background .2s,transform .2s,box-shadow .2s;flex-shrink:0}
       .cats-burger-btn:hover{background:#1a3050;transform:translateY(-1px);box-shadow:0 4px 14px rgba(0,0,0,.22)}
-      @media(max-width:600px){.cats-burger-btn{width:36px;height:36px}}
+      @media(max-width:600px){.cats-burger-btn{width:32px;height:32px}.hdrop-btn{width:32px;height:32px;padding:0;justify-content:center}.btn-info-icon{font-size:21px}}
     </style>
     <button class="cats-burger-btn cuenta-btn" onclick="openCuenta()" title="Mi cuenta" aria-label="Mi cuenta"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="3.6"/><path d="M5 20c0-3.6 3.2-5.6 7-5.6s7 2 7 5.6"/></svg></button>
-    <button class="cats-burger-btn" onclick="toggleCatsDropdown()" title="Categorías" aria-label="Ver categorías"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><line x1="4" y1="7" x2="20" y2="7"/><line x1="4" y1="12" x2="20" y2="12"/><line x1="4" y1="17" x2="20" y2="17"/></svg></button>
 
   </div>
 </div>
@@ -2019,6 +2025,16 @@ body.hv-favoritos .bnav a.active,body.hv-favoritos .bnav a.active span{color:var
   <a data-b="favoritos" onclick="openWishlist()"><img src="nav-favoritos.png" alt=""><span>Favoritos</span></a>
 </nav>
 
+<!-- Panel global de categorías: lo abre el hamburguesa de la barra compacta -->
+<div class="cats-dropdown-overlay" id="catsDropdownOverlay" onclick="toggleCatsDropdown()"></div>
+<div class="cats-dropdown-panel" id="catsDropdownPanel" style="display:none">
+  <div class="cats-dropdown-title">
+    Categorías
+    <button class="cats-dropdown-close" onclick="toggleCatsDropdown()">×</button>
+  </div>
+  <div class="cats-dropdown-list" id="catsDropdownGrid"></div>
+</div>
+
 <div style="max-width:1100px;margin:0 auto;padding:18px 20px" id="mainContainer" data-hv="1">
   <!-- Buscador y categorías ahora viven en el compact-header (aparecen al scrollear) -->
   <input type="hidden" id="searchInput">
@@ -2029,15 +2045,6 @@ body.hv-favoritos .bnav a.active,body.hv-favoritos .bnav a.active span{color:var
 
   <!-- Promo Mundial finalizada y retirada. -->
 
-  <!-- MÓVIL: panel de categorías (el botón está integrado en el buscador) -->
-  <div class="cats-dropdown-overlay" id="catsDropdownOverlay" onclick="toggleCatsDropdown()"></div>
-  <div class="cats-dropdown-panel" id="catsDropdownPanel" style="display:none">
-    <div class="cats-dropdown-title">
-      Categorías
-      <button class="cats-dropdown-close" onclick="toggleCatsDropdown()">×</button>
-    </div>
-    <div class="cats-dropdown-list" id="catsDropdownGrid"></div>
-  </div>
   <!-- MÓVIL: productos -->
   <div class="mobile-prods-area hidden" id="mobileProdsArea"></div>
 
@@ -2532,7 +2539,7 @@ function renderCatsUI(){
 
   // Dropdown grid mobile
   const dg=document.getElementById('catsDropdownGrid');
-  if(dg)dg.innerHTML=`<button class="cats-dd-btn" style="background:var(--azul-dark)" onclick="volverInicio();closeCatsDropdown()"><div class="nm">Todos los productos</div></button>`+sortedCats.map((c,i)=>`<button class="cats-dd-btn" style="background:var(--cat${i%4})" onclick="selectCat('${c.id}');closeCatsDropdown()"><div class="nm">${c.n}</div></button>`).join('');
+  if(dg)dg.innerHTML=`<button class="cats-dd-btn" style="background:var(--azul-dark)" onclick="window.switchTab('minorista');volverInicio();closeCatsDropdown()"><span class="cats-dd-thumb all"><img src="icon-minorista.png" alt="" aria-hidden="true"></span><div class="nm">Todos los productos</div></button>`+sortedCats.map((c,i)=>`<button class="cats-dd-btn" style="background:var(--cat${i%4})" onclick="hvGoCat('${c.id}');closeCatsDropdown()"><span class="cats-dd-thumb"><img src="cat-${c.id}.png" alt="" aria-hidden="true" loading="lazy" onerror="this.style.display='none'"></span><div class="nm">${c.n}</div></button>`).join('');
 }
 
 /* ── SELECCIONAR CATEGORÍA ── */
@@ -4899,8 +4906,7 @@ function hvRenderCats(){
   var w1=document.getElementById('hvCatsScroller'), w2=document.getElementById('hvCatsGrid');
   if(!w1||w1.childElementCount) return;
   var h='';
-  Object.keys(RUBRO_MAP).forEach(function(k){
-    var c=RUBRO_MAP[k];
+  Object.keys(RUBRO_MAP).map(function(k){return RUBRO_MAP[k];}).sort(function(a,b){return a.n.localeCompare(b.n,'es',{sensitivity:'base'});}).forEach(function(c){
     h+='<button class="hv-cat" data-cat="'+c.id+'" onclick="hvGoCat(\''+c.id+'\')"><span class="bub"><img src="cat-'+c.id+'.png" alt="" loading="lazy" onerror="this.parentNode.textContent=\''+c.ic+'\'"></span><span>'+c.n+'</span></button>';
   });
   w1.innerHTML=h; w2.innerHTML=h;
@@ -7649,12 +7655,12 @@ window.copiarLinkParaNavegador = function() {
         <p class="checkout-step-lbl">¿Cómo querés recibir tu pedido?</p>
         <div class="checkout-delivery-opts">
           <button class="checkout-delivery-btn" onclick="coElegirEntrega('retiro')">
-            <span class="checkout-delivery-ic">🏬</span>
+            <span class="checkout-delivery-ic retiro"><img src="nav-inicio.png" alt="" aria-hidden="true"></span>
             <div class="checkout-delivery-txt"><b>Retiro en el local</b><small id="coRetiroSub">Pueyrredón 588, Mendoza · Lun–Sáb 10 a 20hs</small></div>
             <span class="checkout-delivery-arr">›</span>
           </button>
           <button class="checkout-delivery-btn" onclick="coElegirEntrega('domicilio')">
-            <span class="checkout-delivery-ic">🚚</span>
+            <span class="checkout-delivery-ic domicilio"><img src="camion-envio.png" alt="" aria-hidden="true"></span>
             <div class="checkout-delivery-txt"><b>Envío a domicilio</b><small>Hacemos envíos a todo el país</small></div>
             <span class="checkout-delivery-arr">›</span>
           </button>
