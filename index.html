@@ -1752,15 +1752,23 @@ body.hv-home #mayoristaSection{display:none!important}
 .allcat-chev{margin-left:auto;font-size:22px;color:var(--muted-fg)}
 .ofertas-grid-top{margin-bottom:30px}
 /* ═══ Barra inferior (mobile) ═══ */
-.bnav{position:fixed;left:0;right:0;bottom:0;z-index:9000;display:none;background:#fff;border-top:1px solid var(--border);padding-bottom:env(safe-area-inset-bottom);box-shadow:0 -4px 20px rgba(61,90,114,.10)}
-.bnav a{flex:1;min-width:0;display:flex;flex-direction:column;align-items:center;gap:3px;padding:8px 0 7px;color:var(--muted-fg);font-size:9.5px;font-weight:600;text-decoration:none;cursor:pointer}
+.bnav{position:fixed;left:0;right:0;bottom:0;z-index:9000;display:none;background:var(--azul);border-top:0;padding-bottom:env(safe-area-inset-bottom);box-shadow:0 -4px 20px rgba(61,90,114,.18);isolation:isolate}
+.bnav-pill{position:absolute;top:0;left:var(--bnav-pill-x,0);width:var(--bnav-pill-w,0);height:54px;background:#fff;border-radius:0 0 22px 22px;z-index:0;pointer-events:none;transform:translateZ(0);backface-visibility:hidden}
+.bnav-pill::before,.bnav-pill::after{content:'';position:absolute;top:0;width:22px;height:22px;pointer-events:none}
+.bnav-pill::before{left:-22px;background:radial-gradient(circle at 0 100%,transparent 22px,#fff 23px)}
+.bnav-pill::after{right:-22px;background:radial-gradient(circle at 100% 100%,transparent 22px,#fff 23px)}
+.bnav-pill.sliding{animation:bnavPillSlide .45s forwards}
+@keyframes bnavPillSlide{0%{transform:translateX(var(--bnav-pill-dx,0));animation-timing-function:cubic-bezier(.2,.6,.35,1)}60%{transform:translateX(calc(var(--bnav-pill-dx,0) * -0.05));animation-timing-function:ease-in-out}80%{transform:translateX(calc(var(--bnav-pill-dx,0) * 0.02));animation-timing-function:ease-out}100%{transform:translateX(0)}}
+.bnav a{position:relative;z-index:2;flex:1;min-width:0;display:flex;flex-direction:column;align-items:center;gap:3px;padding:8px 0 7px;color:rgba(255,255,255,.92);font-size:9.5px;font-weight:650;text-decoration:none;cursor:pointer;transition:color .2s}
 .bnav a span{max-width:100%;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
 .bnav a svg{width:21px;height:21px;color:var(--azul)}
-.bnav a img{width:24px;height:24px;object-fit:contain}
-.bnav a.active{color:#b87040;font-weight:700}
-.bnav a.active svg{color:#b87040}
+.bnav a img{width:24px;height:24px;object-fit:contain;transform-origin:center}
+.bnav a.active{color:var(--azul-dark);font-weight:750}
+.bnav a.active svg{color:var(--azul-dark)}
+.bnav a.active img{animation:iconBounce .35s ease-out forwards}
 #bnavToast{position:fixed;left:50%;transform:translateX(-50%) translateY(14px);bottom:calc(74px + env(safe-area-inset-bottom));background:var(--azul-dark);color:#fff;font-size:13px;font-weight:600;border-radius:999px;padding:9px 16px;z-index:9500;opacity:0;pointer-events:none;transition:all .3s}
 #bnavToast.on{opacity:1;transform:translateX(-50%) translateY(0)}
+@media(prefers-reduced-motion:reduce){.bnav-pill.sliding,.bnav a.active img{animation:none}}
 @media(max-width:767px){
   .bnav{display:flex}
   body{padding-bottom:calc(58px + env(safe-area-inset-bottom))}
@@ -1890,12 +1898,13 @@ body.hv-home #mayoristaSection{display:none!important}
 
 <!-- ═══ Barra inferior (mobile) ═══ -->
 <nav class="bnav" aria-label="Navegación inferior">
+  <div class="bnav-pill" id="bnavPill" aria-hidden="true"></div>
   <a data-b="home" class="active" onclick="switchTab('home')"><img src="nav-inicio.png" alt=""><span>Inicio</span></a>
   <a data-b="minorista" onclick="switchTab('minorista')"><img src="icon-minorista.png" alt=""><span>Productos</span></a>
-  <a onclick="hvIrOfertas()"><img src="nav-ofertas.png" alt=""><span>Ofertas</span></a>
-  <a onclick="_bnavToast()"><img src="nav-favoritos.png" alt=""><span>Favoritos</span></a>
-  <a onclick="openCuenta()"><img src="nav-cuenta.png" alt=""><span>Cuenta</span></a>
-  <a href="https://wa.me/5492616512823" target="_blank" rel="noopener"><img src="nav-whatsapp.png" alt=""><span>WhatsApp</span></a>
+  <a data-b="ofertas" onclick="hvIrOfertas()"><img src="nav-ofertas.png" alt=""><span>Ofertas</span></a>
+  <a data-b="favoritos" onclick="_bnavToast()"><img src="nav-favoritos.png" alt=""><span>Favoritos</span></a>
+  <a data-b="cuenta" onclick="_bnavOpenCuenta()"><img src="nav-cuenta.png" alt=""><span>Cuenta</span></a>
+  <a data-b="whatsapp" href="https://wa.me/5492616512823" target="_blank" rel="noopener" onclick="_bnavWhatsapp()"><img src="nav-whatsapp.png" alt=""><span>WhatsApp</span></a>
 </nav>
 <div id="bnavToast">💛 Favoritos: lo armamos en el próximo paso</div>
 
@@ -2655,6 +2664,7 @@ function volverInicio(){
   activeCatId=null;
   renderCatsUI();
   renderCarruseles();
+  if(typeof _bnavSet==='function')_bnavSet('minorista');
 }
 
 function renderProdsHTML(cat,prods,prefix){
@@ -5076,19 +5086,108 @@ function hvRenderOfertas(){
 function hvIrOfertas(){
   window.switchTab('minorista');
   setTimeout(function(){
-    try{ if(typeof selectOfertasMes==='function'){ selectOfertasMes(); return; } }catch(e){}
+    try{ if(typeof selectOfertasMes==='function'){ selectOfertasMes(); _bnavSet('ofertas'); return; } }catch(e){}
     var el=document.querySelector('.ofertas-mes-title');
     if(el) el.scrollIntoView({behavior:'smooth',block:'start'});
+    _bnavSet('ofertas');
   },80);
 }
 window.hvIrOfertas=hvIrOfertas;
+var _bnavPillX=null,_bnavPillW=null,_bnavPillAnimEnd=null;
+function _bnavMovePill(btn,animate){
+  var pill=document.getElementById('bnavPill');
+  if(!pill||!btn)return;
+  var navRect=btn.parentElement.getBoundingClientRect(),btnRect=btn.getBoundingClientRect();
+  var newLeft=btnRect.left-navRect.left,newWidth=btnRect.width;
+  if(_bnavPillX===null||!animate){
+    pill.classList.remove('sliding');
+    pill.style.setProperty('--bnav-pill-x',newLeft+'px');
+    pill.style.setProperty('--bnav-pill-w',newWidth+'px');
+    _bnavPillX=newLeft;_bnavPillW=newWidth;
+    return;
+  }
+  var dx=_bnavPillX-newLeft;
+  if(Math.abs(dx)<.5&&Math.abs((_bnavPillW||0)-newWidth)<.5)return;
+  pill.style.setProperty('--bnav-pill-dx',dx+'px');
+  pill.style.setProperty('--bnav-pill-x',newLeft+'px');
+  pill.style.setProperty('--bnav-pill-w',newWidth+'px');
+  _bnavPillX=newLeft;_bnavPillW=newWidth;
+  if(_bnavPillAnimEnd)pill.removeEventListener('animationend',_bnavPillAnimEnd);
+  pill.classList.remove('sliding');
+  void pill.offsetWidth;
+  pill.classList.add('sliding');
+  _bnavPillAnimEnd=function(){pill.classList.remove('sliding');_bnavPillAnimEnd=null;};
+  pill.addEventListener('animationend',_bnavPillAnimEnd,{once:true});
+}
 function _bnavSet(tab){
-  document.querySelectorAll('.bnav a[data-b]').forEach(function(a){ a.classList.toggle('active', a.getAttribute('data-b')===tab); });
+  var active=null;
+  document.querySelectorAll('.bnav a[data-b]').forEach(function(a){
+    var on=a.getAttribute('data-b')===tab;
+    a.classList.toggle('active',on);
+    if(on)active=a;
+  });
+  if(active)_bnavMovePill(active,true);
+  else{
+    var pill=document.getElementById('bnavPill');
+    if(pill){pill.classList.remove('sliding');pill.style.setProperty('--bnav-pill-w','0px');}
+    _bnavPillX=null;_bnavPillW=null;
+  }
+}
+window._bnavSet=_bnavSet;
+function _bnavBaseTab(){
+  if(document.body.classList.contains('hv-home'))return 'home';
+  if(typeof _activeOfertasMes!=='undefined'&&_activeOfertasMes)return 'ofertas';
+  return currentTab==='minorista'?'minorista':null;
+}
+function _bnavActiveTab(){
+  var a=document.querySelector('.bnav a.active[data-b]');
+  return a?a.getAttribute('data-b'):null;
 }
 window._bnavToast=function(){
   var t=document.getElementById('bnavToast'); if(!t)return;
-  t.classList.add('on'); clearTimeout(t._h); t._h=setTimeout(function(){t.classList.remove('on');},2200);
+  var restore=_bnavActiveTab()||_bnavBaseTab();
+  _bnavSet('favoritos');
+  t.classList.add('on');clearTimeout(t._h);
+  t._h=setTimeout(function(){
+    t.classList.remove('on');
+    var a=document.querySelector('.bnav a[data-b="favoritos"]');
+    if(a&&a.classList.contains('active'))_bnavSet(restore);
+  },2200);
 };
+window._bnavWhatsapp=function(){
+  var restore=_bnavActiveTab()||_bnavBaseTab();
+  _bnavSet('whatsapp');
+  clearTimeout(window._bnavWaTimer);
+  window._bnavWaTimer=setTimeout(function(){
+    var a=document.querySelector('.bnav a[data-b="whatsapp"]');
+    if(a&&a.classList.contains('active'))_bnavSet(restore);
+  },900);
+};
+var _bnavCuentaReturn=null;
+window._bnavOpenCuenta=function(){
+  _bnavCuentaReturn=_bnavActiveTab()||_bnavBaseTab();
+  _bnavSet('cuenta');
+  openCuenta();
+};
+(function(){
+  var _closeCuentaBnav=closeCuenta;
+  closeCuenta=function(){_closeCuentaBnav();_bnavSet(_bnavCuentaReturn||_bnavBaseTab());_bnavCuentaReturn=null;};
+  window.closeCuenta=closeCuenta;
+})();
+(function(){
+  function repositionBnavPill(){
+    var nav=document.querySelector('.bnav');
+    var active=document.querySelector('.bnav a.active[data-b]');
+    if(!nav||!active||getComputedStyle(nav).display==='none')return;
+    _bnavMovePill(active,false);
+  }
+  repositionBnavPill();
+  if(document.fonts&&document.fonts.ready)document.fonts.ready.then(repositionBnavPill);
+  window.addEventListener('load',repositionBnavPill);
+  setTimeout(repositionBnavPill,300);
+  setTimeout(repositionBnavPill,900);
+  window.addEventListener('resize',repositionBnavPill);
+})();
 (function(){
   var _prev = window.switchTab;
   window.switchTab = function(tab){
