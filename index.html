@@ -1709,7 +1709,17 @@ body.hv-home #mayoristaSection{display:none!important}
 #homeView .banner-slide{width:100%!important;min-width:0!important;max-width:none!important;flex:none!important;padding:0!important}
 /* Cats del home con IMAGEN asomando por arriba (nunca por los costados) */
 .hv-cat .bub{position:relative;overflow:visible}
-.hv-cat .bub img{position:absolute;bottom:3px;left:50%;transform:translateX(-50%);width:86%;height:auto;filter:drop-shadow(0 3px 4px rgba(0,0,0,.16))}
+.hv-cat{--hv-img-size:102%;--hv-img-y:50%}
+.hv-cat .bub img{position:absolute;top:var(--hv-img-y);left:50%;width:var(--hv-img-size);height:auto;transform:translate(-50%,-50%) scale(1);transform-origin:center;filter:drop-shadow(0 3px 4px rgba(0,0,0,.16));transition:transform .2s cubic-bezier(.2,.75,.3,1)}
+.hv-cat[data-cat="deshidratados"]{--hv-img-size:124%}
+.hv-cat[data-cat="dulces"]{--hv-img-size:120%}
+.hv-cat[data-cat="congelados"]{--hv-img-size:115%}
+.hv-cat[data-cat="bebidas"],.hv-cat[data-cat="vinos"]{--hv-img-size:90%}
+.hv-cat[data-cat="snack"] .bub img,.hv-cat[data-cat="gourmet"] .bub img{mix-blend-mode:multiply;filter:brightness(1.03) contrast(1.01)}
+@media(hover:hover){.hv-cat:hover .bub img{transform:translate(-50%,-50%) scale(1.10)}}
+.hv-cat:focus-visible .bub img{transform:translate(-50%,-50%) scale(1.10)}
+.hv-cat:active .bub img{transform:translate(-50%,-50%) scale(1.14)}
+@media(prefers-reduced-motion:reduce){.hv-cat .bub img{transition:none}}
 /* Banners mix/granola: centrados, texto más grande, solo el botón clickea */
 #homeView .mix-banner,#homeView .granola-banner{flex-direction:column;text-align:center;cursor:default;gap:10px;padding:22px 18px}
 #homeView .mix-banner:hover,#homeView .granola-banner:hover{transform:none}
@@ -5026,7 +5036,7 @@ function hvRenderCats(){
   var h='';
   Object.keys(RUBRO_MAP).forEach(function(k){
     var c=RUBRO_MAP[k];
-    h+='<button class="hv-cat" onclick="hvGoCat(\''+c.id+'\')"><span class="bub"><img src="cat-'+c.id+'.png" alt="" loading="lazy" onerror="this.parentNode.textContent=\''+c.ic+'\'"></span><span>'+c.n+'</span></button>';
+    h+='<button class="hv-cat" data-cat="'+c.id+'" onclick="hvGoCat(\''+c.id+'\')"><span class="bub"><img src="cat-'+c.id+'.png" alt="" loading="lazy" onerror="this.parentNode.textContent=\''+c.ic+'\'"></span><span>'+c.n+'</span></button>';
   });
   w1.innerHTML=h; w2.innerHTML=h;
 }
