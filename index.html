@@ -1261,7 +1261,7 @@ body.cart-open #cart-fab,body.cart-open #chat-fab{display:none!important}
 .bdot{width:7px;height:7px;border-radius:50%;background:var(--border);cursor:pointer;transition:background .2s}
 .bdot.active{background:var(--azul)}
 /* Granola banner colors */
-.granola-banner{background:#8faf9b;border-radius:16px;padding:18px 20px;display:flex;align-items:center;justify-content:space-between;gap:14px;cursor:pointer;transition:transform .2s,box-shadow .2s;box-shadow:0 4px 18px rgba(80,130,100,.35);flex-wrap:wrap}
+.granola-banner{background:radial-gradient(circle at -3% 18%,rgba(230,250,238,.22) 0 58px,transparent 59px),radial-gradient(circle at 104% 82%,rgba(230,250,238,.18) 0 72px,transparent 73px),linear-gradient(135deg,#82a98f 0%,#9abda4 100%);border-radius:16px;padding:18px 20px;display:flex;align-items:center;justify-content:space-between;gap:14px;cursor:pointer;transition:transform .2s,box-shadow .2s;box-shadow:0 4px 18px rgba(80,130,100,.35);flex-wrap:wrap}
 .granola-banner:hover{transform:translateY(-2px);box-shadow:0 8px 28px rgba(80,130,100,.45)}
 .granola-banner-text h3{font-family:'Montserrat',sans-serif;font-size:20px;font-weight:700;color:#fff;margin-bottom:4px}
 .granola-banner-text p{font-size:14px;color:rgba(255,255,255,.82);line-height:1.4}
@@ -1346,7 +1346,7 @@ body.cart-open #cart-fab,body.cart-open #chat-fab{display:none!important}
 .may-cone-right.shake svg{animation:shakeR .7s ease-out}
 
 /* ── MIX BANNER ── */
-.mix-banner{background:linear-gradient(135deg,#7a4f2a 0%,#b87040 100%);border-radius:16px;padding:18px 20px;margin-bottom:24px;display:flex;align-items:center;justify-content:space-between;gap:14px;cursor:pointer;transition:transform .2s,box-shadow .2s;box-shadow:0 4px 18px rgba(120,80,40,.35);flex-wrap:wrap}
+.mix-banner{background:radial-gradient(circle at -3% 18%,rgba(255,226,199,.20) 0 58px,transparent 59px),radial-gradient(circle at 104% 82%,rgba(255,226,199,.17) 0 72px,transparent 73px),linear-gradient(135deg,#7a4f2a 0%,#b87040 100%);border-radius:16px;padding:18px 20px;margin-bottom:24px;display:flex;align-items:center;justify-content:space-between;gap:14px;cursor:pointer;transition:transform .2s,box-shadow .2s;box-shadow:0 4px 18px rgba(120,80,40,.35);flex-wrap:wrap}
 @media(max-width:480px){.mix-banner{padding:16px}.mix-banner svg{width:44px;height:44px}.mix-banner-text h3{font-size:17px}.mix-banner-btn{width:100%;text-align:center}}
 .mix-banner:hover{transform:translateY(-2px);box-shadow:0 8px 28px rgba(120,80,40,.45)}
 .mix-banner-text h3{font-family:'Montserrat',sans-serif;font-size:20px;font-weight:700;color:#fff;margin-bottom:4px}
@@ -1471,7 +1471,8 @@ body.cart-open #cart-fab,body.cart-open #chat-fab{display:none!important}
 .may-tab{cursor:pointer;padding:8px 12px 18px;border-radius:0;font-weight:700;font-size:15px;transition:color .2s;border:none;background:transparent;color:rgba(255,255,255,.78);flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:4px;position:relative;z-index:2;font-family:inherit;line-height:1.1}
 .may-tab-icon{width:36px;height:36px;object-fit:contain;display:block;flex-shrink:0;transform-origin:center center;backface-visibility:hidden;-webkit-backface-visibility:hidden}
 .may-tab.active{color:var(--azul-dark);position:relative;z-index:3}
-.may-tab.active .may-tab-icon{animation:iconBounce .35s ease-out forwards}
+.may-tab.active .may-tab-icon{transform:scale(1.04)}
+.may-tab-icon.nav-icon-bounce,.bnav a img.nav-icon-bounce{animation:iconBounce .35s ease-out forwards}
 @keyframes iconBounce{0%{transform:scale(.92)}60%{transform:scale(1.08)}100%{transform:scale(1.04)}}
 .may-tab:hover:not(.active){color:#fff}
 @media(max-width:767px){.may-tab{padding:6px 6px 12px;font-size:13px;gap:2px}.may-tab-icon{width:32px;height:32px}}
@@ -1845,16 +1846,18 @@ body.hv-favoritos .bnav a.active,body.hv-favoritos .bnav a.active span{color:var
 /* ═══ Barra inferior (mobile) ═══ */
 .bnav{position:fixed;left:0;right:0;bottom:0;z-index:9000;display:none;background:var(--azul);border-top:0;padding-bottom:env(safe-area-inset-bottom);box-shadow:0 -4px 20px rgba(61,90,114,.18);isolation:isolate}
 /* Cápsula cerrada: deja visible el azul alrededor del botón activo. */
-.bnav-pill{position:absolute;top:3px;left:var(--bnav-pill-x,0);width:var(--bnav-pill-w,0);height:46px;background:#fff;border-radius:999px;box-shadow:0 3px 12px rgba(38,67,91,.18);z-index:0;pointer-events:none;transition:left .3s cubic-bezier(.2,.75,.3,1),width .3s cubic-bezier(.2,.75,.3,1)}
+.bnav-pill{position:absolute;top:3px;left:var(--bnav-pill-x,0);width:var(--bnav-pill-w,0);height:46px;background:#fff;border-radius:999px;box-shadow:0 3px 12px rgba(38,67,91,.18);z-index:0;pointer-events:none;transition:width .3s cubic-bezier(.2,.75,.3,1);transform:translateZ(0)}
 .bnav-pill.instant{transition:none}
+.bnav-pill.bouncing{animation:bnavPillBounce .45s forwards}
+@keyframes bnavPillBounce{0%{transform:translateX(var(--bnav-pill-dx,0));animation-timing-function:cubic-bezier(.2,.6,.35,1)}60%{transform:translateX(calc(var(--bnav-pill-dx,0) * -.05));animation-timing-function:ease-in-out}80%{transform:translateX(calc(var(--bnav-pill-dx,0) * .02));animation-timing-function:ease-out}100%{transform:translateX(0)}}
 .bnav a{position:relative;z-index:2;flex:1;min-width:0;display:flex;flex-direction:column;align-items:center;gap:3px;padding:7px 0 6px;color:rgba(255,255,255,.92);font-size:10px;font-weight:650;text-decoration:none;cursor:pointer;transition:color .2s}
 .bnav a span{max-width:100%;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
 .bnav a svg{width:21px;height:21px;color:var(--azul)}
-.bnav a img{width:24px;height:24px;object-fit:contain;transform-origin:center}
+.bnav a img{width:27px;height:27px;object-fit:contain;transform-origin:center;filter:drop-shadow(1px 0 0 rgba(255,255,255,.92)) drop-shadow(-1px 0 0 rgba(255,255,255,.92)) drop-shadow(0 1px 0 rgba(255,255,255,.92)) drop-shadow(0 -1px 0 rgba(255,255,255,.92)) drop-shadow(0 2px 2px rgba(38,67,91,.20))}
 .bnav a.active{color:var(--azul-dark);font-weight:750}
 .bnav a.active svg{color:var(--azul-dark)}
-.bnav a.active img{animation:iconBounce .35s ease-out forwards}
-@media(prefers-reduced-motion:reduce){.bnav-pill{transition:none}.bnav a.active img{animation:none}}
+.bnav a.active img{transform:scale(1.04)}
+@media(prefers-reduced-motion:reduce){.bnav-pill{transition:none}.bnav-pill.bouncing,.may-tab-icon.nav-icon-bounce,.bnav a img.nav-icon-bounce{animation:none}}
 @media(max-width:767px){
   .bnav{display:flex}
   body{padding-bottom:calc(58px + env(safe-area-inset-bottom))}
@@ -2414,7 +2417,7 @@ function _matchScore(q,t){
   return score;
 }
 function _imgZoomGoBack(){if(history.state&&history.state.modal==='imgZoom')history.back();else{const z=document.getElementById('imgZoom');if(z)z.remove();}}
-function zoomImg(el){let src=el.dataset.src||'';if(!src)return;src=src.replace(/=w\d+/,'=w1200');const old=document.getElementById('imgZoom');if(old)old.remove();const z=document.createElement('div');z.id='imgZoom';z.onclick=e=>{if(e.target===z||e.target.tagName==='IMG')_imgZoomGoBack();};z.innerHTML=`<button class="zoom-close" onclick="_imgZoomGoBack()">×</button><img src="${src}" alt="">`;document.body.appendChild(z);history.pushState({modal:'imgZoom'},'');}
+function zoomImg(el){let src=el.dataset.src||'';if(!src)return;src=src.replace(/=w\d+/,'=w1200');const old=document.getElementById('imgZoom');if(old)old.remove();const z=document.createElement('div');z.id='imgZoom';z.onclick=e=>{if(e.target===z||e.target.tagName==='IMG')_imgZoomGoBack();};z.innerHTML=`<button class="zoom-close" onclick="_imgZoomGoBack()">×</button><img src="${src}" alt="">`;document.body.appendChild(z);_palPushOverlay('imgZoom',{modal:'imgZoom'});}
 window.addEventListener('popstate',function(e){const z=document.getElementById('imgZoom');if(z){z.remove();e.stopImmediatePropagation();}});
 
 /* ── CARRUSELES ── */
@@ -2543,7 +2546,10 @@ function renderCatsUI(){
 }
 
 /* ── SELECCIONAR CATEGORÍA ── */
-function selectCat(catId,productId){
+function selectCat(catId,productId,navOpts){
+  navOpts=navOpts||{};
+  var trackHistory=navOpts.history!==false&&!_palHistoryApplying;
+  if(trackHistory&&!navOpts.preservePrevious)_palReplacePageState();
   // Guardar scroll del home para restaurarlo al volver
   if(!activeCatId){try{sessionStorage.setItem('paladear_home_scrollY',String(window.scrollY));}catch(e){}}
   if(_carRotationInterval){clearInterval(_carRotationInterval);_carRotationInterval=null;}
@@ -2558,7 +2564,7 @@ function selectCat(catId,productId){
   const area=isMobile?document.getElementById('mobileProdsArea'):document.getElementById('desktopProdsArea');
   if(isMobile)area.classList.remove('hidden');
   area.innerHTML=html;
-  history.pushState({view:'cat',catId,productId},'');
+  if(trackHistory)_palPushPageState({view:'cat',tab:'minorista',catId:catId,productId:productId||null});
   if(productId!=null){
     setTimeout(()=>{
       const card=document.getElementById(prefix+'_'+productId);
@@ -2705,6 +2711,7 @@ function showInfo(pid){
     <div class="info-modal-text">${p[8].replace(/\n/g,'<br>')}</div>
   </div>`;
   document.body.appendChild(m);
+  _palPushOverlay('info');
 }
 
 // Convierte una opción (ej "500g","1 kg","250g") a gramos
@@ -2862,7 +2869,7 @@ function openCart(){
   document.body.style.overflow='hidden';
   closeMiniCart();
   renderCart();
-  history.pushState({view:'cart'},'');
+  _palPushOverlay('cart');
 }
 function closeCart(){
   document.getElementById('cartOverlay').classList.remove('open');
@@ -2911,7 +2918,7 @@ function openCuenta(){
   document.getElementById('cuentaPanel').classList.add('open');
   document.body.style.overflow='hidden';
   renderCuenta();
-  try{history.pushState({view:'cuenta'},'');}catch(e){}
+  _palPushOverlay('cuenta');
 }
 window.openCuenta=openCuenta;
 function closeCuenta(){
@@ -3017,6 +3024,7 @@ function _cuentaAbrirPedido(i){
   document.getElementById('cuentaPedidoBody').innerHTML=h;
   var rb=document.getElementById('cuentaReorderBtn');if(rb)rb.disabled=!(pe.cart&&pe.cart.length);
   document.getElementById('cuentaPedidoModal').classList.add('open');
+  _palPushOverlay('cuentaPedido');
 }
 window._cuentaAbrirPedido=_cuentaAbrirPedido;
 function _cuentaCerrarPedido(){document.getElementById('cuentaPedidoModal').classList.remove('open');}
@@ -3226,7 +3234,7 @@ function _doSearch(val){
   if(isMobile&&!_searchOverlayOpen){
     _searchPreScrollY=window.scrollY||window.pageYOffset||0;
     _searchOverlayOpen=true;
-    history.pushState({view:'search'},'');
+    _palPushOverlay('search',{scrollY:_searchPreScrollY});
   }
 
   // Ocultar banners en mobile mientras se busca
@@ -3685,211 +3693,150 @@ function sincronizarDesdeSheets(){
 }
 sincronizarDesdeSheets();
 
-// ── MANEJO DEL BOTÓN "ATRÁS" ──
-// Seed: estado inicial = home. Cada modal/vista que se abre agrega su propia
-// entrada al historial (pushState), así el botón "atrás" del sistema cierra
-// primero lo que esté abierto. En la home, "atrás" sale de la página como en
-// cualquier sitio: NO interceptamos la salida (el carrito queda guardado igual).
-history.replaceState({view:'home'},'');
+// ── HISTORIAL REAL DE VISTAS + BOTÓN "ATRÁS" ──
+// Cada pestaña/categoría ocupa una entrada real. Los overlays agregan una entrada
+// encima, de modo que Atrás primero los cierra y luego vuelve a la vista anterior.
+var _palHistoryApplying=false;
+try{if('scrollRestoration' in history)history.scrollRestoration='manual';}catch(e){}
+if(!history.state||!history.state.paladear){
+  history.replaceState({paladear:true,view:'tab',tab:document.body.classList.contains('hv-home')?'home':'minorista',scrollY:0},'');
+}
+
+function _palVisibleTab(){
+  if(document.body.classList.contains('hv-home'))return 'home';
+  if(document.body.classList.contains('hv-ofertas'))return 'ofertas';
+  if(document.body.classList.contains('hv-favoritos'))return 'favoritos';
+  return (typeof currentTab!=='undefined'&&currentTab)?currentTab:'minorista';
+}
+function _palBuildPageState(extra){
+  var tab=_palVisibleTab();
+  var st={paladear:true,view:'tab',tab:tab,scrollY:Math.max(0,Math.round(window.scrollY||window.pageYOffset||0))};
+  if(tab==='minorista'&&typeof activeCatId!=='undefined'&&activeCatId){st.view='cat';st.catId=activeCatId;}
+  if(tab==='mayorista'&&typeof activeCatIdMay!=='undefined'&&activeCatIdMay){st.view='catMay';st.catId=activeCatIdMay;}
+  if(extra)Object.assign(st,extra);
+  return st;
+}
+function _palReplacePageState(){
+  if(_palHistoryApplying)return;
+  try{history.replaceState(_palBuildPageState(),'');}catch(e){}
+}
+function _palPushPageState(extra){
+  if(_palHistoryApplying)return;
+  try{history.pushState(_palBuildPageState(extra),'');}catch(e){}
+}
+function _palPushOverlay(view,extra){
+  if(_palHistoryApplying)return;
+  try{
+    var cur=history.state||{};
+    if(cur.view==='tab'||cur.view==='cat'||cur.view==='catMay'||!cur.paladear)_palReplacePageState();
+    history.pushState(Object.assign({paladear:true,view:view,tab:_palVisibleTab()},extra||{}),'');
+  }catch(e){}
+}
+function _palRestoreScroll(y){
+  y=Math.max(0,parseInt(y,10)||0);
+  [60,220,600,1200,2200].forEach(function(ms){setTimeout(function(){window.scrollTo(0,y);},ms);});
+}
+function _palCloseTopLayer(){
+  if(_searchOverlayOpen){cerrarBusqueda();return true;}
+  var el=document.getElementById('inspLightbox');
+  if(el&&!el.classList.contains('hidden')){cerrarLightbox();return true;}
+  el=document.getElementById('recetaProdOverlay');
+  if(el&&!el.classList.contains('hidden')){cerrarProductoReceta();var rm=document.getElementById('recetaModalOverlay');if(rm&&!rm.classList.contains('hidden'))document.body.style.overflow='hidden';return true;}
+  el=document.getElementById('recetaModalOverlay');
+  if(el&&!el.classList.contains('hidden')){cerrarRecetaModal();return true;}
+  el=document.getElementById('checkoutOverlay');
+  if(el&&!el.classList.contains('hidden')){cerrarCheckout();return true;}
+  el=document.getElementById('modalInstalarApp');
+  if(el&&!el.classList.contains('hidden')){cerrarModalApp();return true;}
+  el=document.getElementById('iabWarning');
+  if(el&&!el.classList.contains('hidden')){dismissIAB();return true;}
+  el=document.getElementById('cuentaPedidoModal');
+  if(el&&el.classList.contains('open')){_cuentaCerrarPedido();return true;}
+  el=document.getElementById('mixModal');
+  if(el&&!el.classList.contains('hidden')){closeMix();return true;}
+  el=document.getElementById('granolaModal');
+  if(el&&!el.classList.contains('hidden')){closeGranola();return true;}
+  el=document.getElementById('catsDropdownPanel');
+  if(el&&el.style.display!=='none'){closeCatsDropdown();return true;}
+  el=document.getElementById('mayCatsDropdownPanel');
+  if(el&&el.style.display!=='none'){closeMayCatsDropdown();return true;}
+  el=document.getElementById('cartPanel');
+  if(el&&el.classList.contains('open')){closeCart();return true;}
+  el=document.getElementById('cartPanelMay');
+  if(el&&el.classList.contains('open')){closeCartMay();return true;}
+  el=document.getElementById('cuentaPanel');
+  if(el&&el.classList.contains('open')){closeCuenta();return true;}
+  el=document.getElementById('infoModal');
+  if(el){el.remove();return true;}
+  return false;
+}
+function _palApplyHistoryState(st,done){
+  st=st||{};
+  var tab=st.tab;
+  if(!tab){
+    if(st.view==='home')tab='home';
+    else if(st.view==='wishlist')tab='favoritos';
+    else if(st.view==='ofertasMes')tab='ofertas';
+    else if(st.view==='cat')tab='minorista';
+    else if(st.view==='catMay')tab='mayorista';
+  }
+  if(!tab){done();return;}
+  window.switchTab(tab);
+  var catId=(st.view==='cat'||st.view==='catMay')?st.catId:null;
+  if(catId){
+    var tries=0;
+    var wait=setInterval(function(){
+      tries++;
+      var ready=tab==='mayorista'?(typeof PRODS_MAY!=='undefined'&&PRODS_MAY.length):(typeof PRODS!=='undefined'&&PRODS.length);
+      if(ready||tries>80){
+        clearInterval(wait);
+        if(ready){if(tab==='mayorista')selectMayCat(catId,null,{history:false});else selectCat(catId,null,{history:false});}
+        _palRestoreScroll(st.scrollY);
+        done();
+      }
+    },100);
+    return;
+  }
+  _palRestoreScroll(st.scrollY);
+  done();
+}
 
 window.addEventListener('popstate',function(e){
-  const st=e.state||{view:'home'};
-
-  // 0. Si el overlay de búsqueda mobile está abierto → cerrarlo
-  if(_searchOverlayOpen){
-    const inp=document.getElementById('compactSearchInput');
-    if(inp)inp.value='';
-    searchTerm='';
-    clearTimeout(_searchTimer);
-    const srMobile=document.getElementById('searchResultsMobile');
-    if(srMobile){srMobile.classList.remove('active');srMobile.classList.add('hidden');srMobile.innerHTML='';}
-    document.body.style.overflow='';
-    const saved=_searchPreScrollY;
-    _searchOverlayOpen=false;_searchPreScrollY=0;
-    const bannersWrap=document.getElementById('bannersTrackWrap');
-    if(bannersWrap)bannersWrap.style.display='';
-    if(activeCatId)selectCat(activeCatId);
-    else{renderCarruseles();document.getElementById('mobileProdsArea').classList.remove('hidden');}
-    if(saved>0)requestAnimationFrame(()=>window.scrollTo(0,saved));
-    history.pushState({view:'home'},'');
+  _palHistoryApplying=true;
+  if(_palCloseTopLayer()){
+    setTimeout(function(){_palHistoryApplying=false;if(typeof _saveAppState==='function')_saveAppState();},0);
     return;
   }
-
-  // 0. Si el lightbox está abierto → cerrarlo
-  const lightbox = document.getElementById('inspLightbox');
-  if (lightbox && !lightbox.classList.contains('hidden')) {
-    cerrarLightbox();
-    return;
-  }
-
-  // 0. Si el modal de producto desde receta está abierto → cerrarlo y re-abrir la receta
-  const recetaProdOv = document.getElementById('recetaProdOverlay');
-  if (recetaProdOv && !recetaProdOv.classList.contains('hidden')) {
-    cerrarProductoReceta();
-    // Re-abrir la receta si teníamos una abierta
-    if (_recetaActualIdx >= 0 && RECETAS[_recetaActualIdx]) {
-      setTimeout(function() { abrirReceta(_recetaActualIdx, true); }, 50);
-    }
-    return;
-  }
-
-  // 0. Si el modal de receta está abierto → cerrarlo (prioridad alta porque está sobre otros)
-  const recetaModalOv=document.getElementById('recetaModalOverlay');
-  if(recetaModalOv && !recetaModalOv.classList.contains('hidden')){
-    cerrarRecetaModal();
-    history.pushState({view:'home'},'');
-    return;
-  }
-
-  // 0. Si el checkout está abierto → cerrarlo
-  const checkoutOverlay=document.getElementById('checkoutOverlay');
-  if(checkoutOverlay && !checkoutOverlay.classList.contains('hidden')){
-    cerrarCheckout();
-    history.pushState({view:'home'},'');
-    return;
-  }
-
-  // 0. Si el modal de instalación de app está abierto → cerrarlo
-  const appModal=document.getElementById('modalInstalarApp');
-  if(appModal && !appModal.classList.contains('hidden')){
-    cerrarModalApp();
-    history.pushState({view:'home'},'');
-    return;
-  }
-
-  // 0b. Si el warning de in-app browser está abierto → cerrarlo
-  const iabWarn=document.getElementById('iabWarning');
-  if(iabWarn && !iabWarn.classList.contains('hidden')){
-    dismissIAB();
-    history.pushState({view:'home'},'');
-    return;
-  }
-
-  // 0c. Si un modal de mix/granola está abierto → cerrarlo
-  const mixModal=document.getElementById('mixModal');
-  if(mixModal && !mixModal.classList.contains('hidden')){
-    if(typeof closeMix==='function')closeMix();
-    else mixModal.classList.add('hidden');
-    history.pushState({view:'home'},'');
-    return;
-  }
-  const granolaModal=document.getElementById('granolaModal');
-  if(granolaModal && !granolaModal.classList.contains('hidden')){
-    if(typeof closeGranola==='function')closeGranola();
-    else granolaModal.classList.add('hidden');
-    history.pushState({view:'home'},'');
-    return;
-  }
-
-  // 0d. Si el dropdown de categorías mobile está abierto → cerrarlo
-  const catsDD=document.getElementById('catsDropdown');
-  if(catsDD && catsDD.classList.contains('open')){
-    if(typeof closeCatsDropdown==='function')closeCatsDropdown();
-    history.pushState({view:'home'},'');
-    return;
-  }
-  const mayCatsDD=document.getElementById('mayCatsDropdown');
-  if(mayCatsDD && mayCatsDD.classList.contains('open')){
-    if(typeof closeMayCatsDropdown==='function')closeMayCatsDropdown();
-    history.pushState({view:'home'},'');
-    return;
-  }
-
-  // 1. Si el carrito MINORISTA está abierto → cerrarlo
-  const cartPanel=document.getElementById('cartPanel');
-  if(cartPanel&&cartPanel.classList.contains('open')){
-    closeCart();
-    history.pushState({view:activeCatId?{view:'cat',catId:activeCatId}:'home'},'');
-    return;
-  }
-
-  // 1b. Si el carrito MAYORISTA está abierto → cerrarlo
-  const cartPanelMay=document.getElementById('cartPanelMay');
-  if(cartPanelMay&&cartPanelMay.classList.contains('open')){
-    closeCartMay();
-    history.pushState({view:activeCatIdMay?{view:'catMay',catId:activeCatIdMay}:'home'},'');
-    return;
-  }
-
-  // 2. Si hay un modal de info abierto → cerrarlo
-  const infoModal=document.getElementById('infoModal');
-  if(infoModal){infoModal.remove();history.pushState(st,'');return;}
-
-  // 3. Si estamos en Favoritos, volver a la sección desde donde se abrió
-  if(document.body.classList.contains('hv-favoritos')){
-    window.switchTab(_wishlistReturnTab||'home');
-    history.pushState({view:'home'},'');
-    _saveAppState();
-    return;
-  }
-
-  // 3. Si estamos en la vista de Ofertas del mes → volver al inicio
-  if(_activeOfertasMes){
-    window.switchTab('minorista');
-    history.pushState({view:'home'},'');
-    _saveAppState();
-    return;
-  }
-
-  // 3a. Si venimos de un producto abierto desde una receta → reabrir esa receta
-  if(st && st.view === 'recetaModal' && typeof st.recetaIdx === 'number'){
-    if(activeCatId && typeof volverInicio === 'function') volverInicio();
-    if(activeCatIdMay && typeof volverMayInicio === 'function') volverMayInicio();
-    switchTab('minorista');
-    setTimeout(function(){ abrirReceta(st.recetaIdx, true); }, 80);
-    return;
-  }
-
-  // 3b. Si estamos en una categoría MAYORISTA → volver al inicio del mayorista
-  if(activeCatIdMay && currentTab==='mayorista'){
-    volverMayInicio();
-    history.pushState({view:'home'},'');
-    _saveAppState();
-    try{var sy=sessionStorage.getItem('paladear_homemay_scrollY');if(sy)setTimeout(function(){window.scrollTo(0,parseInt(sy));},90);}catch(e){}
-    return;
-  }
-
-  // 3b. Si estamos en una categoría MINORISTA → volver al inicio del catálogo
-  if(activeCatId){
-    volverInicio();
-    history.pushState({view:'home'},'');
-    _saveAppState();
-    try{var sy=sessionStorage.getItem('paladear_home_scrollY');if(sy)setTimeout(function(){window.scrollTo(0,parseInt(sy));},90);}catch(e){}
-    return;
-  }
-
-  // 3c. Si estamos en mayorista (sin categoría) → volver a minorista
-  if(currentTab==='mayorista'){
-    switchTab('minorista');
-    history.pushState({view:'home'},'');
-    _saveAppState();
-    return;
-  }
-
-  // 4. Estamos en home y el usuario presiona atrás → NO interceptamos: dejamos
-  // que el navegador salga de la página normalmente, como en cualquier sitio.
-  // El carrito queda guardado igual, así que no se pierde el pedido.
+  _palApplyHistoryState(e.state,function(){
+    setTimeout(function(){_palHistoryApplying=false;if(typeof _saveAppState==='function')_saveAppState();},0);
+  });
 });
 
 // ═══ PERSISTENCIA DE ESTADO (sobrevive al reload) ═══
 
 let _saveStateTimer = null;
+function _appStateSnapshot(){
+  var tab=_palVisibleTab();
+  return {
+    tab: tab,
+    catMin: tab==='minorista'?(activeCatId||null):null,
+    catMay: tab==='mayorista'?(activeCatIdMay||null):null,
+    ofertasMes: tab==='ofertas'&&(_activeOfertasMes||false),
+    scrollY: Math.max(0,Math.round(window.scrollY||window.pageYOffset||0)),
+    ts: Date.now()
+  };
+}
+function _writeAppState(syncHistory){
+  try{sessionStorage.setItem('paladear_view_state',JSON.stringify(_appStateSnapshot()));}catch(e){}
+  if(syncHistory&&!_palHistoryApplying){
+    var st=history.state||{};
+    if(st.view==='tab'||st.view==='cat'||st.view==='catMay'||!st.paladear)_palReplacePageState();
+  }
+}
 function _saveAppState() {
   // Debounce: guardar máximo cada 200ms
   if (_saveStateTimer) clearTimeout(_saveStateTimer);
-  _saveStateTimer = setTimeout(function() {
-    try {
-      const state = {
-        tab: (typeof currentTab !== 'undefined' && currentTab) ? currentTab : 'minorista',
-        catMin: activeCatId || null,
-        catMay: activeCatIdMay || null,
-        ofertasMes: _activeOfertasMes || false,
-        scrollY: window.scrollY,
-        ts: Date.now()
-      };
-      sessionStorage.setItem('paladear_view_state', JSON.stringify(state));
-    } catch(e) {}
-  }, 200);
+  _saveStateTimer = setTimeout(function(){_writeAppState(true);},200);
 }
 
 // Guardar scroll periódicamente (debounced)
@@ -3900,32 +3847,30 @@ window.addEventListener('scroll', function() {
 }, { passive: true });
 
 // Guardar antes de descargar la página (último intento)
-window.addEventListener('beforeunload', function() {
-  try {
-    const state = {
-      tab: (typeof currentTab !== 'undefined' && currentTab) ? currentTab : 'minorista',
-      catMin: activeCatId || null,
-      catMay: activeCatIdMay || null,
-      ofertasMes: _activeOfertasMes || false,
-      scrollY: window.scrollY,
-      ts: Date.now()
-    };
-    sessionStorage.setItem('paladear_view_state', JSON.stringify(state));
-  } catch(e) {}
-});
+window.addEventListener('beforeunload',function(){_writeAppState(true);});
+window.addEventListener('pagehide',function(){_writeAppState(true);});
+document.addEventListener('visibilitychange',function(){if(document.visibilityState==='hidden')_writeAppState(false);});
 
 function _restoreAppState() {
+  _palHistoryApplying=true;
   let state;
   try {
     const raw = sessionStorage.getItem('paladear_view_state');
-    if (!raw) return;
+    if (!raw) {_palHistoryApplying=false;_palReplacePageState();return;}
     state = JSON.parse(raw);
     // Solo restaurar si el estado es reciente (menos de 30 minutos)
     if (!state || Date.now() - state.ts > 30 * 60 * 1000) {
       sessionStorage.removeItem('paladear_view_state');
-      return;
+      _palHistoryApplying=false;_palReplacePageState();return;
     }
-  } catch(e) { return; }
+  } catch(e) {_palHistoryApplying=false;return;}
+
+  function _finishRestore(){
+    setTimeout(function(){
+      _palHistoryApplying=false;
+      _writeAppState(true);
+    },2300);
+  }
 
   function _restoreScroll() {
     if (state.scrollY > 0) {
@@ -3945,32 +3890,36 @@ function _restoreAppState() {
       if (PRODS_MAY && PRODS_MAY.length) {
         clearInterval(waitMay);
         if (state.catMay) {
-          selectMayCat(state.catMay);
+          selectMayCat(state.catMay,null,{history:false});
         }
         _restoreScroll();
+        _finishRestore();
       } else if (intentos > 80) { // ~8s timeout
         clearInterval(waitMay);
         _restoreScroll();
+        _finishRestore();
       }
     }, 100);
   } else {
     // Restaurar la pestaña (con Home como default del tester, hay que volver explícitamente)
-    if (state.tab === 'minorista' || state.tab === 'recetas' || state.tab === 'ofertas' || state.tab === 'favoritos') window.switchTab(state.tab);
+    if (state.tab === 'home' || state.tab === 'minorista' || state.tab === 'recetas' || state.tab === 'ofertas' || state.tab === 'favoritos') window.switchTab(state.tab);
     // Minorista: esperar a que PRODS esté listo
     let intentos = 0;
     const waitMin = setInterval(function() {
       intentos++;
       if (PRODS && PRODS.length) {
         clearInterval(waitMin);
-        if (state.ofertasMes) {
+        if (state.tab==='ofertas'&&state.ofertasMes) {
           selectOfertasMes();
-        } else if (state.catMin) {
-          selectCat(state.catMin);
+        } else if (state.tab==='minorista'&&state.catMin) {
+          selectCat(state.catMin,null,{history:false});
         }
         _restoreScroll();
+        _finishRestore();
       } else if (intentos > 80) {
         clearInterval(waitMin);
         _restoreScroll();
+        _finishRestore();
       }
     }, 100);
   }
@@ -3999,6 +3948,7 @@ function openMix(){
     mixActiveCat=order.find(c=>cats.has(c))||[...cats][0]||null;
   }
   mixRenderCatTabs();mixRenderProdList();
+  _palPushOverlay('mix');
 }
 function closeMix(){
   document.getElementById('mixModal').classList.add('hidden');
@@ -4362,6 +4312,7 @@ function openGranola(){
     granolaActiveCat=[...cats][0]||null;
   }
   granolaRenderCatTabs();granolaRenderProdList();
+  _palPushOverlay('granola');
 }
 function closeGranola(){
   document.getElementById('granolaModal').classList.add('hidden');
@@ -4814,7 +4765,7 @@ function _setPill(btn) {
 })();
 
 // Tab switcher
-let currentTab = 'minorista';
+let currentTab = document.body.classList.contains('hv-home') ? 'home' : 'minorista';
 function switchTab(tab) {
   currentTab = tab;
   const minSection = document.getElementById('mainContainer');
@@ -4912,8 +4863,10 @@ function hvRenderCats(){
   w1.innerHTML=h; w2.innerHTML=h;
 }
 function hvGoCat(id){
-  window.switchTab('minorista');
-  try{ if(typeof selectCat==='function') selectCat(id); }catch(e){}
+  var prevApplying=_palHistoryApplying;
+  _palHistoryApplying=true;
+  try{window.switchTab('minorista');}finally{_palHistoryApplying=prevApplying;}
+  try{ if(typeof selectCat==='function') selectCat(id,null,{preservePrevious:true}); }catch(e){}
   window.scrollTo({top:0,behavior:'instant'});
 }
 window.hvGoCat=hvGoCat;
@@ -4987,9 +4940,17 @@ function openWishlist(){
   var base=_bnavBaseTab();
   if(base&&base!=='favoritos')_wishlistReturnTab=base;
   window.switchTab('favoritos');
-  if(!history.state||history.state.view!=='wishlist')history.pushState({view:'wishlist',from:_wishlistReturnTab},'');
 }
 window.openWishlist=openWishlist;
+var _bnavPillX=null;
+var _bnavPillAnimEnd=null;
+function _restartNavIcon(img){
+  if(!img)return;
+  img.classList.remove('nav-icon-bounce');
+  void img.offsetWidth;
+  img.classList.add('nav-icon-bounce');
+  setTimeout(function(){img.classList.remove('nav-icon-bounce');},420);
+}
 function _bnavMovePill(btn,animate){
   var pill=document.getElementById('bnavPill');
   if(!pill||!btn)return;
@@ -4997,19 +4958,40 @@ function _bnavMovePill(btn,animate){
   var inset=6;
   var newLeft=btnRect.left-navRect.left+inset;
   var newWidth=Math.max(0,btnRect.width-inset*2);
-  if(!animate)pill.classList.add('instant');
+  if(_bnavPillX===null||!animate){
+    pill.classList.remove('bouncing');
+    pill.classList.add('instant');
+    pill.style.setProperty('--bnav-pill-x',newLeft+'px');
+    pill.style.setProperty('--bnav-pill-w',newWidth+'px');
+    _bnavPillX=newLeft;
+    void pill.offsetWidth;
+    pill.classList.remove('instant');
+    return;
+  }
+  var dx=_bnavPillX-newLeft;
+  pill.style.setProperty('--bnav-pill-dx',dx+'px');
   pill.style.setProperty('--bnav-pill-x',newLeft+'px');
   pill.style.setProperty('--bnav-pill-w',newWidth+'px');
-  if(!animate){void pill.offsetWidth;pill.classList.remove('instant');}
+  _bnavPillX=newLeft;
+  if(_bnavPillAnimEnd)pill.removeEventListener('animationend',_bnavPillAnimEnd);
+  pill.classList.remove('bouncing');
+  void pill.offsetWidth;
+  pill.classList.add('bouncing');
+  _bnavPillAnimEnd=function(){pill.classList.remove('bouncing');_bnavPillAnimEnd=null;};
+  pill.addEventListener('animationend',_bnavPillAnimEnd,{once:true});
 }
 function _bnavSet(tab){
+  var previous=_bnavActiveTab();
   var active=null;
   document.querySelectorAll('.bnav a[data-b]').forEach(function(a){
     var on=a.getAttribute('data-b')===tab;
     a.classList.toggle('active',on);
     if(on)active=a;
   });
-  if(active)_bnavMovePill(active,true);
+  if(active){
+    _bnavMovePill(active,true);
+    if(previous!==tab)_restartNavIcon(active.querySelector('img'));
+  }
   else{
     var pill=document.getElementById('bnavPill');
     if(pill)pill.style.setProperty('--bnav-pill-w','0px');
@@ -5100,9 +5082,25 @@ function _bnavActiveTab(){
     _bnavSet(tab==='recetas' ? 'recetas' : 'minorista');
   };
 })();
+// La navegación visible también forma parte del historial del navegador.
+(function(){
+  var _prev=window.switchTab;
+  window.switchTab=function(tab){
+    var before=_palBuildPageState();
+    var beforeKey=[before.view,before.tab,before.catId||''].join(':');
+    if(!_palHistoryApplying)_palReplacePageState();
+    _prev(tab);
+    var after=_palBuildPageState();
+    var afterKey=[after.view,after.tab,after.catId||''].join(':');
+    if(beforeKey!==afterKey){
+      _restartNavIcon(document.querySelector('#mainTabs .may-tab.active .may-tab-icon'));
+      if(!_palHistoryApplying)_palPushPageState();
+    }
+  };
+})();
 function selectOfertasMes(productId){
   window.switchTab('ofertas');
-  if(!history.state||history.state.view!=='ofertasMes')history.pushState({view:'ofertasMes',productId:productId||null},'');
+  if(productId!=null&&!_palHistoryApplying)history.replaceState(_palBuildPageState({productId:productId}),'');
   if(productId!=null){
     setTimeout(function(){
       var card=document.getElementById('of_'+productId);
@@ -5421,15 +5419,16 @@ function _cardHTMLMay(p) {
   </div>`;
 }
 
-function selectMayCat(catId, productId) {
+function selectMayCat(catId, productId, navOpts) {
+  navOpts=navOpts||{};
+  var trackHistory=navOpts.history!==false&&!_palHistoryApplying;
+  if(trackHistory&&!navOpts.preservePrevious)_palReplacePageState();
   // Guardar scroll del home mayorista para restaurarlo al volver
   if(!activeCatIdMay){try{sessionStorage.setItem('paladear_homemay_scrollY',String(window.scrollY));}catch(e){}}
   activeCatIdMay = catId;
   renderMayCatsUI();
   // Push state para que el botón "atrás" del navegador vuelva al inicio del mayorista
-  if (!history.state || history.state.view !== 'catMay' || history.state.catId !== catId) {
-    history.pushState({view:'catMay', catId, productId}, '');
-  }
+  if(trackHistory)_palPushPageState({view:'catMay',tab:'mayorista',catId:catId,productId:productId||null});
   _saveAppState();
 
   const prods = PRODS_MAY.filter(p => p[1] === catId).sort((a, b) => a[2].localeCompare(b[2], 'es', { sensitivity: 'base' }));
@@ -5767,7 +5766,7 @@ function openCartMay() {
   document.getElementById('cartPanelMay').classList.add('open');
   document.body.style.overflow = 'hidden';
   renderCartMay();
-  history.pushState({ view: 'cartMay' }, '');
+  _palPushOverlay('cartMay');
 }
 window.openCartMay = openCartMay;
 
@@ -6052,6 +6051,7 @@ function toggleCatsDropdown(){
     overlay.classList.add('open');
     panel.style.display='block';
     panel.style.animation='slideUp .22s ease';
+    _palPushOverlay('cats');
   } else {
     overlay.classList.remove('open');
     panel.style.display='none';
@@ -6077,6 +6077,7 @@ function toggleMayCatsDropdown(){
     overlay.classList.add('open');
     panel.style.display='block';
     panel.style.animation='slideUp .22s ease';
+    _palPushOverlay('catsMay');
   } else {
     overlay.classList.remove('open');
     panel.style.display='none';
@@ -6262,7 +6263,7 @@ function abrirCheckout(venta) {
   _coBuildDirOpts();
   _coNombreCompacto();
   if (!history.state || history.state.view !== 'checkout') {
-    history.pushState({view:'checkout'}, '');
+    _palPushOverlay('checkout');
   }
 }
 window.abrirCheckout = abrirCheckout;
@@ -6730,7 +6731,7 @@ function abrirLightbox(src, alt, allImgs, startIdx) {
   _lbSetImg(_lbIndex);
   lb.classList.remove('hidden');
   document.body.style.overflow = 'hidden';
-  history.pushState({ view: 'lightbox' }, '');
+  _palPushOverlay('lightbox');
 }
 window.abrirLightbox = abrirLightbox;
 
@@ -7015,7 +7016,7 @@ function abrirReceta(idx, skipHistory) {
   document.getElementById('recetaModalOverlay').classList.remove('hidden');
   document.body.style.overflow = 'hidden';
   if (!skipHistory) {
-    history.pushState({ view: 'recetaModal', recetaIdx: idx }, '');
+    _palPushOverlay('recetaModal',{recetaIdx:idx});
   }
   // Touch swipe para slides
   _initSlideSwipe();
@@ -7076,7 +7077,7 @@ function _irAProductoDesdeReceta(pid, catId) {
   ov.classList.remove('hidden');
   document.body.style.overflow = 'hidden';
   if (!history.state || history.state.view !== 'productReceta') {
-    history.pushState({ view: 'productReceta' }, '');
+    _palPushOverlay('productReceta');
   }
 }
 window._irAProductoDesdeReceta = _irAProductoDesdeReceta;
@@ -7358,7 +7359,7 @@ window.abrirModalApp = function() {
   var modal = document.getElementById('modalInstalarApp');
   if (modal) { modal.classList.remove('hidden'); document.body.style.overflow = 'hidden'; }
   if (!history.state || history.state.view !== 'appModal') {
-    history.pushState({view:'appModal'}, '');
+    _palPushOverlay('appModal');
   }
   // Auto-detectar y mostrar el tab correcto primero
   if (_isIOS()) {
