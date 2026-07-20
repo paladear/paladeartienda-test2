@@ -224,7 +224,7 @@ layout: null
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Lobster&family=Montserrat:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
 <style>
 *{margin:0;padding:0;box-sizing:border-box;font-family:'Montserrat',sans-serif}
 :root{color-scheme:light;--azul:#547692;--azul-dark:#3d5a72;--azul-light:#cfdce8;--azul-mid:#6d90aa;--bg:#dce8f2;--fg:#1a3050;--card:#fff;--border:#d6e2eb;--muted:#e3e8ed;--muted-fg:#444;--destructive:#e8633a;--whatsapp:#25d366}
@@ -1664,16 +1664,28 @@ body.hv-home #recetasSection{display:none!important}
 body.hv-home #mayoristaSection{display:none!important}
 .may-tab-emoji{font-size:30px;line-height:36px;height:36px;display:block;filter:drop-shadow(0 2px 2.5px rgba(0,0,0,.22))}
 #homeView{max-width:1100px;margin:0 auto;padding:6px 20px 18px}
-.hv-hero{text-align:center;padding:30px 6px 26px}
-.hv-eyebrow{display:inline-block;font-size:11px;font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:var(--azul);background:#fff;border:1.5px solid var(--azul-light);border-radius:999px;padding:6px 14px;margin-bottom:14px}
-.hv-hero h1{font-size:29px;font-weight:900;color:var(--azul-dark);line-height:1.14;letter-spacing:-.01em;max-width:21ch;margin:0 auto}
-.hv-hero h1 em{font-style:normal;color:#b87040}
-.hv-hero p{font-size:14.5px;color:var(--muted-fg);margin:13px auto 0;max-width:46ch;line-height:1.55}
-.hv-cta{display:inline-flex;align-items:center;gap:10px;background:#b87040;color:#fff;font-weight:800;font-size:15px;border-radius:999px;padding:14px 16px 14px 24px;margin-top:20px;border:none;cursor:pointer;font-family:inherit;box-shadow:0 8px 22px rgba(184,112,64,.30);transition:transform .18s,background .2s}
-.hv-cta:hover{background:#9e5c2c;transform:translateY(-1px)}
-.hv-cta .arr{width:30px;height:30px;border-radius:50%;background:rgba(255,255,255,.22);display:grid;place-items:center}
+.hv-hero{position:relative;min-height:500px;padding:58px 54px;overflow:hidden;border-radius:22px;background:#304d6b url('herobannerazul.PNG') center/cover no-repeat;display:flex;align-items:center;text-align:left;isolation:isolate}
+.hv-hero::after{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(90deg,rgba(28,51,76,.36) 0%,rgba(28,51,76,.12) 43%,transparent 62%);pointer-events:none}
+.hv-hero-copy{width:min(49%,510px)}
+.hv-hero h1{font-size:clamp(36px,4.1vw,53px);font-weight:850;color:#fff;line-height:1.07;letter-spacing:-.025em;margin:0;text-wrap:balance;text-shadow:0 2px 12px rgba(16,35,54,.24)}
+.hv-brand-word{display:inline-block;font-family:'Lobster',cursive;font-size:1.08em;font-weight:400;color:#bfe9f3;letter-spacing:0;text-shadow:0 2px 12px rgba(16,35,54,.28)}
+.hv-hero p{font-size:15px;color:rgba(255,255,255,.94);margin:17px 0 0;max-width:43ch;line-height:1.48;font-weight:500;text-shadow:0 1px 8px rgba(16,35,54,.30)}
+.hv-cta{display:inline-flex;align-items:center;gap:10px;background:#fff;color:var(--azul-dark);font-weight:800;font-size:15px;border-radius:999px;padding:13px 16px 13px 23px;margin-top:23px;border:none;cursor:pointer;font-family:inherit;box-shadow:0 8px 22px rgba(15,34,52,.24);transition:transform .18s,background .2s}
+.hv-cta:hover{background:#edf7fa;transform:translateY(-1px)}
+.hv-cta .arr{width:30px;height:30px;border-radius:50%;background:var(--azul-light);display:grid;place-items:center}
 .hv-cta .arr svg{width:17px;height:17px}
-@media(min-width:768px){.hv-hero{padding:40px 6px 32px}.hv-hero h1{font-size:38px}}
+@media(max-width:767px){
+  #homeView{padding-left:10px;padding-right:10px}
+  .hv-hero{min-height:232px;padding:16px 12px;border-radius:15px;background-size:100% auto;background-position:center;background-color:#304d6b;align-items:center}
+  .hv-hero::after{background:linear-gradient(90deg,rgba(27,50,74,.48) 0%,rgba(27,50,74,.18) 45%,transparent 59%)}
+  .hv-hero-copy{width:46%;max-width:172px}
+  .hv-hero h1{font-size:17.5px;line-height:1.08;letter-spacing:-.02em;text-wrap:initial}
+  .hv-brand-word{font-size:1.12em}
+  .hv-hero p{font-size:9.5px;line-height:1.32;margin-top:8px;max-width:100%;font-weight:550}
+  .hv-cta{font-size:10.5px;padding:7px 8px 7px 13px;margin-top:10px;gap:6px;box-shadow:0 5px 14px rgba(15,34,52,.22)}
+  .hv-cta .arr{width:22px;height:22px}
+  .hv-cta .arr svg{width:13px;height:13px}
+}
 .hv-sec-head{display:flex;align-items:baseline;justify-content:space-between;margin:4px 0 12px}
 .hv-sec-title{font-size:20px;font-weight:900;color:var(--azul-dark)}
 .hv-sec-action{font-size:13px;font-weight:700;color:var(--azul);background:none;border:none;cursor:pointer;font-family:inherit;display:inline-flex;align-items:center;gap:4px}
@@ -1747,12 +1759,13 @@ body.hv-home #mayoristaSection{display:none!important}
 }
 </style>
 <div id="homeView">
-  <!-- HERO (solo texto) -->
+  <!-- HERO -->
   <section class="hv-hero" aria-label="Bienvenida">
-    <span class="hv-eyebrow">Mercado de Sabores · Mendoza</span>
-    <h1>Sabores de verdad,<br>para <em>paladear</em> todos los días</h1>
-    <p>Frutos secos, especias, deshidratados, harinas y más de 500 productos naturales, elegidos con el cuidado de siempre.</p>
-    <button class="hv-cta" onclick="switchTab('minorista')">Ver productos <span class="arr"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></button>
+    <div class="hv-hero-copy">
+      <h1>El placer de elegir,<br>descubrir y <span class="hv-brand-word">Paladear</span></h1>
+      <p>Recorré todos nuestros productos y convertí cada elección en una nueva experiencia de sabor.</p>
+      <button class="hv-cta" onclick="switchTab('minorista')">Ver productos <span class="arr"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></button>
+    </div>
   </section>
 
   <!-- CATEGORÍAS (los emojis reales del catálogo) -->
