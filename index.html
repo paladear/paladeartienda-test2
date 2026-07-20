@@ -1795,7 +1795,8 @@ body.hv-favoritos .bnav a.active,body.hv-favoritos .bnav a.active span{color:var
 .wishlist-empty button{border:0;border-radius:999px;background:var(--azul);color:#fff;padding:10px 18px;font-family:inherit;font-size:13px;font-weight:750;cursor:pointer;transition:transform .18s,background .18s}
 .wishlist-empty button:hover{background:var(--azul-dark)}
 .wishlist-empty button:active{transform:scale(.97)}
-.fav-btn{position:absolute;top:9px;right:9px;z-index:6;width:36px;height:36px;display:grid;place-items:center;border:0;background:transparent;color:#fff;font:700 22px/1 Arial,sans-serif;cursor:pointer;text-shadow:0 1px 4px rgba(31,55,74,.72);transition:transform .18s,color .18s;padding:0}
+.fav-btn{position:absolute;top:9px;right:9px;z-index:6;width:36px;height:36px;display:grid;place-items:center;border:0;background:transparent;color:#fff;font:700 22px/1 Arial,"Helvetica Neue",sans-serif;cursor:pointer;text-shadow:0 1px 4px rgba(31,55,74,.72);transition:transform .18s,color .18s;padding:0;-webkit-appearance:none;appearance:none;touch-action:manipulation;-webkit-tap-highlight-color:transparent}
+.fav-btn .fav-heart{display:block;color:inherit;-webkit-text-fill-color:currentColor!important;font-family:Arial,"Helvetica Neue",sans-serif!important;font-variant-emoji:text}
 .fav-btn:hover{transform:scale(1.08)}
 .fav-btn:active{transform:scale(.94)}
 .fav-btn.active{color:var(--azul);text-shadow:0 1px 3px rgba(255,255,255,.9),0 2px 5px rgba(31,55,74,.35)}
@@ -2269,17 +2270,17 @@ function _syncFavoriteButtons(pid){
     btn.setAttribute('aria-pressed',on?'true':'false');
     btn.setAttribute('aria-label',on?'Quitar de favoritos':'Agregar a favoritos');
     btn.title=on?'Quitar de favoritos':'Agregar a favoritos';
-    btn.innerHTML='<span aria-hidden="true">&#9829;</span>';
+    btn.innerHTML='<span class="fav-heart" aria-hidden="true">&#9829;&#65038;</span>';
   });
 }
-window.toggleFavorite=function(pid,event){
-  if(event){event.preventDefault();event.stopPropagation();}
+window.toggleFavorite=function(pid){
   const p=PRODS.find(x=>x[0]===pid);if(!p)return;
   const key=_favKey(p);
   if(_favoritos.has(key))_favoritos.delete(key);else _favoritos.add(key);
   _saveFavorites();
   _syncFavoriteButtons(pid);
   if(document.body.classList.contains('hv-favoritos')&&typeof renderWishlistView==='function')renderWishlistView();
+  return false;
 };
 // Reflejar el número en el badge al cargar. OJO: NO llamar updateCartCount() acá
 // porque depende de _wasMay (declarada más abajo con let). Llamarla en este punto
@@ -2608,7 +2609,7 @@ function renderCard(p,prefix){
   const oferta=p[12]&&p[12].oferta?p[12].oferta:0;
   const favOn=_isFavoriteProduct(p);
   let h=`<div class="pcard" id="${id}">`;
-  h+=`<button class="fav-btn${favOn?' active':''}" data-fav-pid="${p[0]}" onclick="toggleFavorite(${p[0]},event)" aria-label="${favOn?'Quitar de favoritos':'Agregar a favoritos'}" aria-pressed="${favOn?'true':'false'}" title="${favOn?'Quitar de favoritos':'Agregar a favoritos'}"><span aria-hidden="true">&#9829;</span></button>`;
+  h+=`<button type="button" class="fav-btn${favOn?' active':''}" data-fav-pid="${p[0]}" onclick="return toggleFavorite(${p[0]})" aria-label="${favOn?'Quitar de favoritos':'Agregar a favoritos'}" aria-pressed="${favOn?'true':'false'}" title="${favOn?'Quitar de favoritos':'Agregar a favoritos'}"><span class="fav-heart" aria-hidden="true">&#9829;&#65038;</span></button>`;
   if(oferta>0)h+=`<div class="oferta-badge oferta-badge-lg">−${oferta}% OFF</div>`;
   h+=`<div class="pcard-img" onclick="zoomImg(this)" data-src="${hasSrc?p[6]:''}">${hasSrc?`<img src="${p[6]}" alt="${p[2]}" onerror="this.parentNode.innerHTML='🌿'" loading="lazy">`:`🌿`}</div>`;
   h+=`<div class="pcard-body">`;
