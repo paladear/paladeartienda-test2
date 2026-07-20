@@ -1679,7 +1679,7 @@ body.hv-home #recetasSection{display:none!important}
 body.hv-home #mayoristaSection{display:none!important}
 .may-tab-emoji{font-size:30px;line-height:36px;height:36px;display:block;filter:drop-shadow(0 2px 2.5px rgba(0,0,0,.22))}
 #homeView{max-width:1100px;margin:0 auto;padding:6px 20px 18px}
-.hv-hero{position:relative;min-height:500px;padding:58px 54px;overflow:hidden;border-radius:22px;background:#304d6b url('herobannerazul.PNG') center/cover no-repeat;display:flex;align-items:center;text-align:left;isolation:isolate}
+.hv-hero{position:relative;min-height:clamp(560px,72vh,680px);padding:58px 54px;overflow:hidden;border-radius:22px;background:#304d6b url('herobannerazul.PNG') center/cover no-repeat;display:flex;align-items:center;text-align:left;isolation:isolate}
 .hv-hero::after{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(90deg,rgba(28,51,76,.36) 0%,rgba(28,51,76,.12) 43%,transparent 62%);pointer-events:none}
 .hv-hero-copy{width:min(49%,510px)}
 .hv-hero h1{font-size:clamp(36px,4.1vw,53px);font-weight:850;color:#fff;line-height:1.07;letter-spacing:-.025em;margin:0;text-wrap:balance;text-shadow:0 2px 12px rgba(16,35,54,.24)}
@@ -1692,7 +1692,7 @@ body.hv-home #mayoristaSection{display:none!important}
 .hv-cta .arr svg{width:17px;height:17px}
 @media(max-width:767px){
   #homeView{padding-left:10px;padding-right:10px}
-  .hv-hero{min-height:232px;padding:16px 12px;border-radius:15px;background-color:#3b506c;background-image:url('herobannerazul.PNG'),linear-gradient(180deg,#3b506c 0%,#3b506c 14%,#415674 86%,#415674 100%);background-size:100% auto,100% 100%;background-position:center,center;background-repeat:no-repeat,no-repeat;align-items:center}
+  .hv-hero{min-height:clamp(440px,62vh,540px);padding:16px 12px;border-radius:15px;background-color:#3b506c;background-image:url('herobannerazul.PNG'),linear-gradient(180deg,#3b506c 0%,#3b506c 14%,#415674 86%,#415674 100%);background-size:100% auto,100% 100%;background-position:center bottom,center;background-repeat:no-repeat,no-repeat;align-items:center}
   .hv-hero::after{background:linear-gradient(90deg,rgba(27,50,74,.48) 0%,rgba(27,50,74,.18) 45%,transparent 59%)}
   .hv-hero-copy{width:46%;max-width:172px}
   .hv-hero h1{font-size:17.5px;line-height:1.08;letter-spacing:-.02em;text-wrap:initial}
@@ -1702,19 +1702,20 @@ body.hv-home #mayoristaSection{display:none!important}
   .hv-cta .arr{width:22px;height:22px}
   .hv-cta .arr svg{width:13px;height:13px}
 }
-.hv-sec-head{display:flex;align-items:baseline;justify-content:space-between;margin:4px 0 12px}
+#hvCats{padding:38px 0 44px}
+.hv-sec-head{display:flex;align-items:baseline;justify-content:space-between;margin:4px 0 22px}
 .hv-sec-title{font-size:20px;font-weight:900;color:var(--azul-dark)}
 .hv-sec-action{font-size:13px;font-weight:700;color:var(--azul);background:none;border:none;cursor:pointer;font-family:inherit;display:inline-flex;align-items:center;gap:4px}
-.hv-cats-scroller{display:grid;grid-auto-flow:column;grid-template-rows:repeat(2,auto);grid-auto-columns:86px;gap:12px 8px;overflow-x:auto;padding:4px 2px 10px;scroll-snap-type:x proximity;scrollbar-width:none}
+.hv-cats-scroller{display:grid;grid-auto-flow:column;grid-template-rows:repeat(2,auto);grid-auto-columns:86px;gap:20px 14px;overflow-x:auto;padding:4px 2px 14px;scroll-snap-type:x proximity;scrollbar-width:none}
 .hv-cats-scroller::-webkit-scrollbar{display:none}
 .hv-cat{display:flex;flex-direction:column;align-items:center;gap:6px;scroll-snap-align:start;text-align:center;background:none;border:none;cursor:pointer;font-family:inherit;padding:0}
 .hv-cat .bub{width:62px;height:62px;border-radius:50%;background:#fff;border:1.5px solid var(--border);display:grid;place-items:center;font-size:27px;box-shadow:0 2px 8px rgba(61,90,114,.08);transition:transform .18s,border-color .18s}
 .hv-cat:hover .bub{transform:translateY(-2px);border-color:var(--azul-mid)}
 .hv-cat>span:last-child{font-size:10.5px;font-weight:700;color:var(--fg);line-height:1.15;max-width:84px;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
-.hv-cats-grid{display:none;grid-template-columns:repeat(4,1fr);gap:14px 8px;padding:6px 2px 14px}
+.hv-cats-grid{display:none;grid-template-columns:repeat(4,1fr);gap:24px 14px;padding:6px 2px 14px}
 #hvCats.expanded .hv-cats-scroller{display:none}
 #hvCats.expanded .hv-cats-grid{display:grid}
-@media(min-width:768px){.hv-cats-scroller{display:none}.hv-cats-grid{display:grid;grid-template-columns:repeat(8,1fr)}.hv-sec-action{display:none}}
+@media(min-width:768px){.hv-cats-scroller{display:none}.hv-cats-grid{display:grid;grid-template-columns:repeat(8,1fr);gap:30px 18px}.hv-sec-action{display:none}}
 #homeView .hv-ofertas{display:flex;align-items:center;gap:12px;position:relative;overflow:hidden;background:radial-gradient(circle at 7% 18%,rgba(212,84,60,.08) 0 42px,transparent 43px),radial-gradient(circle at 94% 84%,rgba(212,84,60,.08) 0 68px,transparent 69px),linear-gradient(135deg,#fdefd8 0%,#fbe2bd 100%);border:2px solid #d4543c;border-radius:18px;padding:14px 16px;margin:0 0 18px;cursor:pointer;box-shadow:0 5px 18px rgba(158,66,37,.13);width:100%;text-align:left;font-family:inherit}
 #homeView .hv-ofertas .em{font-size:26px}
 #homeView .hv-ofertas b{display:block;font-size:15px;color:var(--azul-dark);font-weight:800}
@@ -1897,20 +1898,20 @@ body.hv-favoritos .bnav a,.bnav button.active,body.hv-favoritos .bnav a,.bnav bu
 
 <!-- ── BANNER DESCUENTO POR CANTIDAD ($80.000) ── -->
   <style>
-    .descb-wrap{margin:0 0 18px}
-    .descb-banner{background:linear-gradient(135deg,#eef4f9,#e1ecf6);border:1.5px solid #cdddec;border-radius:16px;padding:14px 16px;font-family:'Montserrat',sans-serif;box-shadow:0 2px 12px rgba(84,118,146,.12)}
-    .descb-top{display:flex;align-items:center;gap:8px;margin-bottom:7px;flex-wrap:wrap;row-gap:4px}
-    .descb-ic{width:24px;height:24px;object-fit:contain;flex-shrink:0}
-    .descb-name{font-size:15px;font-weight:800;color:#1a3050}
-    .descb-go{font-size:11.5px;font-weight:700;color:#547692;margin-left:auto;background:#fff;border:1px solid #cdddec;padding:2px 10px;border-radius:20px;white-space:nowrap}
-    .descb-note{font-size:12.5px;color:#54677d;font-weight:600;margin-bottom:9px;line-height:1.35}
+    .descb-wrap{padding:38px 0 44px}
+    .descb-banner{background:linear-gradient(135deg,#eef4f9,#e1ecf6);border:1.5px solid #cdddec;border-radius:20px;padding:30px 32px;font-family:'Montserrat',sans-serif;box-shadow:0 2px 12px rgba(84,118,146,.12)}
+    .descb-top{display:flex;align-items:center;gap:10px;margin-bottom:16px;flex-wrap:wrap;row-gap:6px}
+    .descb-ic{width:28px;height:28px;object-fit:contain;flex-shrink:0}
+    .descb-name{font-size:18px;font-weight:800;color:#1a3050}
+    .descb-go{font-size:12.5px;font-weight:700;color:#547692;margin-left:auto;background:#fff;border:1px solid #cdddec;padding:4px 14px;border-radius:20px;white-space:nowrap}
+    .descb-note{font-size:14px;color:#54677d;font-weight:600;margin-bottom:18px;line-height:1.5}
     .descb-note b{color:#1a3050}
-    .descb-mlabel{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:5px}
-    .descb-cnt{font-size:17px;font-weight:800;color:#1a3050;font-variant-numeric:tabular-nums}
-    .descb-goal{font-size:11px;font-weight:600;color:#8a9bad}
-    .descb-track{height:11px;background:#dde6ee;border-radius:7px;overflow:hidden}
-    .descb-fill{height:100%;width:0;border-radius:7px;background:linear-gradient(90deg,#547692,#6fa3c4)}
-    .descb-reward{margin-top:8px;display:flex;align-items:center;gap:7px;font-size:12.5px;font-weight:800;color:#1c9d63;opacity:0;transform:translateY(5px);transition:all .4s;min-height:19px}
+    .descb-mlabel{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:8px}
+    .descb-cnt{font-size:20px;font-weight:800;color:#1a3050;font-variant-numeric:tabular-nums}
+    .descb-goal{font-size:12px;font-weight:600;color:#8a9bad}
+    .descb-track{height:14px;background:#dde6ee;border-radius:8px;overflow:hidden}
+    .descb-fill{height:100%;width:0;border-radius:8px;background:linear-gradient(90deg,#547692,#6fa3c4)}
+    .descb-reward{margin-top:14px;display:flex;align-items:center;gap:8px;font-size:14px;font-weight:800;color:#1c9d63;opacity:0;transform:translateY(5px);transition:all .4s;min-height:20px}
     .descb-reward.on{opacity:1;transform:none}
     .descb-pill{font-size:10.5px;padding:2px 8px;border-radius:20px;color:#fff;background:#1c9d63;white-space:nowrap}
   </style>
