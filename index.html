@@ -4719,16 +4719,23 @@ let MAY_BULTO_MAP = {};
 
 // Pill deslizante
 let _pillX = null;
+let _pillW = null;
 var _pillAnimEnd = null;
 function _setPill(btn) {
   var pill = document.getElementById('tabsPill');
   if (!pill) return;
   var newLeft = btn.offsetLeft;
   var newWidth = btn.offsetWidth;
+  var sameTarget = _pillX !== null && _pillW !== null &&
+    Math.abs(_pillX - newLeft) < 0.5 && Math.abs(_pillW - newWidth) < 0.5;
+  // Algunos cambios de pestaña recalculan la misma posición dos veces.
+  // No reiniciar la animación: el segundo cálculo cancelaba el rebote visible.
+  if (sameTarget) return;
   if (_pillX === null) {
     pill.style.setProperty('--pill-x', newLeft + 'px');
     pill.style.setProperty('--pill-w', newWidth + 'px');
     _pillX = newLeft;
+    _pillW = newWidth;
     return;
   }
   var dx = _pillX - newLeft;
@@ -4736,6 +4743,7 @@ function _setPill(btn) {
   pill.style.setProperty('--pill-x', newLeft + 'px');
   pill.style.setProperty('--pill-w', newWidth + 'px');
   _pillX = newLeft;
+  _pillW = newWidth;
   if (_pillAnimEnd) { pill.removeEventListener('animationend', _pillAnimEnd); }
   pill.classList.remove('sliding');
   void pill.offsetWidth;
@@ -4755,6 +4763,7 @@ function _setPill(btn) {
     pill.style.setProperty('--pill-x', ab.offsetLeft + 'px');
     pill.style.setProperty('--pill-w', ab.offsetWidth + 'px');
     _pillX = ab.offsetLeft;
+    _pillW = ab.offsetWidth;
   }
   repositionPill();                              // posición inicial
   if (document.fonts && document.fonts.ready) document.fonts.ready.then(repositionPill); // al cargar la fuente
