@@ -1700,11 +1700,11 @@ body.hv-home #mayoristaSection{display:none!important}
 #hvCats.expanded .hv-cats-scroller{display:none}
 #hvCats.expanded .hv-cats-grid{display:grid}
 @media(min-width:768px){.hv-cats-scroller{display:none}.hv-cats-grid{display:grid;grid-template-columns:repeat(8,1fr)}.hv-sec-action{display:none}}
-.hv-ofertas{display:flex;align-items:center;gap:12px;position:relative;overflow:hidden;background:radial-gradient(circle at 7% 18%,rgba(176,64,32,.11) 0 42px,transparent 43px),radial-gradient(circle at 94% 84%,rgba(230,81,0,.08) 0 68px,transparent 69px),linear-gradient(145deg,#fff8f4,#fce9df);border:1.5px solid #efc9b9;border-radius:16px;padding:14px 16px;margin:0 0 18px;cursor:pointer;box-shadow:0 5px 18px rgba(158,66,37,.13);width:100%;text-align:left;font-family:inherit}
-.hv-ofertas .em{font-size:26px}
-.hv-ofertas b{display:block;font-size:15px;color:var(--azul-dark);font-weight:800}
-.hv-ofertas span{font-size:12px;color:var(--muted-fg)}
-.hv-ofertas .chev{margin-left:auto;color:#b87040;flex-shrink:0}
+#homeView .hv-ofertas{display:flex;align-items:center;gap:12px;position:relative;overflow:hidden;background:radial-gradient(circle at 7% 18%,rgba(176,64,32,.11) 0 42px,transparent 43px),radial-gradient(circle at 94% 84%,rgba(230,81,0,.08) 0 68px,transparent 69px),linear-gradient(145deg,#fff8f4,#fce9df);border:1.5px solid #efc9b9;border-radius:16px;padding:14px 16px;margin:0 0 18px;cursor:pointer;box-shadow:0 5px 18px rgba(158,66,37,.13);width:100%;text-align:left;font-family:inherit}
+#homeView .hv-ofertas .em{font-size:26px}
+#homeView .hv-ofertas b{display:block;font-size:15px;color:var(--azul-dark);font-weight:800}
+#homeView .hv-ofertas span{font-size:12px;color:var(--muted-fg)}
+#homeView .hv-ofertas .chev{margin-left:auto;color:#b87040;flex-shrink:0}
 #homeView .banners-track-wrap{overflow:visible}
 #homeView .banners-track{display:flex!important;flex-direction:column!important;gap:14px;transform:none!important;transition:none!important;grid-template-columns:none!important}
 #homeView .banner-slide{width:100%!important;min-width:0!important;max-width:none!important;flex:none!important;padding:0!important}
@@ -1729,7 +1729,7 @@ body.hv-home #mayoristaSection{display:none!important}
 #homeView .mix-banner-btn,#homeView .granola-banner-btn{width:auto;padding:12px 28px;font-size:15px}
 @media(min-width:768px){#homeView .mix-banner-text h3,#homeView .granola-banner-text h3{font-size:26px}}
 /* Banner de ofertas del home con productos */
-.hv-ofertas{flex-direction:column;align-items:stretch;gap:11px}
+#homeView .hv-ofertas{flex-direction:column;align-items:stretch;gap:11px}
 .hvof-head{display:flex;align-items:center;gap:11px;text-align:left}
 .hvof-tk{width:38px;height:auto;flex-shrink:0}
 .hvof-head b{display:block;font-size:15px;color:var(--azul-dark);font-weight:800}
@@ -1771,6 +1771,45 @@ body.hv-ofertas .bnav a.active,body.hv-ofertas .bnav a.active span{color:var(--a
   .ofview-head p{font-size:11.5px;max-width:210px}
   .ofview-stat{margin-left:60px;margin-top:-8px;padding:6px 10px;font-size:10.5px}
 }
+/* Vista independiente: Favoritos */
+#wishlistView{display:none;max-width:1100px;margin:0 auto;padding:14px 20px 32px}
+body.hv-favoritos,body.hv-favoritos #wishlistView{background:var(--bg)!important}
+body.hv-favoritos #wishlistView{display:block}
+body.hv-favoritos #homeView,body.hv-favoritos #ofertasView,body.hv-favoritos #mainContainer,body.hv-favoritos #recetasSection,body.hv-favoritos #mayoristaSection{display:none!important}
+body.hv-favoritos #tabsPill{display:none}
+body.hv-favoritos #mainTabs .may-tab,body.hv-favoritos #mainTabs .may-tab span,body.hv-favoritos .envios-banner,body.hv-favoritos .envios-msg,body.hv-favoritos .envios-discount{color:#fff!important;-webkit-text-fill-color:#fff!important}
+body.hv-favoritos .bnav a:not(.active),body.hv-favoritos .bnav a:not(.active) span{color:#fff!important;-webkit-text-fill-color:#fff!important}
+body.hv-favoritos .bnav a.active,body.hv-favoritos .bnav a.active span{color:var(--azul-dark)!important;-webkit-text-fill-color:var(--azul-dark)!important}
+.wishlist-shell{position:relative;overflow:hidden;isolation:isolate;background:radial-gradient(circle at 6% 10%,rgba(84,118,146,.12) 0 70px,transparent 71px),radial-gradient(circle at 94% 12%,rgba(114,160,190,.13) 0 48px,transparent 49px),radial-gradient(circle at 86% 72%,rgba(84,118,146,.08) 0 105px,transparent 106px),radial-gradient(circle at 16% 92%,rgba(114,160,190,.10) 0 62px,transparent 63px),linear-gradient(145deg,#f9fcff,#e9f3fa);border:1.5px solid rgba(84,118,146,.28);border-radius:22px;padding:24px;box-shadow:0 8px 28px rgba(61,90,114,.12)}
+.wishlist-head{position:relative;z-index:1;display:flex;align-items:center;gap:15px;margin-bottom:22px}
+.wishlist-icon{width:60px;height:68px;object-fit:contain;flex-shrink:0;filter:drop-shadow(0 4px 7px rgba(61,90,114,.18))}
+.wishlist-head h1{font-size:29px;line-height:1.1;color:var(--azul-dark);font-weight:850;margin:0 0 5px}
+.wishlist-head p{font-size:13px;line-height:1.45;color:var(--muted-fg);font-weight:550;margin:0}
+.wishlist-stat{margin-left:auto;flex-shrink:0;background:var(--azul-dark);color:#fff!important;-webkit-text-fill-color:#fff!important;border-radius:999px;padding:7px 13px;font-size:11.5px;font-weight:800;box-shadow:0 4px 12px rgba(61,90,114,.18)}
+.wishlist-stat:empty{display:none}
+.wishlist-grid{position:relative;z-index:1}
+.wishlist-empty{position:relative;z-index:1;display:flex;flex-direction:column;align-items:center;text-align:center;background:rgba(255,255,255,.78);border:1.5px solid rgba(84,118,146,.22);border-radius:16px;padding:42px 20px;color:var(--azul-dark)}
+.wishlist-empty img{width:55px;height:65px;object-fit:contain;margin-bottom:10px;opacity:.8}
+.wishlist-empty h2{font-size:19px;font-weight:800;margin:0 0 6px}
+.wishlist-empty p{max-width:360px;font-size:13px;line-height:1.45;color:var(--muted-fg);margin:0 0 16px}
+.wishlist-empty button{border:0;border-radius:999px;background:var(--azul);color:#fff;padding:10px 18px;font-family:inherit;font-size:13px;font-weight:750;cursor:pointer;transition:transform .18s,background .18s}
+.wishlist-empty button:hover{background:var(--azul-dark)}
+.wishlist-empty button:active{transform:scale(.97)}
+.fav-btn{position:absolute;top:9px;right:9px;z-index:6;width:36px;height:36px;display:grid;place-items:center;border:0;background:transparent;color:#fff;font:700 22px/1 Arial,sans-serif;cursor:pointer;text-shadow:0 1px 4px rgba(31,55,74,.72);transition:transform .18s,color .18s;padding:0}
+.fav-btn:hover{transform:scale(1.08)}
+.fav-btn:active{transform:scale(.94)}
+.fav-btn.active{color:var(--azul);text-shadow:0 1px 3px rgba(255,255,255,.9),0 2px 5px rgba(31,55,74,.35)}
+@media(max-width:767px){
+  #wishlistView{padding:14px 10px 24px}
+  .wishlist-shell{border-radius:16px;padding:14px}
+  .wishlist-head{align-items:flex-start;gap:10px;margin-bottom:15px;flex-wrap:wrap}
+  .wishlist-icon{width:42px;height:50px}
+  .wishlist-head h1{font-size:22px;margin-top:2px}
+  .wishlist-head p{font-size:11.5px;max-width:215px}
+  .wishlist-stat{margin-left:52px;margin-top:-8px;padding:6px 10px;font-size:10.5px}
+  .wishlist-empty{padding:32px 16px}
+  .fav-btn{top:6px;right:6px;width:34px;height:34px;font-size:19px}
+}
 /* Catálogo completo por rubro */
 .allcat-sec{margin-bottom:34px}
 .catalog-intro{display:flex;align-items:center;justify-content:space-between;gap:18px;margin:4px 0 24px;padding:18px 20px;background:var(--azul-light);border:1.5px solid rgba(84,118,146,.24);border-radius:16px}
@@ -1804,8 +1843,6 @@ body.hv-ofertas .bnav a.active,body.hv-ofertas .bnav a.active span{color:var(--a
 .bnav a.active{color:var(--azul-dark);font-weight:750}
 .bnav a.active svg{color:var(--azul-dark)}
 .bnav a.active img{animation:iconBounce .35s ease-out forwards}
-#bnavToast{position:fixed;left:50%;transform:translateX(-50%) translateY(14px);bottom:calc(74px + env(safe-area-inset-bottom));background:var(--azul-dark);color:#fff;font-size:13px;font-weight:600;border-radius:999px;padding:9px 16px;z-index:9500;opacity:0;pointer-events:none;transition:all .3s}
-#bnavToast.on{opacity:1;transform:translateX(-50%) translateY(0)}
 @media(prefers-reduced-motion:reduce){.bnav-pill{transition:none}.bnav a.active img{animation:none}}
 @media(max-width:767px){
   .bnav{display:flex}
@@ -1953,15 +1990,29 @@ body.hv-ofertas .bnav a.active,body.hv-ofertas .bnav a.active span{color:var(--a
   </section>
 </div>
 
+<!-- ═══ Vista independiente: Favoritos ═══ -->
+<div id="wishlistView">
+  <section class="wishlist-shell" aria-labelledby="wishlistViewTitle">
+    <div class="wishlist-head">
+      <img class="wishlist-icon" src="nav-favoritos.png" alt="" aria-hidden="true">
+      <div>
+        <h1 id="wishlistViewTitle">Mis favoritos</h1>
+        <p>Guardá los productos que te interesan para encontrarlos rápido.</p>
+      </div>
+      <span class="wishlist-stat" id="wishlistViewStat"></span>
+    </div>
+    <div id="wishlistViewContent"></div>
+  </section>
+</div>
+
 <!-- ═══ Barra inferior (mobile) ═══ -->
 <nav class="bnav" aria-label="Navegación inferior">
   <div class="bnav-pill" id="bnavPill" aria-hidden="true"></div>
   <a data-b="home" class="active" onclick="switchTab('home')"><img src="nav-inicio.png" alt=""><span>Inicio</span></a>
   <a data-b="minorista" onclick="switchTab('minorista')"><img src="icon-minorista.png" alt=""><span>Productos</span></a>
   <a data-b="ofertas" onclick="hvIrOfertas()"><img src="nav-ofertas.png" alt=""><span>Ofertas</span></a>
-  <a data-b="favoritos" onclick="_bnavToast()"><img src="nav-favoritos.png" alt=""><span>Favoritos</span></a>
+  <a data-b="favoritos" onclick="openWishlist()"><img src="nav-favoritos.png" alt=""><span>Favoritos</span></a>
 </nav>
-<div id="bnavToast">💛 Favoritos: lo armamos en el próximo paso</div>
 
 <div style="max-width:1100px;margin:0 auto;padding:18px 20px" id="mainContainer" data-hv="1">
   <!-- Buscador y categorías ahora viven en el compact-header (aparecen al scrollear) -->
@@ -2195,6 +2246,41 @@ window._repetirUltimoPedido=function(){
   if(typeof renderCart==='function')renderCart();
 };
 let cart=_loadCart();
+/* ── FAVORITOS: guardados localmente con el ID estable de cada producto ── */
+const _FAVORITOS_KEY='paladear_favoritos_v1';
+function _loadFavorites(){
+  try{
+    const a=JSON.parse(localStorage.getItem(_FAVORITOS_KEY)||'[]');
+    return Array.isArray(a)?a.map(String):[];
+  }catch(e){return[];}
+}
+let _favoritos=new Set(_loadFavorites());
+function _favKey(p){
+  const stable=p&&p[12]&&p[12].productId;
+  return String(stable||p[0]);
+}
+function _isFavoriteProduct(p){return !!p&&_favoritos.has(_favKey(p));}
+function _saveFavorites(){try{localStorage.setItem(_FAVORITOS_KEY,JSON.stringify(Array.from(_favoritos)));}catch(e){}}
+function _syncFavoriteButtons(pid){
+  const p=PRODS.find(x=>x[0]===pid);if(!p)return;
+  const on=_isFavoriteProduct(p);
+  document.querySelectorAll('.fav-btn[data-fav-pid="'+pid+'"]').forEach(function(btn){
+    btn.classList.toggle('active',on);
+    btn.setAttribute('aria-pressed',on?'true':'false');
+    btn.setAttribute('aria-label',on?'Quitar de favoritos':'Agregar a favoritos');
+    btn.title=on?'Quitar de favoritos':'Agregar a favoritos';
+    btn.innerHTML='<span aria-hidden="true">&#9829;</span>';
+  });
+}
+window.toggleFavorite=function(pid,event){
+  if(event){event.preventDefault();event.stopPropagation();}
+  const p=PRODS.find(x=>x[0]===pid);if(!p)return;
+  const key=_favKey(p);
+  if(_favoritos.has(key))_favoritos.delete(key);else _favoritos.add(key);
+  _saveFavorites();
+  _syncFavoriteButtons(pid);
+  if(document.body.classList.contains('hv-favoritos')&&typeof renderWishlistView==='function')renderWishlistView();
+};
 // Reflejar el número en el badge al cargar. OJO: NO llamar updateCartCount() acá
 // porque depende de _wasMay (declarada más abajo con let). Llamarla en este punto
 // rompía todo el script cuando había productos guardados → pantalla de carga
@@ -2520,7 +2606,9 @@ function renderCard(p,prefix){
   const sabores=p[9]||null;
   const acumLbl=_acumLabel(p);
   const oferta=p[12]&&p[12].oferta?p[12].oferta:0;
+  const favOn=_isFavoriteProduct(p);
   let h=`<div class="pcard" id="${id}">`;
+  h+=`<button class="fav-btn${favOn?' active':''}" data-fav-pid="${p[0]}" onclick="toggleFavorite(${p[0]},event)" aria-label="${favOn?'Quitar de favoritos':'Agregar a favoritos'}" aria-pressed="${favOn?'true':'false'}" title="${favOn?'Quitar de favoritos':'Agregar a favoritos'}"><span aria-hidden="true">&#9829;</span></button>`;
   if(oferta>0)h+=`<div class="oferta-badge oferta-badge-lg">−${oferta}% OFF</div>`;
   h+=`<div class="pcard-img" onclick="zoomImg(this)" data-src="${hasSrc?p[6]:''}">${hasSrc?`<img src="${p[6]}" alt="${p[2]}" onerror="this.parentNode.innerHTML='🌿'" loading="lazy">`:`🌿`}</div>`;
   h+=`<div class="pcard-body">`;
@@ -2612,7 +2700,7 @@ function _precioXG(p,totalG,nivel){
 }
 function _reRenderCard(pid){
   const p=PRODS.find(x=>x[0]===pid);if(!p)return;
-  ['mb','dt','rp','of'].forEach(function(prefix){
+  ['mb','dt','rp','of','fav'].forEach(function(prefix){
     const cardEl=document.getElementById(prefix+'_'+pid);
     if(!cardEl)return;
     const tmp=document.createElement('div');
@@ -3699,6 +3787,14 @@ window.addEventListener('popstate',function(e){
   const infoModal=document.getElementById('infoModal');
   if(infoModal){infoModal.remove();history.pushState(st,'');return;}
 
+  // 3. Si estamos en Favoritos, volver a la sección desde donde se abrió
+  if(document.body.classList.contains('hv-favoritos')){
+    window.switchTab(_wishlistReturnTab||'home');
+    history.pushState({view:'home'},'');
+    _saveAppState();
+    return;
+  }
+
   // 3. Si estamos en la vista de Ofertas del mes → volver al inicio
   if(_activeOfertasMes){
     window.switchTab('minorista');
@@ -3831,7 +3927,7 @@ function _restoreAppState() {
     }, 100);
   } else {
     // Restaurar la pestaña (con Home como default del tester, hay que volver explícitamente)
-    if (state.tab === 'minorista' || state.tab === 'recetas' || state.tab === 'ofertas') window.switchTab(state.tab);
+    if (state.tab === 'minorista' || state.tab === 'recetas' || state.tab === 'ofertas' || state.tab === 'favoritos') window.switchTab(state.tab);
     // Minorista: esperar a que PRODS esté listo
     let intentos = 0;
     const waitMin = setInterval(function() {
@@ -4841,6 +4937,32 @@ function hvIrOfertas(){
   selectOfertasMes();
 }
 window.hvIrOfertas=hvIrOfertas;
+function renderWishlistView(){
+  var area=document.getElementById('wishlistViewContent');
+  var stat=document.getElementById('wishlistViewStat');
+  if(!area||!stat)return;
+  var favs=(PRODS||[]).filter(_isFavoriteProduct)
+    .sort(function(a,b){return a[2].localeCompare(b[2],'es',{sensitivity:'base'});});
+  stat.textContent=favs.length?favs.length+' guardado'+(favs.length!==1?'s':''):'';
+  if(!PRODS.length&&_favoritos.size){
+    area.innerHTML='<div class="wishlist-empty"><h2>Cargando tus favoritos</h2><p>Estamos preparando los productos que guardaste.</p></div>';
+    return;
+  }
+  if(!favs.length){
+    area.innerHTML='<div class="wishlist-empty"><img src="nav-favoritos.png" alt=""><h2>Tu lista está vacía</h2><p>Tocá el corazón de cualquier producto para guardarlo acá.</p><button onclick="switchTab(\'minorista\')">Ver productos</button></div>';
+    return;
+  }
+  area.innerHTML='<div class="prod-grid wishlist-grid">'+favs.map(function(p){return renderCard(p,'fav');}).join('')+'</div>';
+}
+window.renderWishlistView=renderWishlistView;
+var _wishlistReturnTab='home';
+function openWishlist(){
+  var base=_bnavBaseTab();
+  if(base&&base!=='favoritos')_wishlistReturnTab=base;
+  window.switchTab('favoritos');
+  if(!history.state||history.state.view!=='wishlist')history.pushState({view:'wishlist',from:_wishlistReturnTab},'');
+}
+window.openWishlist=openWishlist;
 function _bnavMovePill(btn,animate){
   var pill=document.getElementById('bnavPill');
   if(!pill||!btn)return;
@@ -4870,23 +4992,13 @@ window._bnavSet=_bnavSet;
 function _bnavBaseTab(){
   if(document.body.classList.contains('hv-home'))return 'home';
   if(document.body.classList.contains('hv-ofertas'))return 'ofertas';
+  if(document.body.classList.contains('hv-favoritos'))return 'favoritos';
   return currentTab==='minorista'?'minorista':null;
 }
 function _bnavActiveTab(){
   var a=document.querySelector('.bnav a.active[data-b]');
   return a?a.getAttribute('data-b'):null;
 }
-window._bnavToast=function(){
-  var t=document.getElementById('bnavToast'); if(!t)return;
-  var restore=_bnavActiveTab()||_bnavBaseTab();
-  _bnavSet('favoritos');
-  t.classList.add('on');clearTimeout(t._h);
-  t._h=setTimeout(function(){
-    t.classList.remove('on');
-    var a=document.querySelector('.bnav a[data-b="favoritos"]');
-    if(a&&a.classList.contains('active'))_bnavSet(restore);
-  },2200);
-};
 (function(){
   function repositionBnavPill(){
     var nav=document.querySelector('.bnav');
@@ -4906,7 +5018,7 @@ window._bnavToast=function(){
   window.switchTab = function(tab){
     if(tab==='home'){
       _prev('minorista'); // resetea header/FABs/estado al modo minorista
-      document.body.classList.remove('hv-ofertas');
+      document.body.classList.remove('hv-ofertas','hv-favoritos');
       document.body.classList.add('hv-home');
       _activeOfertasMes=false;
       document.querySelectorAll('#mainTabs .may-tab').forEach(function(b){ b.classList.remove('active'); });
@@ -4921,7 +5033,7 @@ window._bnavToast=function(){
     }
     if(tab==='ofertas'){
       _prev('minorista');
-      document.body.classList.remove('hv-home');
+      document.body.classList.remove('hv-home','hv-favoritos');
       document.body.classList.add('hv-ofertas');
       _activeOfertasMes=true;
       activeCatId=null;
@@ -4935,8 +5047,24 @@ window._bnavToast=function(){
       window.scrollTo({top:0,behavior:'instant'});
       return;
     }
+    if(tab==='favoritos'){
+      _prev('minorista');
+      document.body.classList.remove('hv-home','hv-ofertas');
+      document.body.classList.add('hv-favoritos');
+      _activeOfertasMes=false;
+      activeCatId=null;
+      currentTab='favoritos';
+      document.querySelectorAll('#mainTabs .may-tab').forEach(function(b){b.classList.remove('active');});
+      var fpill=document.getElementById('tabsPill');
+      if(fpill)fpill.style.setProperty('--pill-w','0px');
+      renderWishlistView();
+      _bnavSet('favoritos');
+      if(typeof _saveAppState==='function')_saveAppState();
+      window.scrollTo({top:0,behavior:'instant'});
+      return;
+    }
     var resetCatalog=tab==='minorista'&&(activeCatId||_activeOfertasMes);
-    document.body.classList.remove('hv-home','hv-ofertas');
+    document.body.classList.remove('hv-home','hv-ofertas','hv-favoritos');
     _activeOfertasMes=false;
     var thx=document.getElementById('tabHome'); if(thx) thx.classList.remove('active');
     _prev(tab);
@@ -4963,7 +5091,7 @@ window.selectOfertasMes=selectOfertasMes;
 (function(){
   if(typeof window.compactOnSearch==='function'){
     var _o=window.compactOnSearch;
-    window.compactOnSearch=function(v){ if((document.body.classList.contains('hv-home')||document.body.classList.contains('hv-ofertas')) && v && String(v).trim()) window.switchTab('minorista'); _o(v); };
+    window.compactOnSearch=function(v){ if((document.body.classList.contains('hv-home')||document.body.classList.contains('hv-ofertas')||document.body.classList.contains('hv-favoritos')) && v && String(v).trim()) window.switchTab('minorista'); _o(v); };
   }
 })();
 hvRenderCats();
@@ -4982,6 +5110,7 @@ renderCarruseles = function(){
   for(const k in _carState)delete _carState[k];
   try{ hvRenderOfertas(); }catch(e){}
   if(document.body.classList.contains('hv-ofertas'))try{renderOfertasView();}catch(e){}
+  if(document.body.classList.contains('hv-favoritos'))try{renderWishlistView();}catch(e){}
   if(!PRODS.length){
     document.getElementById('desktopProdsArea').innerHTML='';
     document.getElementById('mobileProdsArea').innerHTML='';
