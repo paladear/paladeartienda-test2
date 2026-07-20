@@ -1700,7 +1700,7 @@ body.hv-home #mayoristaSection{display:none!important}
 #hvCats.expanded .hv-cats-scroller{display:none}
 #hvCats.expanded .hv-cats-grid{display:grid}
 @media(min-width:768px){.hv-cats-scroller{display:none}.hv-cats-grid{display:grid;grid-template-columns:repeat(8,1fr)}.hv-sec-action{display:none}}
-#homeView .hv-ofertas{display:flex;align-items:center;gap:12px;position:relative;overflow:hidden;background:radial-gradient(circle at 7% 18%,rgba(176,64,32,.11) 0 42px,transparent 43px),radial-gradient(circle at 94% 84%,rgba(230,81,0,.08) 0 68px,transparent 69px),linear-gradient(145deg,#fff8f4,#fce9df);border:1.5px solid #efc9b9;border-radius:16px;padding:14px 16px;margin:0 0 18px;cursor:pointer;box-shadow:0 5px 18px rgba(158,66,37,.13);width:100%;text-align:left;font-family:inherit}
+#homeView .hv-ofertas{display:flex;align-items:center;gap:12px;position:relative;overflow:hidden;background:radial-gradient(circle at 7% 18%,rgba(212,84,60,.08) 0 42px,transparent 43px),radial-gradient(circle at 94% 84%,rgba(212,84,60,.08) 0 68px,transparent 69px),linear-gradient(135deg,#fdefd8 0%,#fbe2bd 100%);border:2px solid #d4543c;border-radius:18px;padding:14px 16px;margin:0 0 18px;cursor:pointer;box-shadow:0 5px 18px rgba(158,66,37,.13);width:100%;text-align:left;font-family:inherit}
 #homeView .hv-ofertas .em{font-size:26px}
 #homeView .hv-ofertas b{display:block;font-size:15px;color:var(--azul-dark);font-weight:800}
 #homeView .hv-ofertas span{font-size:12px;color:var(--muted-fg)}
@@ -1732,18 +1732,18 @@ body.hv-home #mayoristaSection{display:none!important}
 #homeView .hv-ofertas{flex-direction:column;align-items:stretch;gap:11px}
 .hvof-head{display:flex;align-items:center;gap:11px;text-align:left}
 .hvof-tk{width:38px;height:auto;flex-shrink:0}
-.hvof-head b{display:block;font-size:15px;color:var(--azul-dark);font-weight:800}
-.hvof-sub{display:block;font-size:12px;color:var(--muted-fg)}
-.hvof-head .chev{margin-left:auto;color:#b87040;flex-shrink:0}
+#homeView .hv-ofertas .hvof-head b{display:block;font-size:15px;color:#b04020;font-weight:800}
+#homeView .hv-ofertas .hvof-sub{display:block;font-size:12px;color:#8a3520}
+#homeView .hv-ofertas .hvof-head .chev{margin-left:auto;color:#b04020;flex-shrink:0}
 .hvof-row{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}
 .hvof-card{position:relative;display:flex;flex-direction:column;background:rgba(255,255,255,.82);border:1.5px solid #f0d1c4;border-radius:11px;padding:7px;text-align:center;min-width:0}
-.hvof-badge{position:absolute;top:5px;left:5px;background:#e65100;color:#fff;font-size:10px;font-weight:800;border-radius:7px;padding:1.5px 6px;z-index:2}
+#homeView .hv-ofertas .hvof-badge{position:absolute;top:6px;left:5px;background:linear-gradient(135deg,#d4543c 0%,#b04020 100%);color:#fff;-webkit-text-fill-color:#fff;font-size:10px;font-weight:800;border-radius:6px;padding:2px 7px;z-index:2;box-shadow:0 3px 8px rgba(180,60,30,.38);letter-spacing:.2px;transform:rotate(-6deg);transform-origin:center}
 .hvof-card img{width:100%;height:64px;object-fit:contain;background:#fff;border-radius:8px}
 .hvof-emoji{height:64px;display:grid;place-items:center;font-size:28px;background:#fff;border-radius:8px}
 .hvof-name{font-size:10.5px;font-weight:700;color:var(--azul-dark);line-height:1.15;margin-top:5px;overflow:hidden;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;min-height:24px}
 .hvof-precio{font-size:10.5px;margin-top:3px}
-.hvof-precio s{color:var(--muted-fg)}
-.hvof-precio b{color:#e65100;font-size:12.5px}
+#homeView .hv-ofertas .hvof-precio s{color:#745b4f}
+#homeView .hv-ofertas .hvof-precio b{display:inline;color:#b04020;-webkit-text-fill-color:#b04020;font-size:12.5px}
 /* Vista independiente de Ofertas */
 #ofertasView{display:none;max-width:1100px;margin:0 auto;padding:12px 20px 32px}
 body.hv-ofertas,body.hv-ofertas #ofertasView{background:var(--bg)!important}
@@ -2602,6 +2602,11 @@ function _acumLabel(p){
     return cartAcum.reduce((a,i)=>a+(i.c||0),0)+' und';
   }
 }
+function _priceMinContent(precio,oferta){
+  if(!oferta)return '$'+fmt(precio);
+  const rebajado=Math.round(precio*(1-oferta/100));
+  return `<span class="precio-tachado-sm">$${fmt(precio)}</span><span class="precio-oferta">$${fmt(rebajado)}</span>`;
+}
 function renderCard(p,prefix){
   const opts=_sortOpts(Object.keys(p[7]));if(!opts.length)return'';
   const id=prefix+'_'+p[0];
@@ -2611,7 +2616,7 @@ function renderCard(p,prefix){
   const acumLbl=_acumLabel(p);
   const oferta=p[12]&&p[12].oferta?p[12].oferta:0;
   const favOn=_isFavoriteProduct(p);
-  let h=`<div class="pcard" id="${id}">`;
+  let h=`<div class="pcard" id="${id}" data-pid="${p[0]}">`;
   h+=`<button type="button" class="fav-btn${favOn?' active':''}" data-fav-pid="${p[0]}" onclick="return toggleFavorite(${p[0]})" aria-label="${favOn?'Quitar de favoritos':'Agregar a favoritos'}" aria-pressed="${favOn?'true':'false'}" title="${favOn?'Quitar de favoritos':'Agregar a favoritos'}"><span class="fav-heart" aria-hidden="true"></span></button>`;
   if(oferta>0)h+=`<div class="oferta-badge oferta-badge-lg">−${oferta}% OFF</div>`;
   h+=`<div class="pcard-img" onclick="zoomImg(this)" data-src="${hasSrc?p[6]:''}">${hasSrc?`<img src="${p[6]}" alt="${p[2]}" onerror="this.parentNode.innerHTML='🌿'" loading="lazy">`:`🌿`}</div>`;
@@ -2629,12 +2634,10 @@ function renderCard(p,prefix){
     h+='</select></div>';
   }
   const precioMin=p[7][opts[0]][0];
-  const precioMinOferta=oferta>0?Math.round(precioMin*(1-oferta/100)):precioMin;
-  const minHTML=oferta>0
-    ? `<div class="price-min"><span class="precio-tachado-sm">$${fmt(precioMin)}</span><span class="precio-oferta">$${fmt(precioMinOferta)}</span></div>`
-    : `<div class="price-min">$${fmt(precioMin)}</div>`;
+  const minHTML=`<div class="price-min">${_priceMinContent(precioMin,oferta)}</div>`;
   h+=`<div class="prices"><div><span class="price-label">Precio${oferta>0?' (Oferta)':''}</span>${minHTML}</div><div><span class="price-label">Con descuento</span><div class="price-may">$${fmt(p[7][opts[0]][1])}</div></div></div>`;
-  const acumSub=acumLbl?cart.filter(i=>i.pid===p[0]).reduce((a,it)=>a+_itemMin(it),0):0;
+  const aplicaVolumen=cart.reduce((a,it)=>a+_itemMin(it),0)>=80000;
+  const acumSub=acumLbl?cart.filter(i=>i.pid===p[0]).reduce((a,it)=>a+(aplicaVolumen?_itemMay(it):_itemMinConOferta(it)),0):0;
   const acumInfo=acumLbl?`<span class="acum-badge">🛒 ${acumLbl} · $${fmt(acumSub)}</span>`:'';
   h+=`<div class="qty-row"><button class="qty-btn" onclick="chgQty('${id}',-1)">−</button><span class="qty-val" id="${id}_q">1</span><button class="qty-btn" onclick="chgQty('${id}',1)">+</button>${acumInfo}</div>`;
   h+=`<button class="add-btn" id="${id}_ab" onclick="addToCart(${p[0]},'${id}')">🛒 Agregar al pedido</button>`;
@@ -2662,7 +2665,16 @@ function cardDelProduct(pid){
   updateCartCount();
   _reRenderCard(pid);
 }
-function selOpt(id,opt,p1,p2){const el=document.getElementById(id);el.querySelectorAll('.opt-btn').forEach(b=>b.classList.toggle('active',b.textContent===opt));el.querySelector('.price-min').textContent='$'+fmt(p1);el.querySelector('.price-may').textContent='$'+fmt(p2);el.dataset.opt=opt}
+function selOpt(id,opt,p1,p2){
+  const el=document.getElementById(id);if(!el)return;
+  el.querySelectorAll('.opt-btn').forEach(b=>b.classList.toggle('active',b.textContent===opt));
+  const pid=parseInt(el.dataset.pid,10);
+  const p=PRODS.find(x=>x[0]===pid);
+  const oferta=p&&p[12]&&p[12].oferta?p[12].oferta:0;
+  el.querySelector('.price-min').innerHTML=_priceMinContent(p1,oferta);
+  el.querySelector('.price-may').textContent='$'+fmt(p2);
+  el.dataset.opt=opt;
+}
 function selSabor(id,sab){const el=document.getElementById(id);el.dataset.sabor=sab}
 function chgQty(id,d){const el=document.getElementById(id+'_q');let v=parseInt(el.textContent)+d;if(v<1)v=1;el.textContent=v}
 
@@ -3050,14 +3062,18 @@ function renderCart(){
   cart.forEach(it=>{
     const sMin=_itemMin(it);
     const sMay=_itemMay(it);
+    const ofertaPct=_getOfertaPct(it.pid);
+    const sOferta=_itemMinConOferta(it);
     const priceHTML=_esMayCart
       ?`<div class="cart-item-price"><span class="precio-tachado-sm">$${fmt(sMin)}</span><span class="cart-price-desc">$${fmt(sMay)}</span></div>`
-      :`<div class="cart-item-price">$${fmt(sMin)}</div>`;
+      :ofertaPct>0
+        ?`<div class="cart-item-price"><span class="precio-tachado-sm">$${fmt(sMin)}</span><span class="precio-oferta">$${fmt(sOferta)}</span></div>`
+        :`<div class="cart-item-price">$${fmt(sMin)}</div>`;
     const isMix=it.unidad==='mix';
     const qLabel=isMix?_gLabel(it.totalG):_itemCount(it);
     const subLabel=isMix
       ?`<span class="cart-item-opt" style="font-size:11px;line-height:1.4">${it.mixDetalle||''}</span>`
-      :`<span class="cart-item-opt">${qLabel} · $${fmt(it.l1)}/kg</span>`;
+      :`<span class="cart-item-opt">${qLabel}${ofertaPct>0&&!_esMayCart?' · Oferta -'+ofertaPct+'%':' · $'+fmt(it.l1)+'/kg'}</span>`;
     const controls=isMix
       ?'' // mixes no se editan cantidad, solo se eliminan
       :`<div style="display:flex;align-items:center;gap:4px"><button class="qty-btn" style="width:26px;height:26px;font-size:15px" onclick="cartQty('${it.key}',-1)">−</button><span style="font-size:12px;font-weight:700;min-width:32px;text-align:center">${qLabel}</span><button class="qty-btn" style="width:26px;height:26px;font-size:15px" onclick="cartQty('${it.key}',1)">+</button></div>`;
