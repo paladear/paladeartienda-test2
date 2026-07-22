@@ -2355,7 +2355,7 @@ function _palHaptic(ms){
   }catch(e){}
 }
 document.addEventListener('pointerdown',function(e){
-  const target=e.target.closest('button,[role="button"]');
+  const target=e.target.closest('button,[role="button"],input[type="button"],input[type="submit"],input[type="reset"],a.social-btn,a.receta-ig-link');
   if(!target||target.disabled||target.getAttribute('aria-disabled')==='true')return;
   _palHaptic(8);
 },{passive:true});
