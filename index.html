@@ -2345,7 +2345,7 @@ function hideLoader(){if(_loaderHidden)return;_loaderHidden=true;const o=documen
 setTimeout(hideLoader,6000);
 
 // ── RESPUESTA HÁPTICA (dispositivos compatibles) ──
-// Pulso breve solo al tocar navegación principal o agregar productos.
+// Pulso breve al tocar cualquier control que funcione como botón.
 // En navegadores sin Vibration API —como Safari/iOS— se ignora sin errores.
 function _palHaptic(ms){
   try{
@@ -2355,9 +2355,9 @@ function _palHaptic(ms){
   }catch(e){}
 }
 document.addEventListener('pointerdown',function(e){
-  const target=e.target.closest('#mainTabs .may-tab,.bnav button,.add-btn,.mix-add-btn,.granola-add-btn');
+  const target=e.target.closest('button,[role="button"]');
   if(!target||target.disabled||target.getAttribute('aria-disabled')==='true')return;
-  _palHaptic(12);
+  _palHaptic(8);
 },{passive:true});
 
 // ── EFECTO RIPPLE EN BOTONES ──
