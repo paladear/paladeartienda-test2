@@ -2344,6 +2344,22 @@ function hideLoader(){if(_loaderHidden)return;_loaderHidden=true;const o=documen
 // Timeout de seguridad: máximo 6s de espera
 setTimeout(hideLoader,6000);
 
+// ── RESPUESTA HÁPTICA (dispositivos compatibles) ──
+// Pulso breve solo al tocar navegación principal o agregar productos.
+// En navegadores sin Vibration API —como Safari/iOS— se ignora sin errores.
+function _palHaptic(ms){
+  try{
+    if(document.visibilityState==='visible'&&typeof navigator.vibrate==='function'){
+      navigator.vibrate(ms||12);
+    }
+  }catch(e){}
+}
+document.addEventListener('pointerdown',function(e){
+  const target=e.target.closest('#mainTabs .may-tab,.bnav button,.add-btn,.mix-add-btn,.granola-add-btn');
+  if(!target||target.disabled||target.getAttribute('aria-disabled')==='true')return;
+  _palHaptic(12);
+},{passive:true});
+
 // ── EFECTO RIPPLE EN BOTONES ──
 // Delegado global: cualquier click en uno de los selectores genera una onda
 // que arranca desde el punto del click. Funciona en mouse y touch.
